@@ -5,13 +5,19 @@ default: &default
  username: root
  password:
  socket: /tmp/mysql.sock
+
 development:
  <<: *default
  database: freemarket_k2_c_development
 
+
+test:
+ <<: *default
+ database: freemarket_k2_c_test
+
  production:
   <<: *default
-  database: db/production.mysql2
+  database: chat-space_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
