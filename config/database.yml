@@ -7,16 +7,16 @@ default: &default
  socket: /tmp/mysql.sock
 
 development:
- <<: *default
- database: freemarket_k2_c_development
+  <<: *default
+  database: freemarket_k2_c_development
 
 
 test:
- <<: *default
- database: freemarket_k2_c_test
-
- production:
   <<: *default
+  database: freemarket_k2_c_test
+
+production:
+<<: *default
   database: freemarket_k2_c_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
