@@ -8,3 +8,10 @@ default: &default
 development:
  <<: *default
  database: freemarket_k2_c_development
+
+ production:
+  <<: *default
+  database: db/production.mysql2
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
