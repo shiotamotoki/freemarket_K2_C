@@ -43,7 +43,7 @@
 |description|text||
 |category_id|references|null: false, foreign_key: true|
 |size_id|integer||
-|brand_id|references|foreign_key: true|
+|brand_id|references|foreign_key: true, default: 0|
 |condition_id|integer|null: false|
 |postage_id|integer|null: false|
 |area_id|integer|null: false|
@@ -94,9 +94,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|good|integer|null: false|
-|normal|integer|null: false|
-|bad|integer|null: false|
+|good|integer|null: false, default: 0|
+|normal|integer|null: false, default: 0|
+|bad|integer|null: false, default: 0|
 
 ### Association
 - belongs_to :user
