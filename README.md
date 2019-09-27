@@ -9,12 +9,12 @@
 |profile|text||
 
 ### Association
-- has_one :personal_information
+- has_one :personal_information, dependent: :destroy
 - has_many :items
 - has_many :credit_cards, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_one :user_evaluation, dependent: :destroy
-- has_many :buyers
+- has_many :buyers, dependent: :destroy
 
 ## personal_informationsテーブル
 |Column|Type|Options|
