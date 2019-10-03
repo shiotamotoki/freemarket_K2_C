@@ -1,0 +1,30 @@
+.signin__panel {
+  background-color: #fff;
+  width: 455px;
+  margin: 0 auto;
+  &__signup {
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    padding: 40px 64px;
+    p {
+      font-size: 13px;
+      letter-spacing: 1px;
+      padding-bottom: 8px;
+    }
+  }
+  &__field {
+    padding: 30px 64px;
+    .field {
+      padding-bottom: 25px;
+      input {
+        margin: 0;
+      }
+    }
+    .actions {
+      margin-bottom: 40px
+    }
+    .terms__link {
+      font-size: 13px;
+    }
+  }
+}

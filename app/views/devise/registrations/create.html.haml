@@ -1,0 +1,43 @@
+
+%h1 signup後の画面(app/views/devise/registrations/create.html.haml)
+- if user_signed_in?
+  / ユーザーがログインしているか調べる
+  / ユーザーがログインしていた時の処理
+  %h4
+    ログインしている人： #{current_user.nickname}
+  %h4
+    メールアドレス： #{current_user.email}
+  %h4
+    password： #{current_user.encrypted_password}
+  %h4
+    last_name： #{current_user.personal_information.last_name}
+  %h4
+    first_name： #{current_user.personal_information.first_name}
+  %h4
+    last_name_kana： #{current_user.personal_information.last_name_kana}
+  %h4
+    first_name_kana： #{current_user.personal_information.first_name_kana}
+  %h4
+    birth： #{current_user.personal_information.birth}
+  %h4
+    prefecture(後日モデルから取るので整数値)： #{current_user.personal_information.prefecture}
+  %h4
+    city： #{current_user.personal_information.city}
+  %h4
+    adress： #{current_user.personal_information.adress}
+  = link_to "ログアウト", destroy_user_session_path, method: :delete
+  / ログアウトをする
+- else
+  / ユーザーがログインしていなかった時の処理
+  %h2 現在ログインしていません
+  = link_to "ログイン", new_user_session_path, class: 'post'
+  / ログイン画面に移行する
+  = link_to "新規登録", new_user_registration_path, class: 'post'
+  / 新規登録画面に移行する
+
+
+
+
+
+
+

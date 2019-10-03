@@ -1,0 +1,68 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :nickname
+    %br/
+    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  
+  = f.fields_for :personal_information, @user.personal_information do |i|
+    .field
+      = i.label :last_name
+      %br/
+      = i.text_field :last_name, autofocus: true, autocomplete: "last_name"
+    .field
+      = i.label :first_name
+      %br/
+      = i.text_field :first_name, autofocus: true, autocomplete: "first_name"
+    .field
+      = i.label :last_name_kana
+      %br/
+      = i.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"
+    .field
+      = i.label :first_name_kana
+      %br/
+      = i.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana"
+    .field
+      = i.label :birth
+      %br/
+      = i.text_field :birth, autofocus: true, autocomplete: "birth"
+    .field
+      = i.label :prefecture
+      %br/
+      = i.text_field :prefecture, autofocus: true, autocomplete: "prefecture"
+    .field
+      = i.label :city
+      %br/
+      = i.text_field :city, autofocus: true, autocomplete: "city"
+    .field
+      = i.label :adress
+      %br/
+      = i.text_field :adress, autofocus: true, autocomplete: "adress"
+    .field
+      = i.label :building_name
+      %br/
+      = i.text_field :building_name, autofocus: true, autocomplete: "building_name"
+    .field
+      = i.label :phone_number
+      %br/
+      = i.text_field :phone_number, autofocus: true, autocomplete: "phone_number"
+  .actions
+    = f.submit "Sign up"
+  = render "devise/shared/links"
+

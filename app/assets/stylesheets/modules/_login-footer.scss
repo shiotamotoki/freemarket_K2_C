@@ -1,0 +1,30 @@
+.login__footer {
+  background-color: #eee;
+  height: 180px;
+  text-align: center;
+  &__detail {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px auto;
+    width: 400px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    a {
+      color: #111;
+      &:hover {
+        opacity: 0.6;
+        text-decoration: underline;
+      }
+    }
+  }
+  &__logo img {
+    width: 65px;
+    height: 85px;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  p {
+    font-size: 11px;
+  }
+}
