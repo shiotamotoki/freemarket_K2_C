@@ -1,0 +1,38 @@
+.header
+  .header-inner
+    .header-inner__top
+      .header-inner__top.logo
+        = link_to '' do
+          = image_tag asset_path('mercari_logo_horizontal.png') ,size: "170x50"
+      .header-inner__top.search
+        = form_with  class: "header-inner__top-search form" do |form|
+          = form.text_field :keyword, class: "header-inner__top-search text", placeholder: "何かお探しですか?"
+          = button_tag type: 'submit', class: 'header-inner__top-search submit' do
+            %i.fa.fa-search.fa-i
+    .header-inner__bottom
+      %ul.search-menu
+        %li.search-menu__list
+          = link_to '' do
+            %i.fa.fa-list
+            カテゴリーを探す
+        %li.search-menu__list
+          = link_to '' do
+            %i.fa.fa-tag.fa-lg
+            ブランドから探す
+      %ul.user-information
+        %li.user-information__list-login
+          = link_to root_path do
+            %i.fa.fa-heart-o.fa-lg
+            %span.list-name いいね！一覧
+        %li.user-information__list-login
+          = link_to root_path do
+            %i.fa.fa-bell-o.fa-lg
+            %span.list-name お知らせ
+        %li.user-information__list-login
+          = link_to root_path do
+            %i.fa.fa-check.fa-lg
+            %span.list-name やることリスト
+        %li.user-information__list-login
+          = link_to root_path  do
+            = image_tag asset_path('avator.jpg'), class: "avater-image", size: "30x30"
+          %span.list-name マイページ

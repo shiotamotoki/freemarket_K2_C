@@ -1,0 +1,51 @@
+
+.asaide {
+  background: url(https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg) center center / cover;
+  color: rgb(255, 255, 255);
+  background-position: center center;
+  height: 260px;
+  padding: 0 265px;
+  position: relative;
+
+  .inner {
+    color: white;
+    width: 750px;
+    height: 260px;
+    margin: 0px auto;
+    
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+      padding: 40px 0 0;
+    }
+    &__text {
+      font-size: 35px;
+    }
+    &__icon {
+  
+      img.mercari  {   
+        height: 68px;
+        margin-right: 20px;
+        width: 68px;
+        margin-top: 10px;
+      }
+      .storeIcon{
+        padding: 14px 0 14px 10px;
+        img.store  {   
+          height: 40px;
+          margin-right: 20px;
+          width: 133px;   
+        }
+      }
+    }
+  }
+  img.BgPhoneIcon {
+    position: absolute;
+    top: 0;
+    right: 410px;
+    height: 262px;
+    width: 300px; 
+  }
+}
