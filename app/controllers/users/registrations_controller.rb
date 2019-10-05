@@ -31,11 +31,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def new5
    end
   
-  #  private
+    private
 
-  #  def user_params
-  #    params.require(:user).permit(:nickname, personal_information_attributes:[:id, :user_id, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth, :prefecture, :city, :address, :building_name, :phone_number])
-  #  end
+    def user_params
+      params.require(:user).permit(:nickname, personal_information_attributes:[:id, :user_id, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth, :prefecture, :city, :address, :building_name, :phone_number])
+    end
 
 
 
