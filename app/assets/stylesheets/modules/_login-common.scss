@@ -1,3 +1,18 @@
+$login-background-color: #eee;
+
+.wrapper{
+  background-color: $login-background-color;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #111;
+  text-decoration: none;
+}
+
 .btn {
   font-size: 14px;
   width: 100%;
@@ -11,31 +26,30 @@
   background-color: $mercari-red;
   color: $font-color-base;
   opacity: 0.9;
-  &:hover {
-    opacity: 1;
-  }
 }
-
 
 .facebook-btn {
   background-color: #385185;
   color: #fff;
   margin-bottom: 15px;
+  
   .facebook-icon {
-    font-size: 20px;
+    font-size: 22px;
     position: relative;
     right: 64px;
+    vertical-align: middle;
   }
 }
 
 .google-btn {
-  color: #222;
+  color: #aaa;
   outline: 1px solid #aaa;
-  margin-bottom: 60px;
+  margin-bottom: 15px;
   .google-icon {
-    font-size: 20px;
+    font-size: 22px;
     position: relative;
     right: 72px;
+    vertical-align: middle;
   }
 }
 
@@ -46,8 +60,9 @@
   margin-bottom: 15px;
   .email-icon {
     position: relative;
-    right: 66px;
-    font-size: 18px;
+    right: 50px;
+    font-size: 22px;
+    vertical-align: middle;
   }
 }
 

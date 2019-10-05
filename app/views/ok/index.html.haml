@@ -23,7 +23,7 @@
   %h4
     city： #{current_user.personal_information.city}
   %h4
-    adress： #{current_user.personal_information.adress}
+    address： #{current_user.personal_information.address}
   = link_to "ログアウト", destroy_user_session_path, method: :delete
   / ログアウトをする
 - else

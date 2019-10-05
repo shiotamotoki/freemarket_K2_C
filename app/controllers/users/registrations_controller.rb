@@ -6,8 +6,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
 
 
-  # def before_signup
-  # end
+  def before_signup
+  end
 
   #   # POST /resource
   #  def create
@@ -18,11 +18,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
     @user.build_personal_information
    end
+
+   def new2
+   end
+
+   def new3
+   end
+
+   def new4
+   end
+
+   def new5
+   end
   
   #  private
 
   #  def user_params
-  #    params.require(:user).permit(:nickname, personal_information_attributes:[:id, :user_id, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth, :prefecture, :city, :adress, :building_name, :phone_number])
+  #    params.require(:user).permit(:nickname, personal_information_attributes:[:id, :user_id, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth, :prefecture, :city, :address, :building_name, :phone_number])
   #  end
 
 

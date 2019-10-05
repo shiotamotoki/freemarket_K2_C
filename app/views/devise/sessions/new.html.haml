@@ -1,4 +1,4 @@
-.signin
+.wrapper
   = render "devise/shared/header"
   .signin__panel
     .signin__panel__signup
@@ -14,6 +14,7 @@
           %span.google-icon
             = fa_icon "google"
           Googleでログイン
+        .fieldspace
         .field
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
         .field

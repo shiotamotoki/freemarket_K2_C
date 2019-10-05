@@ -1,0 +1,58 @@
+.signin
+  .signup__header
+    .signup__header__mercari-logo
+      = link_to image_tag("logo.svg"), root_path
+    .signup__header__progress
+      %ul.progress
+        %li.through
+          会員情報
+          .bubble.bubble-first
+        %li.through
+          電話番号認証
+          .bubble
+        %li.through
+          お届け先住所入力
+          .bubble
+        %li.active
+          支払い方法
+          .bubble
+        %li
+          完了
+          .bubble.bubble-last
+  .signup__panel
+    .signup__panel__title
+      %h2 支払い方法
+    .signup__panel__field.signup__panel__field
+      .field
+        %label カード番号
+        %span.required 必須
+        %br/
+        %input{type: "text", placeholder: "半角数字のみ"}
+      .field
+        %label 有効期間
+        %span.required 必須
+        %br/
+        .birth-field
+          %select ["--",1,2,3,4,5,6,7,8,9,10,11,12]
+          %span.unit 月
+          %br/
+        .birth-field
+          %select ["--",1,2,3,4,5,6,7,8,9,10,11,12]
+          %span.unit 年
+          %br/
+      .field
+        %label セキュリティコード
+        %span.required 必須
+        %br/
+        %input{type: "text", placeholder: "カード背面４桁もしくは３桁の番号"}
+      .field
+        .field__right
+          = link_to user_session, class: "terms__link" do
+            カード裏面の番号とは
+            %span.angle-right
+              = fa_icon "angle-right"
+      %br/
+
+      .actions
+        = button_to "次へ進む", new5_user_registration_path, method: :get, class: "btn action-btn"
+  = render "devise/shared/footer"
