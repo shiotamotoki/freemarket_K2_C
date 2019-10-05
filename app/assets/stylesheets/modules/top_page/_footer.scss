@@ -1,0 +1,272 @@
+.footer{
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  height: 391px;
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+  box-sizing: border-box;
+
+  .footer-clearfix{
+    width: 1020px;
+    height: 298px;
+    margin: 0 auto;
+    display: flex;
+
+    .about-mercari{
+      width: auto;
+      padding-right: 40px;
+      margin-top:  17px;
+      box-sizing: border-box;
+      li{
+        margin-top: 14px;
+      }
+
+      &__title{
+        height: 22px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+
+      }
+      &__detail{
+        font-size: 12px;
+        line-height: 1.5em;
+        height: 18px;
+        
+        a {
+          color: white;
+          opacity: .7;
+          font-size: 12px;
+
+          &:visited {
+            color: white;
+            opacity: .7;
+            font-size: 12px;
+          }
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &__link{    
+        margin-top: 30px;
+
+        &__twitter{
+          width: 47.53px;
+          display: inline-block;
+
+          .fa-twitter{ 
+            font-size: 32px;
+          }
+          
+          a{
+            opacity: 10;
+            &:visited {
+              color: white;
+              opacity: 10;
+            }
+          }
+        }
+        &__facebook{
+          margin: 10px 0 0 2px;
+          display: inline-block;
+          .fa-facebook-square{
+            font-size: 32px;
+          }
+          
+          a{
+            opacity: 10;
+            &:visited {
+              color: white;
+              opacity: 10;
+            }
+
+          }
+        }
+      }
+    }
+
+    .help-and-guide{
+      width: auto;
+      padding: 0px 40px 0px 0px;
+      margin-top: 17px;
+      box-sizing: border-box;
+
+      li{
+        margin-top: 14px;
+      }
+
+      &__title{
+        height: 22px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+      }
+      
+      &__detail{
+        font-size: 12px;
+        line-height: 1.5em;
+        height: 18px; 
+
+        &--wide{
+          width: 200px;
+        }           
+
+        a {
+          color: white;
+          opacity: .7;
+          font-size: 12px;
+
+          &:visited {
+            color: white;
+            opacity: .7;
+            font-size: 12px;
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .privacy-and-rule{
+      width: 43%;
+      padding-right: 40px;
+      margin-top: 17px;
+      box-sizing: border-box;
+
+      li{
+        margin-top: 14px;
+      }
+
+      &__title{
+        height: 22px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+      }
+      &__contents{
+        display: flex;
+        justify-content: space-between;
+
+        &__detail{
+          font-size: 12px;
+          line-height: 1.5em;
+          width: 184px;
+          height: 18px;            
+          padding-right: 10px; 
+
+          a {
+            color: white;
+            opacity: .7;
+            font-size: 12px;
+
+            &:visited {
+              color: white;
+              opacity: .7;
+              font-size: 12px;
+            }
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        
+          &--padding{
+            font-size: 12px;
+            line-height: 1.5em;
+            width: 184px;
+            height: 18px; 
+            padding-left: 10px; 
+
+            a {
+            color: white;
+            opacity: .7;
+            font-size: 12px;
+
+              &:visited {
+                color: white;
+                opacity: .7;
+                font-size: 12px;
+              }
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    .country{
+      margin-top: 17px;
+      width: auto;
+      padding-right: 40px;
+      li{
+        margin-top: 14px;
+      }
+
+      &__title{
+        height: 22px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+      }
+
+      &__detail{
+        font-size: 12px;
+        line-height: 1.5em;
+        height: 18px; 
+
+        a {
+          color: white;
+          opacity: .7;
+          font-size: 12px;
+
+          &:visited {
+            color: white;
+            opacity: .7;
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .footer-bottom{
+    margin: 30px auto 20px;
+    width: 1020px;
+    display: flex;
+    
+    &__mercari{
+      width: 124px;
+      height: 33px;
+      margin-right: 10px;
+      background-image: url('https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?2334484240');
+      background-repeat: no-repeat;
+
+      a{
+        display: block;
+        width: 124px;
+        height: 33px;
+      }
+    }
+
+    &__mercari:hover{
+      opacity: 0.7;
+    }
+
+    &__copy-light{
+    width: 745px;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 20px;
+    }
+  }
+}

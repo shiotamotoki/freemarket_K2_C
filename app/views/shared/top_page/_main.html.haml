@@ -1,0 +1,66 @@
+= render "shared/top_page/header"
+= render "shared/top_page/sel_button"
+
+.campaignBanner
+  .main
+    %section.mainVisual
+      .content
+        %h2.content__subtitle
+          スマホでかんたん
+          %br
+          フリマアプリ
+        %p.content__text
+          メルカリはスマホカメラからすぐに出品できる
+          %br
+          購入時も安心な独自システムのアプリです
+        .content__btn
+          = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", size: "170x50"), "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", class: "aBtn"
+          = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", size: "170x50"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: "gBtn"
+      .picture
+        = image_tag"top-banner-main-device.png", size: "440x390"
+.popularCategory
+  .category
+    %h2.category__title 
+      人気のカテゴリー
+    .category__detail
+      %ul.category-menu
+        %li.category-menu__list
+          %a.category-menu__list__item レディース
+        %li.category-menu__list
+          %a.category-menu__list__item  メンズ
+        %li.category-menu__list
+          %a.category-menu__list__item  家電・スマホ・カメラ
+        %li.category-menu__list
+          %a.category-menu__list__item  おもちゃ・ホビー・グッズ
+
+.main-box
+  .main-box__category
+    .main-box__category__bar
+      .main-box__category__bar__title
+        とりあえず全部
+      .main-box__category__bar__link      
+        =link_to "#", class: "more-detail-link" do
+          もっと見る
+          %i.fa.fa-chevron-right
+
+    .main-box__category__content
+      .main-box__category__content__grid
+        =link_to "" do
+          .box
+            .price ¥５
+            =image_tag "https://static.mercdn.net/thumb/photos/m39106015049_1.jpg?1558957377", class: "image-box"
+            .title-text hogehogehogehogehogehogehoge
+        =link_to "#" do
+          .box
+            .price ¥215,000
+            =image_tag "https://static.mercdn.net/thumb/photos/m45439819158_1.jpg?1558957377", class: "image-box"
+            .title-text hogehogehogehogehogehogehoge
+        =link_to "#" do
+          .box
+            .price ¥５
+            =image_tag "https://static.mercdn.net/thumb/photos/m39106015049_1.jpg?1558957377", class: "image-box"
+            .title-text hogehogehogehogehogehogehoge
+        
+
+= render "shared/top_page/asaide"
+= render "shared/top_page/footer"
