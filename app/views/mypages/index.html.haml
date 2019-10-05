@@ -1,0 +1,37 @@
+= render "shared/top_page/header"
+
+.my-container
+  .my-content
+    %section.my-content__user-icon
+      %a.my-content__user-icon-tab{href: "#"}
+        %figure
+          = image_tag src="mercari_user_icon.png", size:"60x60", class:"my-content__user-icon-tab-user-picture"
+        %h2.my-content__user-icon-tab-name user-name
+        .my-content__user-icon-tab-number
+          .my-content__user-icon-tab-number-info 評価
+          .my-content__user-icon-tab-number-info-bold 0
+          .my-content__user-icon-tab-number-info 出品数
+          .my-content__user-icon-tab-number-info-bold 0
+    .my-content__tab__container-todo
+      %ul.my-content__tab__container-todo-tabs
+        %li.my-content__tab__container-todo-tabs-info お知らせ
+        %li.my-content__tab__container-todo-tabs-todo やることリスト
+      .my-content__tab__container-todo-content
+        %ul.my-content__tab__container-todo-content-list
+          .my-content__tab__container-todo-content-list-img
+            = image_tag src="mercari_logo_monochrome.png", size:"90x80"
+            %li.my-content__tab__container-todo-content-list-img-info 現在、お知らせはありません
+    .my-content__tab__container
+      %h2.my-content__tab__container-head 購入した商品
+      %ul.my-content__tab__container-tabs
+        %li.my-content__tab__container-tabs-now 取引中
+        %li.my-content__tab__container-tabs-old 過去の取引
+      .my-content__tab__container-content
+        %ul.my-content__tab__container-content-list
+          .my-content__tab__container-content-list-img
+            = image_tag src="mercari_logo_monochrome.png", size:"90x80"
+            %li.my-content__tab__container-content-list-img-info 取引中の商品がありません
+
+  = render "shared/top_page/sidebar"
+= render "shared/top_page/asaide"
+= render "shared/top_page/footer"
