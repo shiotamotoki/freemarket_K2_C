@@ -1,0 +1,78 @@
+.footer
+  .footer-clearfix
+    .about-mercari
+      %h2.about-mercari__title
+        メルカリについて
+      %ul.about-mercari__detail
+        %li
+          = link_to '会社概要（運営会社）', root_path
+        %li
+          = link_to '採用情報', root_path
+        %li
+          = link_to 'プレスリリース', root_path
+        %li
+          = link_to '公式ブログ', root_path
+        %li
+          = link_to 'メリカリロゴ利用ガイドライン', root_path
+        .about-mercari__link
+          .about-mercari__link__twitter
+            = link_to do
+              = fa_icon 'twitter', class: "sns-link-icon"
+          .about-mercari__link__facebook
+            = link_to do
+              = fa_icon 'facebook-square', class: "sns-link-icon"
+    .help-and-guide
+      %h2.help-and-guide__title
+        ヘルプ＆ガイド
+      %ul.help-and-guide__detail
+        %li
+          = link_to 'メルカリガイド', root_path
+        %li
+          = link_to 'らくらくメルカリ便', root_path
+        %li
+          = link_to 'ゆうゆうメルカリ便', root_path
+        %li
+          = link_to '大型メルカリ便', root_path
+        %li
+          = link_to '車体取引ガイド', root_path
+        %li
+          = link_to 'メルカリあんしん・あんぜん宣言！', root_path
+        %li
+          = link_to '偽ブランド品撲滅への取り組み', root_path
+        %li
+          = link_to 'メルカリボックス', root_path
+    .privacy-and-rule
+      %h2.privacy-and-rule__title
+        プライバシーと利用規約
+      .privacy-and-rule__contents
+        %ul.privacy-and-rule__contents__detail
+          %li
+            = link_to 'プライバシーポリシー', root_path
+          %li
+            = link_to 'メルカリ利用規約', root_path
+          %li
+            = link_to 'あんしんスマホサポート制度に関する利用特約', root_path
+          %li          
+            = link_to 'コンプライアンスポリシー', root_path
+        %ul.privacy-and-rule__contents__detail--padding
+          %li
+            = link_to '個人データの安全管理に係る基本方針', root_path
+          %li
+            = link_to '特定商取引に関する表記', root_path
+          %li
+            = link_to '資金決済法に基づく表示', root_path
+          %li          
+            = link_to '法令遵守と犯罪抑止のために', root_path
+    .country
+      %h2.country__title
+        国
+      %ul.country__detail
+        %li
+          = link_to '日本', root_path
+        %li
+          = link_to 'United States', root_path
+  .footer-bottom
+    %h2.footer-bottom__mercari
+      = link_to '' ,root_path
+    %h2.footer-bottom__copy-light
+      © 2019 Mercari
