@@ -1,12 +1,7 @@
-
- @import "reset";
- @import "mixins/mixin";
- @import "config/colors";
- @import "modules/top_page/_header.scss";
- @import "modules/top_page/main.scss";
- @import "modules/top_page/_footer.scss";
- @import "modules/top_page/_asaide.scss";
- @import "modules/top_page/_sel_button.scss";
- @import "font-awesome";
-
- /* @import "./mixins/_mixin"; */
+@import "reset";
+@import "font-awesome";
+@import "mypages";
+@import "modules/top_page/sidebar";
+@import "modules/top_page/header";
+@import "modules/top_page/footer";
+@import "modules/top_page/asaide";
