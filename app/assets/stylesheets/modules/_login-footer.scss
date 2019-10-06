@@ -1,0 +1,25 @@
+
+
+
+.login__footer {
+  background-color: $login-background-color;
+  height: 250px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  margin: 40px auto;
+  padding-top: 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  li {
+    display: inline; 	
+    margin-right: 1em;
+  }
+  img {
+    width: 65px;
+    height: 80px;
+  }
+  p {
+    font-size: 11px;
+  }
+}
