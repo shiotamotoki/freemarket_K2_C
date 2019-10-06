@@ -75,7 +75,6 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'font-awesome-sass'
-gem "font-awesome-rails"
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -84,3 +83,8 @@ gem 'payjp'
 gem 'kaminari'
 gem 'pry-rails'
 gem 'dotenv-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'haml-rails'
+gem "font-awesome-rails"
