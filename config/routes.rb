@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'ok/index'
   get 'mypages' => 'mypages#index'
   get 'toppage' => 'toppage#main'
+  get 'itemsshow' => 'items#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
 end
