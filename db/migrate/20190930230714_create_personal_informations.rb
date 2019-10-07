@@ -1,7 +1,7 @@
 class CreatePersonalInformations < ActiveRecord::Migration[5.2]
   def change
     create_table :personal_informations do |t|
-      t.references :user,                         null: false, foeign_key:true 
+      t.references :user,                         null: false, foeign_key: true 
       t.string     :first_name,                   null: false
       t.string     :last_name,                    null: false
       t.string     :first_name_kana,              null: false
