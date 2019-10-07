@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'mypages' => 'mypages#index'
   get 'toppage' => 'toppage#main'
   get 'itemsshow' => 'items#show'
+  get 'mypages/profile' => 'mypages#profile'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
 end
