@@ -22,11 +22,31 @@
           = image_tag '300.png' ,size: "60x60" 
     .item-center-space
     .item-detail-table
-      %table.item-details-table__detail-table
-      %tbody.item-details-table__detail-table__tbody
-        %tr.item-details-table__detail-table__tbody__tr
-          %th.item-details-table__detail-table__tbody__th
-            出品者
+      %table.item-detail-table__detail-table
+        %tbody.item-detail-table__detail-table__tbody
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              出品者
+            %td.item-detail-table__detail-table__tbody__td
+              出品者のID名
+              .item-detail-table__detail-table__tbody__td__rating
+                .item-detail-table__detail-table__tbody__td__icon
+                  = fa_icon "google", class: "good-icon"
+                  %span.item-detail-table__detail-table__tbody__td__icon__num
+                    100
+                .item-detail-table__detail-table__tbody__td__icon
+                  = fa_icon  "google", class: "normal-icon"
+                  %span.item-detail-table__detail-table__tbody__td__icon__num
+                    50
+                .item-detail-table__detail-table__tbody__td__icon
+                  = fa_icon  "google", class: "bad-icon"
+                  %span.item-detail-table__detail-table__tbody__td__icon__num
+                    10
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              カテゴリー
+            %td.item-detail__detail-table__tbody__td
+              b
 
 
 
