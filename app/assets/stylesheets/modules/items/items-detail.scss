@@ -1,0 +1,156 @@
+.good-icon {
+  font-size: 16px;
+  color: #EF5185;
+}
+.normal-icon {
+  font-size: 16px;
+  color: #FBA832;
+}
+.bad-icon {
+  font-size: 16px;
+  color: #6BB5D7;
+}
+
+table, tbody, tr, th, td {
+  border: #f5f5f5;
+}
+
+.item-box{
+  background-color: #fff;
+  width: 800px;
+  margin: 0 auto;
+
+}
+
+.item-title{
+  height: 98px;
+  width: 100%;
+  h2 {
+    line-height: 98px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+}
+
+.item-messeage{
+  height: 98px;
+  width: 100%;
+  h2 {
+    line-height: 98px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+
+}
+
+.item-inline-box{
+  display: flex;
+  justify-content: center;
+  .item-photos{
+    display: inline-block;
+    height: 360px;
+    width: 300px;
+    background-color: blue;
+   
+    &__main-img{
+      height: 300px;
+    }
+    &__sub-img{
+      display: table-cell;
+      height: 60px;
+      &__sub1{
+        display: table-cell;
+        width: 60px;
+      }
+      &__sub2{
+        display: table-cell;
+        width: 60px;
+      }
+      &__sub3{
+        display: table-cell;
+        width: 60px;
+      }
+      &__sub4{
+        display: table-cell;
+        width: 60px;
+      }
+      &__sub5{
+        display: table-cell;
+        width: 60px;
+      }
+    }
+  }
+  .item-center-space{
+    height:98px;
+    width:20px;
+  }
+  .item-detail-table{
+    display: inline-block;
+    height: 420px;
+    width: 350px;
+    &__detail-table {
+      float: right;
+      height: 420px;
+      max-width: 300px;
+      margin-left: 20px;
+      &__tbody {
+        table-layout: fixed;
+        font-size: 0.9rem;
+        &__th {
+          background-color: #f5f5f5;
+          width: 40%;
+          text-align: left;
+          font-size: 0.9rem;
+          padding: 8px;
+          vertical-align: middle;
+        }
+        &__td {
+          width: 60%;
+          padding: 8px;
+          vertical-align: middle;
+          white-space: wrap;
+          overflow: hidden;
+          &__category {
+            display: block;
+          }
+          &__rating {
+            display: flex;
+          }
+          &__icon {
+            margin: 8px 15px 0 0;
+            &__num {
+              font-size: 0.8rem;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
+
+
+
+
+.item-price-box{
+  &--price{
+    font-size: 0.8rem;
+  }
+  &--tax{
+    font-size: 0.8rem;
+  }
+
+  &--shipping-fee{
+    font-size: 0.8rem;
+  }
+}
+
+
+
