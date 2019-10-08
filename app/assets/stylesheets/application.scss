@@ -8,9 +8,11 @@
 @import "mixin/input";
 @import "mixin/select-box";
 @import "mixin/select-wrap";
-@import "modules/top_page/header.scss";
-@import "modules/top_page/footer.scss";
-@import "modules/top_page/asaide.scss";
+@import "modules/top_page/header";
+@import "modules/top_page/footer";
+@import "modules/top_page/asaide";
+@import "modules/top_page/sel_button";
+@import "modules/top_page/main";
 @import "modules/signin";
 @import "modules/signup";
 @import "modules/signup_header";
@@ -20,4 +22,4 @@
 @import "modules/shared/bread-crumbs";
 @import "modules/mypage/sidebar";
 @import "modules/mypage/identification";
-@import "modules/mypage/mypages"
+@import "modules/mypage/mypages";
