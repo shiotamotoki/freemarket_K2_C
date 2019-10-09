@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     
   root to: 'ok#index'
   get 'ok/index'
+
   resources :mypages, only: [:index,:edit]do
     collection do
       get "profile", to: "mypages#profile"
@@ -40,6 +41,6 @@ Rails.application.routes.draw do
       get "toppage", to: "toppage#index"
     end
   end
-
+  
   resources :users
 end
