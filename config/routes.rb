@@ -21,14 +21,25 @@ Rails.application.routes.draw do
       get 'users/new5' => 'devise/registrations#new5', as: :new5_user_registration
       post 'users/new5(.:format)' => 'devise/registrations#new5'
     end
-
-
+    
   root to: 'ok#index'
   get 'ok/index'
-  get 'mypages' => 'mypages#index'
-  get 'toppage' => 'toppage#main'
-  get 'itemsshow' => 'items#show'
-  get 'mypages/profile' => 'mypages#profile'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :mypages, only: [:index,:edit]do
+    collection do
+      get "profile", to: "mypages#profile"
+    end
+  end
+  resources :items, only: [:show] do
+    collection do
+      get "itemsshow", to: "items#show"
+    end
+  end
+
+  resources :toppage, only: [:index]do
+    collection do
+      get "toppage", to: "toppage#index"
+    end
+  end
+
   resources :users
 end

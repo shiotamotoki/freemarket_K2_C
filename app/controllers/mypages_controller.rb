@@ -3,7 +3,8 @@ class MypagesController < ApplicationController
   def index
   end
 
-  def profile
+  def edit
   end
-  
+
+
 end
