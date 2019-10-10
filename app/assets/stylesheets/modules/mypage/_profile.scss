@@ -1,0 +1,80 @@
+.my-container{
+  padding: 0 0 40px;
+  margin: 40px auto 0;
+  width: 1020px;
+  overflow: hidden;
+    .prof-contents{
+      float: right;
+      width: 700px;
+      height: 568px;
+      background-color: #ffffff;
+        &__head{
+          height: 49px;
+          font-size: 24px;
+          font-weight: bold;
+          color: #333333;
+          text-align: center;
+          background-color: #fff;
+          border-bottom: 1px solid #f5f5f5;
+          line-height: 50px;
+        }
+        &__content{
+          height: 518px;
+            &-user{
+              height: 156px;
+              position: relative;
+              background-image: url("mercari_mypage_back.jpg");
+                &-info{
+                  height: 60px;
+                  position: absolute;
+                  right: 0;
+                  left: 0;
+                  bottom: 20px;
+                  align-items: center;
+                  display: flex;
+                  justify-content: center;
+                  text-align: center;
+                    &-img{
+                      border-radius: 50%;
+                    }
+                    &-input{
+                      width: 186px;
+                      margin: 0 0 0 8px;
+                      padding: 12px 16px 10px;
+                      border-radius: 4px;
+                      border: 1px solid #ccc;
+                      background: #fff;
+                      line-height: 1.5;
+                      font-size: 16px;
+                    }
+                }
+            }
+            &-msg{
+              padding: 40px 16px;
+                &-content{
+                  min-height: 216px;
+                  padding: 10px;
+                  box-sizing: border-box;
+                  display: block;
+                  width: 100%;
+                  border: 1px solid #ccc;
+                  background-color: #fff;
+                  font-size: 16px;
+                  line-height: 1.5;
+                }
+                &-btn{
+                  margin: 16px 0 0;
+                  padding: 0;
+                  background: #ea352d;
+                  border: 1px solid #ea352d;
+                  color: #fff;
+                  display: block;
+                  width: 100%;
+                  line-height: 48px;
+                  font-size: 14px;
+                  text-align: center;
+                }
+            }
+        }
+    }
+}

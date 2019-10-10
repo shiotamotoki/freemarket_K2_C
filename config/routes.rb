@@ -25,9 +25,24 @@ Rails.application.routes.draw do
 
   root to: 'ok#index'
   get 'ok/index'
-  get 'mypages' => 'mypages#index'
-  get 'toppage' => 'toppage#index'
-  get 'itemsshow' => 'items#show'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+  resources :mypages, only: [:index,:edit]do
+    collection do
+      get "profile", to: "mypages#profile"
+    end
+  end
+  resources :items, only: [:show] do
+    collection do
+      get "itemsshow", to: "items#show"
+    end
+  end
+
+  resources :toppage, only: [:index]do
+    collection do
+      get "toppage", to: "toppage#index"
+    end
+  end
+  
   resources :users
 end
