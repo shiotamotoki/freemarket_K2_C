@@ -42,29 +42,21 @@
     .main-box__category__bar
       .main-box__category__bar__title
         とりあえず全部
-      .main-box__category__bar__link      
+      .main-box__category__bar__link
         =link_to "#", class: "more-detail-link" do
           もっと見る
           %i.fa.fa-chevron-right
-
     .main-box__category__content
       .main-box__category__content__grid
-        =link_to "" do
-          .box
-            .price ¥５
-            =image_tag "https://static.mercdn.net/thumb/photos/m39106015049_1.jpg?1558957377", class: "image-box"
-            .title-text hogehogehogehogehogehogehoge
-        =link_to "#" do
-          .box
-            .price ¥215,000
-            =image_tag "https://static.mercdn.net/thumb/photos/m45439819158_1.jpg?1558957377", class: "image-box"
-            .title-text hogehogehogehogehogehogehoge
-        =link_to "#" do
-          .box
-            .price ¥５
-            =image_tag "https://static.mercdn.net/thumb/photos/m39106015049_1.jpg?1558957377", class: "image-box"
-            .title-text hogehogehogehogehogehogehoge
-        
+        - @items.each do |i|
+          =link_to "" do
+            .box
+              .price 
+                ¥
+                =i.price.to_s(:delimited, delimiter: ',')
+              =image_tag i.item_images[0].image, alt: 'next', class:'image-box'
+              .title-text
+                =i.name
 
 = render "shared/top_page/asaide"
 = render "shared/top_page/footer"
