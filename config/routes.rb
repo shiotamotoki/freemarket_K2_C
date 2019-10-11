@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   resources :items, only: [:show] do
     collection do
       get "itemsshow", to: "items#show"
+      get "itemscheck", to: "items#check"
     end
   end
 
