@@ -2,18 +2,22 @@
 
 
 .login__footer {
-  background-color: #eee;
   height: 250px;
   text-align: center;
   display: flex;
   justify-content: space-around;
-  margin: 40px auto;
+  margin: 0 auto;
   padding-top: 20px;
   font-size: 11px;
   letter-spacing: 1px;
+  a {
+    display: block;
+    color: #333;
+  }
   li {
-    display: inline; 	
+    display: inline-block;	
     margin-right: 1em;
+    font-size: 12px;
   }
   img {
     width: 65px;
