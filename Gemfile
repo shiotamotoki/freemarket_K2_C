@@ -80,7 +80,7 @@ end
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
-# gem 'font-awesome-sass'
+gem 'font-awesome-sass'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth'
 gem 'omniauth-facebook'
