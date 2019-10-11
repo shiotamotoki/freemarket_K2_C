@@ -1,0 +1,66 @@
+.l-container-cleafix{
+  width: 1020px;
+  margin: 40px auto 0;
+  padding: 0 0 40px;
+  display: block;
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: 0;
+  font-size: inherit;
+  box-sizing: inherit;
+  line-height: inherit;
+  overflow: hidden;
+}
+
+    .l-content {
+      width: 700px;
+      float: right;
+    }
+
+      .l-content-inner{
+        padding: 64px;
+        border-top: 1px solid #f5f5f5;
+        margin: 0;
+        font-size: inherit;
+        line-height: inherit;
+        box-sizing: inherit;
+        display: block;
+        background: #fff;
+      }
+
+          .l-content__inner__in{
+            max-width: 320px;
+            margin: 0 auto;;
+            background-repeat: no-repeat;
+            padding: 0;
+            font-size: inherit;
+            line-height: inherit;
+            box-sizing: inherit;
+            display: block;
+          }
+
+              .l-content__inner__in__btn {
+                margin: 0;
+                background: #ea352d;
+                border: 1px solid #ea352d;
+                color: #fff;
+                display: block;
+                width: 100%;
+                line-height: 48px;
+                font-size: 14px;
+                border: 1px solid transparent;
+                -webkit-transition: all ease-out .3s;
+                transition: all ease-out .3s;
+                cursor: pointer;
+                text-align: center;
+                min-height: 1.5em;
+                outline: 0;
+                touch-action: manipulation;
+                font-family: inherit;
+                font-style: inherit;
+                font-weight: inherit;
+                overflow: visible;
+              }
+
+
+
