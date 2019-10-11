@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   get 'toppage' => 'toppage#main'
   get 'itemsshow' => 'items#show'
   get 'users/logout' => 'users#logout'
-  get 'users/logout' => 'users#logout'
   get 'users/credit' => 'users#credit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
