@@ -25,8 +25,12 @@ Rails.application.routes.draw do
 
   root to: 'ok#index'
   get 'ok/index'
-
-
+  get 'mypages' => 'mypages#index'
+  get 'toppage' => 'toppage#main'
+  get 'itemsshow' => 'items#show'
+  get 'users/logout' => 'users#logout'
+  get 'users/credit' => 'users#credit'
+  
   resources :mypages, only: [:index,:edit]do
     collection do
       get "profile", to: "mypages#profile"
