@@ -23,8 +23,8 @@ Rails.application.routes.draw do
     end
 
 
-  root to: 'ok#index'
-  get 'ok/index'
+  root to: 'items#index'
+ 
   get 'mypages' => 'mypages#index'
   get 'itemsshow' => 'items#show'
   get 'users/logout' => 'users#logout'
@@ -33,18 +33,13 @@ Rails.application.routes.draw do
   resources :mypages, only: [:index,:edit]do
     collection do
       get "profile", to: "mypages#profile"
+      get "identification", to: "mypages#identification"
     end
   end
   resources :items, only: [:show] do
     collection do
       get "itemsshow", to: "items#show"
       get "itemscheck", to: "items#check"
-    end
-  end
-
-  resources :toppage, only: [:index]do
-    collection do
-      get "toppage", to: "toppage#index"
     end
   end
   

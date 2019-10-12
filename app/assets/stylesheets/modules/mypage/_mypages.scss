@@ -1,38 +1,8 @@
-// Place all the styles related to the mypages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-html{
-  margin: 0;
-  padding: 0;
-}
-
-body{
-  height: 100%;
-  width: 100%;
-  background-color: #f5f5f5;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  font-size: 14px;
-  color: #333;
-}
-
-a{
-  color: inherit;
-  text-decoration: none;
-}
-
-ul{
-  list-style: none;
-}
-main{
-  display: block;
-}
-.container{
-.main-block{
-  @include clearfix();
+.my-container{
   padding: 0 0 40px;
   margin: 40px auto 0;
   width: 1020px;
-  // overflow: hidden;
+  overflow: hidden;
     .my-content{
       float: right;
       width: 700px;
@@ -49,6 +19,7 @@ main{
               left: 0;
               right: 0;
               display: block;
+              color: #333;
                 &-user-picture{
                   border-radius: 50%;
                 }
@@ -152,6 +123,5 @@ main{
             }
         }
     }
-}
 }
 
