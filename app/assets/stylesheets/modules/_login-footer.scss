@@ -1,29 +1,36 @@
-
-
-
 .login__footer {
   height: 250px;
   text-align: center;
-  display: flex;
   justify-content: space-around;
   margin: 0 auto;
-  padding-top: 20px;
+  padding: 40px 0;
   font-size: 11px;
   letter-spacing: 1px;
-  a {
+  ul{
+    @include clearfix();
+  }
+  li:first-child{
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 0 0 16px;
+  }
+  a{
     display: block;
     color: #333;
   }
-  li {
-    display: inline-block;	
-    margin-right: 1em;
-    font-size: 12px;
-  }
   img {
-    width: 65px;
-    height: 80px;
+    width: 80px;
+    height: 65px;
   }
   p {
+    margin: 8px 0 0;
     font-size: 11px;
+  }
+  &__logo{
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
   }
 }
