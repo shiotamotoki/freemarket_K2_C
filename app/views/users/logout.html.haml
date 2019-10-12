@@ -1,8 +1,12 @@
 = render "shared/top_page/header"
+= render "shared/top_page/sel_button"
 
 %main.l-container-cleafix
-  = render "shared/top_page/sidebar"
+  = render "shared/sidebar/sidebar"
   .l-content
     %form{action: "#", method: "post",class: "l-content-inner", novalidate: "novalidate"}
       .l-content__inner__in
         %button{type: "submit",class: "l-content__inner__in__btn",}ログアウト
+
+= render "shared/top_page/asaide"
+= render "shared/top_page/footer"
