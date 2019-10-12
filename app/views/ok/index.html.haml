@@ -14,8 +14,8 @@
           %p
             最大10枚までアップロードできます
           .main-content__item__body__image-upload__dropbox
-            .main-content__item__body__image-upload__dropbox__file-container
-              = f.file_field :image, class: "main-content__item__body__image-upload__dropbox__file-container__upload"
+            = f.label "file-upload", class: "main-content__item__body__image-upload__dropbox__file-container" do
+              = f.file_field :image, id: "file-upload", class: "main-content__item__body__image-upload__dropbox__file-container__upload"
               %pre.main-content__item__body__image-upload__dropbox__file-container__visible
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
@@ -29,7 +29,7 @@
             = f.label "商品の説明"
             %span.main-content__item__body__sell-content__form-group__require
               必須
-            = f.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "main-content__item__body__sell-content__form-group__textarea"
+            = f.text_area :description, rows: 5, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "main-content__item__body__sell-content__form-group__textarea"
         .main-content__item__body__sell-content-float
           %h3.main-content__item__body__sell-content-float__head
             商品の詳細
