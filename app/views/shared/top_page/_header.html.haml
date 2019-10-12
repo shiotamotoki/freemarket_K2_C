@@ -2,7 +2,7 @@
   .header-inner
     .header-inner__top
       .header-inner__top.logo
-        = link_to '' do
+        = link_to root_path do
           = image_tag asset_path('mercari_logo_horizontal.png') ,size: "170x50"
       .header-inner__top.search
         = form_with  class: 'header-inner__top-search form' do |form|
@@ -20,19 +20,27 @@
             %i.fa.fa-tag.fa-lg
             ブランドから探す
       %ul.user-information
-        %li.user-information__list-login
-          = link_to root_path do
-            %i.fa.fa-heart-o.fa-lg
-            %span.list-name いいね！一覧
-        %li.user-information__list-login
-          = link_to root_path do
-            %i.fa.fa-bell-o.fa-lg
-            %span.list-name お知らせ
-        %li.user-information__list-login
-          = link_to root_path do
-            %i.fa.fa-check.fa-lg
-            %span.list-name やることリスト
-        %li.user-information__list-login
-          = link_to root_path  do
-            = image_tag asset_path('avator.jpg'), class: "avater-image", size: "30x30"
-          %span.list-name マイページ
+        - if user_signed_in?
+          %li.user-information__list-login
+            = link_to root_path do
+              %i.fa.fa-heart-o.fa-lg
+              %span.list-name いいね！一覧
+          %li.user-information__list-login
+            = link_to root_path do
+              %i.fa.fa-bell-o.fa-lg
+              %span.list-name お知らせ
+          %li.user-information__list-login
+            = link_to root_path do
+              %i.fa.fa-check.fa-lg
+              %span.list-name やることリスト
+          %li.user-information__list-login
+            = link_to "/mypages"  do
+              = image_tag asset_path('avator.jpg'), class: "avater-image", size: "30x30"
+            %span.list-name マイページ  
+        - else
+          %li.user-information__list-nologin
+            = link_to before_signup_user_registration_path, class: "list-name-red" do
+              新規会員登録
+          %li.user-information__list-nologin
+            = link_to new_user_session_path, class: "list-name-blue" do
+              ログイン

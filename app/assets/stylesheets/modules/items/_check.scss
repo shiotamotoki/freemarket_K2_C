@@ -1,0 +1,183 @@
+.container-single{
+    .main-single{
+      display: block;
+      .main-container-buy{
+          width: 700px;
+          margin: 0 auto;
+          background-color: #fff;
+            &__head{
+              padding: 16px;
+              font-size: 22px;
+              line-height: 1.5;
+              text-align: center;
+              font-weight: bold;
+            }
+            &__item{
+              margin: 0;
+              text-align: center;
+              padding: 24px 12.5% 0;
+              border-top: 1px solid #f5f5f5;
+                &-inner{
+                  display: flex;
+                  flex-wrap: wrap;
+                  max-width: 320px;
+                  margin: 0 auto;
+                    &-image{
+                      width: 64px;
+                    }
+                    &-name{
+                      width: calc(100% - 80px);
+                      margin: 0 0 0 16px;
+                      text-align: left;
+                      font-size: 16px;
+                      line-height: 1.5;
+                      font-weight: 600;
+                    }
+                    &-form{
+                      margin: 0 auto;
+                      width: 100%;
+                        &-price{
+                          margin: 8px 0 0;
+                          padding: 0 0 0 80px;
+                          line-height: 1.5;
+                          font-size: 22px;
+                          font-weight: bold;
+                          float: left;
+                            &-shipping-fee{
+                              margin: 0 0 0 8px;
+                              padding: 15px 60px 0 0;
+                              font-size: 14px;
+                              font-weight: 400;
+                              display: inline-block;
+                            }
+                        }
+                        &-accordion{
+                          background: #ccc;
+                          margin: 16px 0 0;
+                            &-parent-toggle{
+                              cursor: default;
+                              padding: 16px;
+                              border: 1px solid #ccc;
+                              position: relative;
+                            }
+                        }
+                        &-pay{
+                          display: table;
+                          border-collapse: collapse;
+                          width: 100%;
+                            &-row{
+                              border: 0;
+                              font-size: 18px;
+                              display: table-row;
+                                &-cell{
+                                  text-align: left;
+                                  display: table-cell;
+                                  padding: 16px 0;
+                                  font-weight: bold;
+                                }
+                                &-price{
+                                  display: table-cell;
+                                  padding: 16px 0;
+                                  text-align: right;
+                                    &-cell{
+                                      font-size: 28px;
+                                    }
+                                }
+                            }
+                        }
+                        &-btn{
+                          margin: 8px 0;
+                          background: #ea352d;
+                          border: 1px solid #ea352d;
+                          color: #fff;
+                          display: block;
+                          width: 100%;
+                          line-height: 48px;
+                          font-size: 14px;
+                          font-weight: bold;
+                          text-align: center;
+                          cursor: pointer;
+                        }
+                    }
+                }
+            }
+            &__address{
+              margin: 40px 0 0;
+              padding: 24px 12.5% 0;
+              border-top: 1px solid #f5f5f5;
+                &-info{
+                  max-width: 320px;
+                  margin: 0 auto;
+                    &-title{
+                      margin: 0;
+                      font-size: 14px;
+                      font-weight: bold;
+                    }
+                    &-text{
+                      display: block;
+                      margin: 8px 0 0;
+                      font-size: 14px;
+                      line-height: 1.4;
+                      font-style: normal;
+                    }
+                    &-gap{
+                      margin: 8px 0 0;
+                      line-height: 1.4;
+                    }
+                    &-fix{
+                      display: block;
+                      text-align: right;
+                      color: #0099e8;
+                      text-decoration: none;
+                        &-title{
+                          vertical-align: middle;
+                        }
+                        &-arrow-icon{
+                          margin: 0 0 0 8px;
+                          font-size: 10px;
+                        }
+                    }
+                }
+            }
+            &__payment{
+              padding: 24px 12.5% 40px;
+              margin: 40px 0 0;
+              border-top: 1px solid #f5f5f5;
+                &-info{
+                  max-width: 320px;
+                  margin: 0 auto;
+                    &-title{
+                      margin: 0;
+                      font-size: 14px;
+                      font-weight: bold;
+                    }
+                    &-text{
+                      margin: 8px 0 0;
+                      font-size: 14px;
+                      line-height: 1.4;
+                    }
+                    &-img{
+                      display: block;
+                        &-tag{
+                          width: 34px;
+                          height: 20px;
+                        }
+                    }
+                    &-fix{
+                      display: block;
+                      text-align: right;
+                      color: #0099e8;
+                      text-decoration: none;
+                        &-title{
+                          vertical-align: middle;
+                        }
+                        &-arrow-icon{
+                          margin: 0 0 0 8px;
+                          font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

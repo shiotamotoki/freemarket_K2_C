@@ -37,15 +37,21 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'fog-aws'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
 end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -74,7 +80,6 @@ end
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
-gem 'font-awesome-sass'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -87,5 +92,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'font-awesome-rails'
-gem 'haml-rails'
 gem 'active_hash'

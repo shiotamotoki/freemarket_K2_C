@@ -23,11 +23,24 @@ Rails.application.routes.draw do
     end
 
 
-  root to: 'ok#index'
-  get 'ok/index'
+  root to: 'items#index'
+ 
   get 'mypages' => 'mypages#index'
-  get 'toppage' => 'toppage#index'
   get 'itemsshow' => 'items#show'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'users/logout' => 'users#logout'
+  get 'users/credit' => 'users#credit'
+  
+  resources :mypages, only: [:index,:edit]do
+    collection do
+      get "profile", to: "mypages#profile"
+    end
+  end
+  resources :items, only: [:show] do
+    collection do
+      get "itemsshow", to: "items#show"
+      get "itemscheck", to: "items#check"
+    end
+  end
+  
   resources :users
 end
