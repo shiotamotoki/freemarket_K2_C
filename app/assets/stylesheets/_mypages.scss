@@ -33,7 +33,7 @@ ul{
       float: right;
       width: 700px;
         &__user-icon{
-          height: 160px;
+          height: 200px;
           background-image: image-url("mercari_mypage_back.jpg");
           padding: 20px;
           text-align: center;
@@ -45,11 +45,16 @@ ul{
               left: 0;
               right: 0;
               display: block;
+              text-decoration: none;
                 &-user-picture{
                   border-radius: 50%;
                 }
                 &-name{
                   font-weight: bold;
+                  font-size: 14px;
+                }
+                &-name:hover{
+                  text-decoration: underline;
                 }
                 &-number{
                   margin: 8px 0 0;
