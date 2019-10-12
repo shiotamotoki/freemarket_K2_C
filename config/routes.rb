@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :mypages, only: [:index,:edit]do
     collection do
       get "profile", to: "mypages#profile"
+      get "identification", to: "mypages#identification"
     end
   end
   resources :items, only: [:show] do
