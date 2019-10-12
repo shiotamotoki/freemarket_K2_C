@@ -1,4 +1,5 @@
 = render "shared/top_page/header"
+= render "shared/top_page/sel_button"
 
 %main.l-container.clearfix
   .l-content
@@ -14,4 +15,7 @@
         =link_to "#",target: "_blank", class: "l-content__body__low__in" do
           支払い方法について 
           %i.fa.fa-chevron-right
-  = render "shared/top_page/sidebar"
+  = render "shared/sidebar/sidebar"
+
+= render "shared/top_page/asaide"
+= render "shared/top_page/footer"
