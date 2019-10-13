@@ -8,6 +8,9 @@
 @import "mixin/input";
 @import "mixin/select-box";
 @import "mixin/select-wrap";
+@import "mixin/require";
+@import "mixin/textarea";
+@import "mixin/question";
 @import "modules/top_page/header";
 @import "modules/top_page/footer";
 @import "modules/top_page/asaide";
@@ -25,6 +28,7 @@
 @import "modules/shared/bread-crumbs";
 @import "modules/mypage/sidebar";
 @import "modules/mypage/identification";
+@import "modules/sell_item/sell-item";
 @import "modules/mypage/mypages";
 @import "modules/mypage/profile";
 @import "modules/items/items-detail";

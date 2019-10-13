@@ -22,8 +22,8 @@ Rails.application.routes.draw do
       post 'users/new5(.:format)' => 'devise/registrations#new5'
     end
 
-
-  root to: 'items#index'
+  root to: 'ok#index'
+  #root to: 'items#index'
  
   get 'mypages' => 'mypages#index'
   get 'itemsshow' => 'items#show'
