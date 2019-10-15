@@ -20,13 +20,19 @@
   %h4
     birth： #{current_user.personal_information.birth}
   %h4
+    zip_code： #{current_user.personal_information.zip_code}
+  %h4
     prefecture(後日モデルから取るので整数値)： #{current_user.personal_information.prefecture}
   %h4
     city： #{current_user.personal_information.city}
   %h4
     address： #{current_user.personal_information.address}
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
-  / ログアウトをする
+  %h4
+    Building name： #{current_user.personal_information.building_name}
+  %h4
+    Phone number： #{current_user.personal_information.phone_number}   
+  = link_to "マイページへ", 'mypages#index'
+  / マイページへ移動
 - else
   / ユーザーがログインしていなかった時の処理
   %h2 現在ログインしていません

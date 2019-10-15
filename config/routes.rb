@@ -20,15 +20,18 @@ Rails.application.routes.draw do
       post 'users/new4(.:format)' => 'devise/registrations#new4'
       get 'users/new5' => 'devise/registrations#new5', as: :new5_user_registration
       post 'users/new5(.:format)' => 'devise/registrations#new5'
+      
     end
 
-  root to: 'ok#index'
-  #root to: 'items#index'
+  #root to: 'ok#index'
+  root to: 'items#index'
  
   get 'mypages' => 'mypages#index'
   get 'itemsshow' => 'items#show'
   get 'users/logout' => 'users#logout'
   get 'users/credit' => 'users#credit'
+  get 'itemscheck' => 'items#check'
+  get 'itemsindex' => 'items#index'
   
   resources :mypages, only: [:index,:edit]do
     collection do
