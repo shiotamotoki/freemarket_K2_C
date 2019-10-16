@@ -1,0 +1,234 @@
+.main-content{
+  &__item{
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    &__head{
+      padding: 32px 16px;
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    &__body{
+      border-top: 1px solid #eee;
+      &__image-upload{
+        width: 620px;
+        padding: 40px;
+        &__head{
+          font-size: 16px;
+          &__require{
+            @include require();
+          }
+        }
+        p{
+          margin: 8px 0 0;
+          line-height: 1.5;
+        }
+        &__dropbox{
+          @include clearfix();
+          display: block;
+          width: 620px;
+          margin: 16px auto 0;
+          &__file-container{
+            width: 100%;
+            margin-left: 0;
+            float: right;
+            padding: 40px;
+            position: relative;
+            min-height: 162px;
+            background: #f5f5f5;
+            border: 1px dashed #ccc;
+            font-size: 0;
+            text-align: center;
+            transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
+            cursor: pointer;
+            &__upload{
+              border: 0;
+              outline: 0;
+              font-family: inherit;
+              -webkit-appearance: none;
+              display: none;
+            }
+            &__visible{
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              right: 16px;
+              text-align: center;
+              font-size: 14px;
+              line-height: 1.5;
+              transform: translate(0, -50%);
+              pointer-events: none;
+              white-space: pre-wrap;
+              word-wrap: break-word;
+            }
+          }
+        }
+      }
+      &__sell-content{
+        padding: 40px;
+        border-top: 1px solid #eee;
+        &__form-group:first-child{
+          margin: 0;
+        }
+        &__form-group{
+          margin: 40px 0 0;
+          label{
+            font-weight: 600;
+          }
+          &__require{
+            @include require();
+          }
+          &__input{
+            @include input();
+            width: 100%;
+            margin: 8px 0 0;
+          }
+          &__textarea{
+            @include textarea();
+            margin: 8px 0 0;
+            border-radius: 0;
+            outline: 0;
+            -webkit-appearance: none;
+            resize: vertical;
+            overflow: auto;
+          }
+        }
+      }
+      &__sell-content-float{
+        @include clearfix();
+        padding: 40px;
+        border-top: 1px solid #eee;
+        &__head{
+          float: left;
+          color: #888;
+          font-size: 14px;
+        }
+        &__qestion{
+          @include question();
+        }
+        &__form-box{
+          float: right;
+          width: 400px;
+          margin: 0;
+          &__form-group:first-child{
+            margin: 0;
+          }
+          &__form-group{
+            margin: 40px 0 0;
+            label{
+              font-weight: 600;
+            }
+            &__require{
+              @include require();
+            }
+            &__select-wrap{
+              @include select-wrap();
+              margin: 8px 0 0;
+              .arrow-down-icon{
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                transform: translate(0, -50%);
+              }
+              &__select-box{
+                @include select-box();
+                width: 100%;
+              }
+            }
+          }
+          &__price{
+            li{
+              padding: 24px 0;
+              border-top: 1px solid #ccc;
+            }
+            &__form-group:first-child{
+              padding: 0 0 24px;
+              border: 0;
+            }
+            &__form-group{
+              margin: 0;
+              &__clearfix{
+                @include clearfix();
+                &__left{
+                  width: 50%;
+                  line-height: 48px;
+                  font-weight: 600;
+                  float: left;
+                  &__require{
+                    @include require();
+                  }
+                }
+                &__right{
+                  width: 50%;
+                  text-align: right;
+                  float: right;
+                  &__input-box{
+                    display: inline-block;
+                    width: 80%;
+                    margin: 0 0 0 5%;
+                    &__input{
+                      @include input();
+                      margin: 0;
+                      text-align: right;
+                      width: 100%;
+                    }
+                  }
+                }
+              }
+            }
+            &__clearfix{
+              @include clearfix();
+              &__left{
+                float: left;
+              }
+              &__right{
+                float: right;
+              }
+            }
+            &__clearfix-bold{
+              @include clearfix();
+              font-weight: 600;
+              &__left{
+                font-size: 16px;
+                float: left;
+              }
+              &__right{
+                font-size: 24px;
+                float: right;
+              }
+            }
+          }
+        }
+      }
+      &__sell-content-btn-box{
+        padding: 40px;
+        border-top: 1px solid #eee;
+        div{
+          p{
+            line-height: 1.5;
+          }
+        }
+        &__btn{
+          @include btn();
+          margin: 40px 0 0;
+          cursor: pointer;
+          &--red{
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+          }
+          &--gray{
+            width: 45%;
+            margin: 24px auto 0;
+            background: #aaa;
+            border: 1px solid #aaa;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
