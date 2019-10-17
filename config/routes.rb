@@ -39,7 +39,7 @@ Rails.application.routes.draw do
       get "identification", to: "mypages#identification"
     end
   end
-  resources :items, only: [:show, :new] do
+  resources :items, only: [:index, :show, :new] do
     collection do
       get "itemsshow", to: "items#show"
       get "itemscheck", to: "items#check"
