@@ -1,4 +1,4 @@
-class Clothing_size < ActiveHash::Base
+class Shoessize < ActiveHash::Base
   self.data = [
     {id: 0, name: '---'}, {id: 11, name: '20cm以下'}, {id: 12, name: '20.5cm'},
     {id: 13, name: '21cm'}, {id: 14, name: '22cm'}, {id: 15, name: '22.5cm'},
