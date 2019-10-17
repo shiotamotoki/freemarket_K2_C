@@ -23,8 +23,8 @@ Rails.application.routes.draw do
       
     end
 
-  root to: 'ok#index'
-  #root to: 'items#index'
+  #root to: 'ok#index'
+  root to: 'items#index'
  
   get 'mypages' => 'mypages#index'
   get 'itemsshow' => 'items#show'
