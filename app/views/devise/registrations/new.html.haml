@@ -79,7 +79,7 @@
           .field
             = i.label :prefecture
             %br/
-            = i.text_field :prefecture, autofocus: true, autocomplete: "prefecture"
+            = i.collection_select :prefecture, Prefecture.all, :id, :name
           .field
             = i.label :city
             %br/

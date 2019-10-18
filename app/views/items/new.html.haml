@@ -5,7 +5,7 @@
     %section.main-content__item
       %h2.main-content__item__head
         商品の情報を入力
-      = form_with model: @item, local: true, class: "main-content__item__body" do |f|
+      = form_with model: @image, local: true, class: "main-content__item__body" do |f|
         .main-content__item__body__image-upload
           %h3.main-content__item__body__image-upload__head
             出品画像
@@ -13,12 +13,17 @@
               必須
           %p
             最大10枚までアップロードできます
+          .main-content__item__body__image-upload__container
+            .main-content__item__body__image-upload__container__image
+              %ul
+              
           .main-content__item__body__image-upload__dropbox
             = f.label "file-upload", class: "main-content__item__body__image-upload__dropbox__file-container" do
               = f.file_field :image, id: "file-upload", class: "main-content__item__body__image-upload__dropbox__file-container__upload"
               %pre.main-content__item__body__image-upload__dropbox__file-container__visible
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
+      = form_with model: @item, local: true, class: "main-content__item__body" do |f|
         .main-content__item__body__sell-content
           .main-content__item__body__sell-content__form-group
             = f.label "商品名"
