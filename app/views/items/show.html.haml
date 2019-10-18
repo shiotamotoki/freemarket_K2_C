@@ -3,9 +3,8 @@
 .item-box
   .item-title
     %h2= @items[0].name
-    
   .item-messeage
-   
+    %h2= @items[0].description
   .item-inline-box
     .item-photos
       .item-photos__main-img
@@ -34,7 +33,7 @@
                 .item-detail-table__detail-table__tbody__td__icon
                   = fa_icon "google", class: "good-icon"
                   %span.item-detail-table__detail-table__tbody__td__icon__num
-                    = @user_evaluations[0].goos
+                    = @user_evaluations[0].good
                 .item-detail-table__detail-table__tbody__td__icon
                   = fa_icon  "google", class: "normal-icon"
                   %span.item-detail-table__detail-table__tbody__td__icon__num
@@ -60,42 +59,42 @@
               商品のサイズ
             %td.item-detail-table__detail-table__tbody__td
               %span.item-size
-                = @items[0].size
+                = @items[0].size_id
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               商品の状態
             %td.item-detail-table__detail-table__tbody__td
               %span.item-condition
-                =@items[0].area
+                =@items[0].condition_id
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送料の負担
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-charge
-                =@items[0].postage
+                =@items[0].postage_id
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送の方法
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-method
-                =@items[0].shipping_date
+                =@items[0].shipping_date_id
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送元地域
             %td.item-detail-table__detail-table__tbody__td
               = link_to "配送地域", root_path, method: :get, class: "prefecture link"
-              =@items[0].area
+              =@items[0].prefecture_id
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               発送日の目安
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-date
-                =@items[0].shipping_date
+                =@items[0].shipping_date_id
   .item-price-box
     .item-price-box__box
       %span.item-price-box__box--price
         ¥
-        
+        =@items[0].price
       %span.item-price-box__box--tax
         （税込）
       %span.item-price-box__box--shipping-charge
@@ -104,7 +103,7 @@
   / 説明文
   .item-explain__description
     %p.item-explain__description-inner
-      
+      = @items[0].description
     / いいねボタン、不適切ボタン
     .item-explain__item-btn
       .item-explain__item-btn__left
