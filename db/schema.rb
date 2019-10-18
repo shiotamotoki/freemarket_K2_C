@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_134618) do
+ActiveRecord::Schema.define(version: 2019_10_18_081014) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -54,8 +54,23 @@ ActiveRecord::Schema.define(version: 2019_10_07_134618) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.bigint "category_id", null: false
+    t.integer "size_id"
+    t.bigint "brand_id", default: 0
+    t.integer "condition_id", null: false
+    t.integer "postage_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "shipping_date_id", null: false
+    t.integer "price", null: false
+    t.integer "status_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,8 +89,8 @@ ActiveRecord::Schema.define(version: 2019_10_07_134618) do
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.date "birth", null: false
-    t.integer "zip_code", null: false
-    t.integer "prefecture", null: false
+    t.integer "postal_code", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building_name"
@@ -87,7 +102,7 @@ ActiveRecord::Schema.define(version: 2019_10_07_134618) do
 
   create_table "user_evaluations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "goos", default: 0, null: false
+    t.integer "good", default: 0, null: false
     t.integer "normal", default: 0, null: false
     t.integer "bad", default: 0, null: false
     t.datetime "created_at", null: false
