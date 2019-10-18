@@ -13,6 +13,5 @@ class ItemsController < ApplicationController
     @brands = Brand.all
     @categories = Category.all
     @personal_informations = PersonalInformation.all
-    binding.pry
   end
 end
