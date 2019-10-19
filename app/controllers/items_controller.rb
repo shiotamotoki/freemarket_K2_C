@@ -16,5 +16,6 @@ class ItemsController < ApplicationController
     @personal_informations = PersonalInformation.all
     @brands = Brand.all
     @shippingdate = Shippingdate.all
+  
   end
 end
