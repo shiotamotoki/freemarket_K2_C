@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
     @categories = Category.all
     @personal_informations = PersonalInformation.all
     @brands = Brand.all
-    @shippingdate = Shippingdate.all
-  
+    @shipping_date = ShippingDate.all
   end
 end
