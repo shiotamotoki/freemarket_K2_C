@@ -7,7 +7,8 @@
       %a.my-content__user-icon-tab{href: "#"}
         %figure
           = image_tag src="mercari_user_icon.png", size:"60x60", class:"my-content__user-icon-tab-user-picture"
-        %h2.my-content__user-icon-tab-name user-name
+        %h2.my-content__user-icon-tab-name 
+          = current_user.nickname
         .my-content__user-icon-tab-number
           .my-content__user-icon-tab-number-info 評価
           .my-content__user-icon-tab-number-info-bold 0

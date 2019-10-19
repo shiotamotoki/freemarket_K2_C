@@ -27,11 +27,12 @@ Rails.application.routes.draw do
   root to: 'items#index'
  
   get 'mypages' => 'mypages#index'
-  get 'itemsshow' => 'items#show'
+  #get 'itemsshow' => 'items#show'
   get 'users/logout' => 'users#logout'
   get 'users/credit' => 'users#credit'
   get 'itemscheck' => 'items#check'
   get 'itemsindex' => 'items#index'
+  #get 'items/:id' => 'items#show'
   
   resources :mypages, only: [:index,:edit]do
     collection do
@@ -41,10 +42,10 @@ Rails.application.routes.draw do
   end
   resources :items, only: [:index, :show, :new] do
     collection do
-      get "itemsshow", to: "items#show"
       get "itemscheck", to: "items#check"
     end
   end
+ 
   
   resources :users
 end

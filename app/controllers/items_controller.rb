@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
     @items = Item.all
     @users = User.all
     @item_images = ItemImage.all
@@ -13,5 +14,7 @@ class ItemsController < ApplicationController
     @brands = Brand.all
     @categories = Category.all
     @personal_informations = PersonalInformation.all
+    @brands = Brand.all
+    @shippingdate = Shippingdate.all
   end
 end

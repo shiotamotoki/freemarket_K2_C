@@ -2,9 +2,9 @@
 .fieldspace
 .item-box
   .item-title
-    %h2= @items[0].name
+    %h2= @item.name
   .item-messeage
-    %h2= @items[0].description
+    %h2= @item.description
   .item-inline-box
     .item-photos
       .item-photos__main-img
@@ -53,48 +53,48 @@
               ブランド
             %td.item-detail-table__detail-table__tbody__td
               = link_to "ブランド名", root_path, method: :get, class: "brand-name link"
-              = @brands[0].name
+              = @brands[@item.brand_id-1].name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               商品のサイズ
             %td.item-detail-table__detail-table__tbody__td
               %span.item-size
-                = @items[0].size_id
+                = @item.size_id
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               商品の状態
             %td.item-detail-table__detail-table__tbody__td
               %span.item-condition
-                =@items[0].condition_id
+                =@item.condition.name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送料の負担
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-charge
-                =@items[0].postage_id
+                =@item.postage.name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送の方法
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-method
-                =@items[0].shipping_date_id
+                らくらくメルカリ便
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送元地域
             %td.item-detail-table__detail-table__tbody__td
               = link_to "配送地域", root_path, method: :get, class: "prefecture link"
-              =@items[0].prefecture_id
+              =@item.prefecture.name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               発送日の目安
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-date
-                =@items[0].shipping_date_id
+                =@item.shipping_date_id
   .item-price-box
     .item-price-box__box
       %span.item-price-box__box--price
         ¥
-        =@items[0].price
+        =@item.price
       %span.item-price-box__box--tax
         （税込）
       %span.item-price-box__box--shipping-charge
@@ -103,7 +103,7 @@
   / 説明文
   .item-explain__description
     %p.item-explain__description-inner
-      = @items[0].description
+      = @item.description
     / いいねボタン、不適切ボタン
     .item-explain__item-btn
       .item-explain__item-btn__left
@@ -168,93 +168,24 @@
   .item-other
     %section.item-other__user-items
       %h2.item-other__user-items__head
-        = link_to "ログインさん その他の出品", root_path, class: "link item-link"
+        = link_to  @users[0].nickname+"さん　その他の商品", root_path, class: "link item-link"
       .item-other__user-items__content
-        %section.item-other__user-items__content__box
-          = link_to root_path, class: "linkblack item-link" do
-            .item-other__user-items__content__box__photo
-              = image_tag("600.png", class: "item-image")
-            .item-other__user-items__content__box__itemname
-              %h3.item-other__user-items__content__box__itemname__name
-                ログインさん　　　　　１つ目の商品
-              .item-other__user-items__content__box__itemname__num
-                .item-other__user-items__content__box__itemname__num__price
-                  ¥1000
-                .item-other__user-items__content__box__itemname__num__likes
-                  = fa_icon "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__itemname__num__likes__num
-                    10
-      
-        %section.item-other__user-items__content__box
-          = link_to root_path, class: "linkblack item-link" do
-            .item-other__user-items__content__box__photo
-              = image_tag("600.png", class: "item-image")
-            .item-other__user-items__content__box__itemname
-              %h3.item-other__user-items__content__box__itemname__name
-                ログインさん　　　　　２つ目の商品
-              .item-other__user-items__content__box__itemname__num
-                .item-other__user-items__content__box__itemname__num__price
-                  ¥1000
-                .item-other__user-items__content__box__itemname__num__likes
-                  = fa_icon "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__itemname__num__likes__num
-                    10
-        %section.item-other__user-items__content__box
-          = link_to root_path, class: "linkblack item-link" do
-            .item-other__user-items__content__box__photo
-              = image_tag("600.png", class: "item-image")
-            .item-other__user-items__content__box__itemname
-              %h3.item-other__user-items__content__box__itemname__name
-                ログインさん　　　　　３つ目の商品
-              .item-other__user-items__content__box__itemname__num
-                .item-other__user-items__content__box__itemname__num__price
-                  ¥1000
-                .item-other__user-items__content__box__itemname__num__likes
-                  = fa_icon "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__itemname__num__likes__num
-                    10
-        %section.item-other__user-items__content__box
-          = link_to root_path, class: "linkblack item-link" do
-            .item-other__user-items__content__box__photo
-              = image_tag("600.png", class: "item-image")
-            .item-other__user-items__content__box__itemname
-              %h3.item-other__user-items__content__box__itemname__name
-                ログインさん　　　　　４つ目の商品
-              .item-other__user-items__content__box__itemname__num
-                .item-other__user-items__content__box__itemname__num__price
-                  ¥1000
-                .item-other__user-items__content__box__itemname__num__likes
-                  = fa_icon "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__itemname__num__likes__num
-                    10
-        %section.item-other__user-items__content__box
-          = link_to root_path, class: "linkblack item-link" do
-            .item-other__user-items__content__box__photo
-              = image_tag("600.png", class: "item-image")
-            .item-other__user-items__content__box__itemname
-              %h3.item-other__user-items__content__box__itemname__name
-                ログインさん　　　　　５つ目の商品
-              .item-other__user-items__content__box__itemname__num
-                .item-other__user-items__content__box__itemname__num__price
-                  ¥1000
-                .item-other__user-items__content__box__itemname__num__likes
-                  = fa_icon "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__itemname__num__likes__num
-                    10
-        %section.item-other__user-items__content__box
-          = link_to root_path, class: "linkblack item-link" do
-            .item-other__user-items__content__box__photo
-              = image_tag("600.png", class: "item-image")
-            .item-other__user-items__content__box__itemname
-              %h3.item-other__user-items__content__box__itemname__name
-                ログインさん　　　　　６つ目の商品
-              .item-other__user-items__content__box__itemname__num
-                .item-other__user-items__content__box__itemname__num__price
-                  ¥1000 
-                .item-other__user-items__content__box__itemname__num__likes
-                  = fa_icon "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__itemname__num__likes__num
-                    10
+        - @items.each do |i|
+          %section.item-other__user-items__content__box
+            = link_to root_path, class: "linkblack item-link" do
+              .item-other__user-items__content__box__photo
+                = image_tag("600.png", class: "item-image")
+              .item-other__user-items__content__box__itemname
+                %h3.item-other__user-items__content__box__itemname__name
+                  =@item.name
+                .item-other__user-items__content__box__itemname__num
+                  .item-other__user-items__content__box__itemname__num__price
+                    ¥
+                    =@item.price
+                  .item-other__user-items__content__box__itemname__num__likes
+                    = fa_icon "heart", class: "like-icon"
+                    %span.item-other__user-items__content__box__itemname__num__likes__num
+                      10
   .item-space-box2
   .item-space-box2
   .item-space-box2
