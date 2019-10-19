@@ -14,4 +14,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shippingdate
   belongs_to_active_hash :clothingsize
   belongs_to_active_hash :shoessize
+  belongs_to_active_hash :size
 end
