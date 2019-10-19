@@ -47,7 +47,7 @@
               カテゴリー
             %td.item-detail-table__detail-table__tbody__td
               %span.item-category
-                = @categories[0].name
+                = @categories[@item.category_id-1].name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               ブランド
