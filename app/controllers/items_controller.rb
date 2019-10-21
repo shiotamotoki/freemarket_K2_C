@@ -16,5 +16,7 @@ class ItemsController < ApplicationController
     @personal_informations = PersonalInformation.all
     @brands = Brand.all
     @shipping_date = ShippingDate.all
+    @other_items = Item.where( [ "id != ? and user_id = ?", params[:id], @item.user_id ] ).order("created_at DESC").limit(6)
+    @same_items = Item.where( [ "id != ? and user_id != ?", params[:id], @item.user_id ] ).where(brand_id: @item.brand_id ).order("created_at DESC").limit(6)
   end
 end
