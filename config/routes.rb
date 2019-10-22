@@ -38,7 +38,9 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :new] do
     collection do
       get "check", to: "items#check"
+      
     end
+    
   end
  
   

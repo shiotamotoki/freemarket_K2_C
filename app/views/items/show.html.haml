@@ -171,17 +171,17 @@
       %h2.item-other__user-items__head
         = link_to @users[@item.user_id-1].nickname+"さん　その他の商品", root_path, class: "link item-link"
       .item-other__user-items__content
-        - @other_items.each do |o|
+        - @other_items.each do |other_item|
           %section.item-other__user-items__content__box
-            = link_to "/items/#{o.id}", class: "linkblack item-link" do
+            = link_to  item_path(other_item.id), class: "linkblack item-link" do
               .item-other__user-items__content__box__photo
-                = image_tag @item_images[o.id-1].image , class: "item-image"
+                = image_tag @item_images[other_item.id-1].image , class: "item-image"
                 %h3.item-other__user-items__content__box__itemname__name
-                  = o.name
+                  = other_item.name
                 .item-other__user-items__content__box__itemname__num
                   .item-other__user-items__content__box__itemname__num__price
                     ¥
-                    = o.price
+                    = other_item.price
                   .item-other__user-items__content__box__itemname__num__likes
                     = fa_icon "heart", class: "like-icon"
                     %span.item-other__user-items__content__box__itemname__num__likes__num
@@ -195,17 +195,17 @@
       %h2.item-other__user-items__head
         = link_to "#{@brands[@item.brand_id-1].name}(同じカテゴリ) その他の商品", root_path, class: "link item-link"
       .item-other__user-items__content
-        - @same_items.each do |s|
+        - @same_items.each do |same_item|
           %section.item-other__user-items__content__box
-            = link_to "/items/#{s.id}", class: "linkblack item-link" do
+            = link_to  item_path(same_item.id), class: "linkblack item-link" do
               .item-other__user-items__content__box__photo
-                = image_tag @item_images[s.id-1].image , class: "item-image"
+                = image_tag @item_images[same_item.id-1].image , class: "item-image"
                 %h3.item-other__user-items__content__box__itemname__name
-                  = s.name
+                  = same_item.name
                 .item-other__user-items__content__box__itemname__num
                   .item-other__user-items__content__box__itemname__num__price
                     ¥
-                    = s.price
+                    = same_item.price
                   .item-other__user-items__content__box__itemname__num__likes
                     = fa_icon "heart", class: "like-icon"
                     %span.item-other__user-items__content__box__itemname__num__likes__num
