@@ -42,14 +42,14 @@
 |name|string|null: false|
 |description|text||
 |category_id|references|null: false, foreign_key: true|
-|size|integer||
+|size_id|integer||
 |brand_id|references|foreign_key: true, default: 0|
-|condition|integer|null: false|
-|postage|integer|null: false|
-|area|integer|null: false|
-|shipping_date|integer|null: false|
+|condition_id|integer|null: false|
+|postage_id|integer|null: false|
+|prefecture_id|integer|null: false|
+|shippingdate_id|integer|null: false|
 |price|integer|null: false|
-|status|integer|null: false|
+|status_id|integer|null: false|
 
 ### Association
 - belongs_to :user

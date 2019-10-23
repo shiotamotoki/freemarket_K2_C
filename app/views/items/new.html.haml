@@ -78,7 +78,7 @@
                 必須
               .main-content__item__body__sell-content-float__form-box__form-group__select-wrap
                 = fa_icon "chevron-down", class:"arrow-down-icon"
-                = f.collection_select :shipping_date, Shippingdate.all, :id, :name, {}, class: "main-content__item__body__sell-content-float__form-box__form-group__select-wrap__select-box"
+                = f.collection_select :shippingdate_id, ShippingDate.all, :id, :name, {}, class: "main-content__item__body__sell-content-float__form-box__form-group__select-wrap__select-box"
         .main-content__item__body__sell-content-float
           %h3.main-content__item__body__sell-content-float__head
             販売価格(300〜9,999,999)
