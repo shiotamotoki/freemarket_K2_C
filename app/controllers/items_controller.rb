@@ -1,9 +1,10 @@
-class ItemsController < ApplicationController
+class ItemsController < ApplicationController 
   before_action :authenticate_user!, only: [:sell, :create, :edit, :update, :destroy, :buy]
 
   def index
     @items = Item.all.limit(10)
   end
+
 
   def show
     @item = Item.find(params[:id])
@@ -18,5 +19,18 @@ class ItemsController < ApplicationController
     @shipping_date = ShippingDate.all
     @other_items = Item.where( [ "id != ? and user_id = ?", params[:id], @item.user_id ] ).order("created_at DESC").limit(6)
     @same_items = Item.where( [ "id != ? and user_id != ?", params[:id], @item.user_id ] ).where(brand_id: @item.brand_id ).order("created_at DESC").limit(6)
+
+  def destroy
+    # binding.pry
+   item = Item.find(params[:id])
+    if item.user_id == current_user.id
+    item.destroy
+    redirect_to edit_item_path
+    end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+
   end
 end

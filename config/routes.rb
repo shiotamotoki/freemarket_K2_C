@@ -20,25 +20,41 @@ Rails.application.routes.draw do
   #root to: 'ok#index'
   root to: 'items#index'
  
+
   #get 'itemsshow' => 'items#show'
   #get 'users/logout' => 'users#logout'
   #get 'users/credit' => 'users#credit'
   #get 'itemscheck' => 'items#check'
   #get 'itemsindex' => 'items#index'
   #get 'items/:id' => 'items#show'
-  
+
+  get 'mypages' => 'mypages#index'
+  get 'itemsshow' => 'items#show'
+  get 'users/logout' => 'users#logout'
+  get 'users/credit' => 'users#credit'
+  get 'itemscheck' => 'items#check'
+  get 'itemsindex' => 'items#index'
+
   resources :mypages, only: [:index,:edit]do
     collection do
       get "credit", to: "mypages#credit"
       get "logout", to: "mypages#logout"
       get "profile", to: "mypages#profile"
       get "identification", to: "mypages#identification"
+      
     end
   end
+
   resources :items, only: [:index, :show, :new] do
     collection do
       get "check", to: "items#check"
       
+
+  resources :items, only: [:show, :new, :destroy, :edit] do
+    collection do
+      get "itemsshow", to: "items#show"
+      get "itemscheck", to: "items#check"
+      # get "edit", to: "items#edit"
     end
     
   end
