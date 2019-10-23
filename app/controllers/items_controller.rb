@@ -17,4 +17,8 @@ class ItemsController < ApplicationController
     @brands = Brand.all
     @shipping_date = ShippingDate.all
   end
+
+  def check
+    @item = Item.find(1)
+  end
 end

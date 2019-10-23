@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'purchase/index'
+  get 'purchase/done'
+  get 'credit_cards/new'
+  get 'credit_cards/show'
   devise_for :users
 
     devise_scope :user do
@@ -40,7 +44,22 @@ Rails.application.routes.draw do
       get "check", to: "items#check"
     end
   end
- 
+  resources :credit_cards, only: [:new, :show] do
+    collection do
+      post  'new', to: 'credit_cards#new'
+      post 'show', to: 'credit_cards#show'
+      post 'pay', to: 'credit_cards#pay'
+    end
+  end
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index', to: 'purchase#index'
+      get 'done', to: 'purchase#done'
+    end
+    member do
+      post 'pay', to: 'purchase#pay'
+    end
+  end
   
   resources :users
 end

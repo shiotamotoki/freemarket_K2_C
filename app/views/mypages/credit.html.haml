@@ -8,11 +8,12 @@
       .l-content__body__hi
         %h2.l-content__body__hi__in クレジットカード一覧
       .l-content__body__midl
-        %button{type: "submit",class: "l-content__body__midl__btn",} 
-          %i.fa.fa-credit-card
-          クレジットカードを追加する
+        =link_to new_credit_card_path,method: :post do
+          %button{type: "submit",class: "l-content__body__midl__btn",url:new_credit_card_path} 
+            %i.fa.fa-credit-card
+            クレジットカードを追加する
       .l-content__body__low
-        =link_to "#",target: "_blank", class: "l-content__body__low__in" do
+        =link_to '#',target: "_blank", class: "l-content__body__low__in" do
           支払い方法について 
           %i.fa.fa-chevron-right
   = render "shared/sidebar/sidebar"
