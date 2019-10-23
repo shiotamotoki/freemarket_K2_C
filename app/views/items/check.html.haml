@@ -5,20 +5,24 @@
       %h2.main-container-buy__head 購入内容の確認
       %section.main-container-buy__item
         .main-container-buy__item-inner
-          = image_tag "mercari_item_img_1.jpg", class:"main-container-buy__item-inner-image"
-          %p.main-container-buy__item-inner-name フィルム カメラ
-          %form.main-container-buy__item-inner-form{action: "#", method: "POST", novalidate: "novalidate"}
-            %p.main-container-buy__item-inner-form-price ¥17,000
-            %span.main-container-buy__item-inner-form-price-shipping-fee 送料込み
-            %ul.main-container-buy__item-inner-form-accordion
+          =image_tag @item.item_images[0].image, class:'main-container-buy__item-inner-image'
+          %p.main-container-buy__item-inner-name=@item.name
+          %form.main-container-buy__item-inner-form{action: pay_purchase_path(@item), method: "POST", novalidate: "novalidate"}
+            %p.main-container-buy__item-inner-form-price 
+              ¥
+              =@item.price.to_s(:delimited, delimiter: ',')
+            %span.main-container-buy__item-inner-form-price-shipping-fee=@item.postage.name
+            %ul.main-container-buy__item-inner-form-accordion 
               %li.main-container-buy__item-inner-form-accordion-parent
                 .main-container-buy__item-inner-form-accordion-parent-toggle ポイントはありません
             %ul.main-container-buy__item-inner-form-pay
               %li.main-container-buy__item-inner-form-pay-row
                 .main-container-buy__item-inner-form-pay-row-cell 支払い金額
                 .main-container-buy__item-inner-form-pay-row-price
-                  %span.main-container-buy__item-inner-form-pay-row-price-cell ¥17,000
-            %button.main-container-buy__item-inner-form-btn{type: "submit"} 購入する
+                  %span.main-container-buy__item-inner-form-pay-row-price-cell
+                    ¥
+                    =@item.price.to_s(:delimited, delimiter: ',')
+            = link_to '購入する',pay_purchase_path(@item), method: :post, class: "main-container-buy__item-inner-form-btn"
       %section.main-container-buy__address
         .main-container-buy__address-info
           %h3.main-container-buy__address-info-title 配送先
@@ -28,7 +32,7 @@
             高知県 高知市
             本町１ー２
             %br/
-            高知 太郎
+            = current_user.nickname
           %p.main-container-buy__address-info-gap
           %a.main-container-buy__address-info-fix{href: "#"}
             %span.main-container-buy__address-info-fix-title 変更する
@@ -38,6 +42,7 @@
           %h3.main-container-buy__payment-info-title 支払い方法
           %p.main-container-buy__payment-info-text
             ************1234
+            -# = "**** **** **** " + @default_card_information_last4
             %br/
             12 / 34
           %figure.main-container-buy__payment-info-img

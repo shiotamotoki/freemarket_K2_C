@@ -19,4 +19,8 @@ class ItemsController < ApplicationController
     @other_items = Item.where( [ "id != ? and user_id = ?", params[:id], @item.user_id ] ).order("created_at DESC").limit(6)
     @same_items = Item.where( [ "id != ? and user_id != ?", params[:id], @item.user_id ] ).where(brand_id: @item.brand_id ).order("created_at DESC").limit(6)
   end
+
+  def check
+    @item = Item.find(1)
+  end
 end
