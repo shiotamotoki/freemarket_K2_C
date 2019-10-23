@@ -2,7 +2,7 @@
 .fieldspace
 .item-box
   .item-title
-    = @item.name
+    %h2 商品名
   .item-messeage
     %h2 商品名
   .item-inline-box
@@ -108,9 +108,9 @@
     /btn-box
   .item-space-box2
   .item-btn-box
-    = button_to "商品の編集", root_path, class: "btn-red"
-    .item-text-box　or
-    = button_to "この商品を削除する", item_path(2), method: :delete, class: "btn-gray" 
+    = button_to "商品の編集", root_path, class: "item-btn-box__btn item-btn-box__btn--red"
+    .item-btn-box__text　or
+    = button_to "この商品を削除する", item_path(7), method: :delete, class: "item-btn-box__btn item-btn-box__btn--gray" 
   .item-space-box2
 
   .item-comment-box

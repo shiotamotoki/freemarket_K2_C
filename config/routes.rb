@@ -13,8 +13,7 @@ Rails.application.routes.draw do
       get 'users/new4' => 'devise/registrations#new4', as: :new4_user_registration
       post 'users/new4(.:format)' => 'devise/registrations#new4'
       get 'users/new5' => 'devise/registrations#new5', as: :new5_user_registration
-      post 'users/new5(.:format)' => 'devise/registrations#new5'
-      
+      post 'users/new5(.:format)' => 'devise/registrations#new5'      
     end
 
   #root to: 'ok#index'
@@ -40,15 +39,15 @@ Rails.application.routes.draw do
       get "credit", to: "mypages#credit"
       get "logout", to: "mypages#logout"
       get "profile", to: "mypages#profile"
-      get "identification", to: "mypages#identification"
-      
+      get "identification", to: "mypages#identification"     
     end
   end
 
   resources :items, only: [:index, :show, :new] do
     collection do
       get "check", to: "items#check"
-      
+    end
+  end
 
   resources :items, only: [:show, :new, :destroy, :edit] do
     collection do
@@ -56,9 +55,7 @@ Rails.application.routes.draw do
       get "itemscheck", to: "items#check"
       # get "edit", to: "items#edit"
     end
-    
   end
- 
-  
+
   resources :users
 end

@@ -19,13 +19,13 @@ class ItemsController < ApplicationController
     @shipping_date = ShippingDate.all
     @other_items = Item.where( [ "id != ? and user_id = ?", params[:id], @item.user_id ] ).order("created_at DESC").limit(6)
     @same_items = Item.where( [ "id != ? and user_id != ?", params[:id], @item.user_id ] ).where(brand_id: @item.brand_id ).order("created_at DESC").limit(6)
+  end
 
   def destroy
-    # binding.pry
    item = Item.find(params[:id])
     if item.user_id == current_user.id
     item.destroy
-    redirect_to edit_item_path
+    redirect_to root_path
     end
   end
 
