@@ -22,11 +22,6 @@
                   %span.main-container-buy__item-inner-form-pay-row-price-cell
                     ¥
                     =@item.price.to_s(:delimited, delimiter: ',')
-            -# = link_to pay_purchase_index_path do
-            -# = button_to "/purchase/index(@item.id)", class: "main-container-buy__item-inner-form-btn" do
-            -#   購入する
-            -#   -# %button.main-container-buy__item-inner-form-btn{type: "submit"} 購入する
-            -#  "/purchase/#{@item.id}/pay"
             = link_to '購入する',pay_purchase_path(@item), method: :post, class: "main-container-buy__item-inner-form-btn"
       %section.main-container-buy__address
         .main-container-buy__address-info
