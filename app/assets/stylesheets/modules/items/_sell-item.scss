@@ -79,6 +79,9 @@
           &__require{
             @include require();
           }
+          &__any{
+            @include any();
+          }
           &__input{
             @include input();
             width: 100%;
@@ -137,6 +140,7 @@
                 @include select-box();
                 width: 100%;
               }
+              
             }
           }
           &__price{

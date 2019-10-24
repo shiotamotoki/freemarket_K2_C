@@ -1,63 +1,64 @@
-= render "shared/top_page/header"
-= render "shared/top_page/sel_button"
+.container
+  = render "shared/top_page/header"
+  = render "shared/top_page/sel_button"
 
-.campaignBanner
-  .main
-    .mainVisual
-      .content
-        %h2.content__subtitle
-          スマホでかんたん
-          %br
-          フリマアプリ
-        %p.content__text
-          メルカリはスマホカメラからすぐに出品できる
-          %br
-          購入時も安心な独自システムのアプリです
-        .content__btn
-          = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", size: "170x50"), "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", class: "aBtn"
-          = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", size: "170x50"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: "gBtn"
-      .picture
-        = image_tag"top-banner-main-device.png", size: "440x390"
-.popularCategory
-  .category
-    %h2.category__title 
-      人気のカテゴリー
-    .category__detail
-      %ul.category-menu
-        %li.category-menu__list
-          =link_to "#", class: "category-menu__list__item" do
-            レディース
-        %li.category-menu__list
-          =link_to "#", class: "category-menu__list__item" do
-            メンズ
-        %li.category-menu__list
-          =link_to "#", class: "category-menu__list__item" do
-            家電・スマホ・カメラ
-        %li.category-menu__list
-          =link_to "#", class: "category-menu__list__item" do
-            おもちゃ・ホビー・グッズ 
+  .campaignBanner
+    .main
+      .mainVisual
+        .content
+          %h2.content__subtitle
+            スマホでかんたん
+            %br
+            フリマアプリ
+          %p.content__text
+            メルカリはスマホカメラからすぐに出品できる
+            %br
+            購入時も安心な独自システムのアプリです
+          .content__btn
+            = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", size: "170x50"), "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", class: "aBtn"
+            = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", size: "170x50"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: "gBtn"
+        .picture
+          = image_tag"top-banner-main-device.png", size: "440x390"
+  .popularCategory
+    .category
+      %h2.category__title 
+        人気のカテゴリー
+      .category__detail
+        %ul.category-menu
+          %li.category-menu__list
+            =link_to "#", class: "category-menu__list__item" do
+              レディース
+          %li.category-menu__list
+            =link_to "#", class: "category-menu__list__item" do
+              メンズ
+          %li.category-menu__list
+            =link_to "#", class: "category-menu__list__item" do
+              家電・スマホ・カメラ
+          %li.category-menu__list
+            =link_to "#", class: "category-menu__list__item" do
+              おもちゃ・ホビー・グッズ 
 
-.main-box
-  .main-box__category
-    .main-box__category__bar
-      .main-box__category__bar__title
-        とりあえず全部
-      .main-box__category__bar__link
-        =link_to "#", class: "more-detail-link" do
-          もっと見る
-          %i.fa.fa-chevron-right
-    .main-box__category__content
-      .main-box__category__content__grid
-        - @items.each do |i|
-          =link_to itemsshow_path do
-            .box
-              .price 
-                ¥
-                =i.price.to_s(:delimited, delimiter: ',')
-              =image_tag i.item_images[0].image, alt: 'next', class:'image-box'
-              .title-text
-                =i.name
-    
+  .main-box
+    .main-box__category
+      .main-box__category__bar
+        .main-box__category__bar__title
+          とりあえず全部
+        .main-box__category__bar__link
+          =link_to "#", class: "more-detail-link" do
+            もっと見る
+            %i.fa.fa-chevron-right
+      .main-box__category__content
+        .main-box__category__content__grid
+          - @items.each do |i|
+            =link_to "/items/#{i.id}" do
+              .box
+                .price 
+                  ¥
+                  =i.price.to_s(:delimited, delimiter: ',')
+                =image_tag i.item_images[0].image, alt: 'next', class:'image-box'
+                .title-text
+                  =i.name
+      
 
-= render "shared/top_page/asaide"
-= render "shared/top_page/footer"
+  = render "shared/top_page/asaide"
+  = render "shared/top_page/footer"

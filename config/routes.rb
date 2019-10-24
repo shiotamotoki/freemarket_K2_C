@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :users, controllers: {
-    confirmations: 'users/confirmations',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations',
-    sessions:      'users/sessions',
-
-    }
+  devise_for :users
 
     devise_scope :user do
       get 'uses/before_sign_up' => 'devise/registrations#before_signup', as: :before_signup_user_registration
@@ -26,25 +20,32 @@ Rails.application.routes.draw do
   #root to: 'ok#index'
   root to: 'items#index'
  
-  get 'mypages' => 'mypages#index'
-  get 'itemsshow' => 'items#show'
-  get 'users/logout' => 'users#logout'
-  get 'users/credit' => 'users#credit'
-  get 'itemscheck' => 'items#check'
-  get 'itemsindex' => 'items#index'
+  # get 'mypages' => 'mypages#index'
+  # get 'itemsshow' => 'items#show'
+  # get 'users/logout' => 'users#logout'
+  # get 'users/credit' => 'users#credit'
+  # get 'itemscheck' => 'items#check'
+  # get 'itemsindex' => 'items#index'
   
   resources :mypages, only: [:index,:edit]do
     collection do
+      get "credit", to: "mypages#credit"
+      get "logout", to: "mypages#logout"
       get "profile", to: "mypages#profile"
       get "identification", to: "mypages#identification"
     end
   end
-  resources :items, only: [:index, :show, :new] do
+
+  resources :items, only: [:index, :show, :new ,:create] do
     collection do
-      get "itemsshow", to: "items#show"
-      get "itemscheck", to: "items#check"
+      get "check", to: "items#check"
+      get 'child_category'
+      get 'grandchild_category'
+      get 'size'
     end
+    
   end
   
   resources :users
+  
 end
