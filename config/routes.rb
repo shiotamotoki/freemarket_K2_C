@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   #root to: 'ok#index'
   root to: 'items#index'
- 
+
   #get 'itemsshow' => 'items#show'
   #get 'users/logout' => 'users#logout'
   #get 'users/credit' => 'users#credit'

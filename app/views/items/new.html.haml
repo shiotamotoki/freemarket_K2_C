@@ -13,16 +13,16 @@
               必須
           %p
             最大10枚までアップロードできます
-          .main-content__item__body__image-upload__container
-            .main-content__item__body__image-upload__container__image
-              %ul
-              
-          .main-content__item__body__image-upload__dropbox
-            = f.label "file-upload", class: "main-content__item__body__image-upload__dropbox__file-container" do
-              = f.file_field :image, id: "file-upload", class: "main-content__item__body__image-upload__dropbox__file-container__upload"
-              %pre.main-content__item__body__image-upload__dropbox__file-container__visible
-                ドラッグアンドドロップ
-                またはクリックしてファイルをアップロード
+          .main-content__item__body__image-upload__clearfix
+            .main-content__item__body__image-upload__clearfix__container
+              .main-content__item__body__image-upload__clearfix__container__images.have-item-0
+                %ul.main-content__item__body__image-upload__clearfix__container__images__ul
+            .main-content__item__body__image-upload__clearfix__dropbox.have-item-0
+              = f.label "file-upload", class: "main-content__item__body__image-upload__clearfix__dropbox__file-container" do
+                = f.file_field :image, id: "file-upload", class: "main-content__item__body__image-upload__clearfix__dropbox__file-container__upload"
+                %pre.main-content__item__body__image-upload__clearfix__dropbox__file-container__visible
+                  ドラッグアンドドロップ
+                  またはクリックしてファイルをアップロード
       = form_with model: @item, local: true, class: "main-content__item__body" do |f|
         .main-content__item__body__sell-content
           .main-content__item__body__sell-content__form-group
