@@ -64,6 +64,14 @@
             }
           }
         }
+        &__error-text{
+          color: #ea352d;
+          line-height: 1.5;
+          font-size: 14px;
+          li{
+            margin: 8px 0 0;
+          }
+        }
       }
       &__sell-content{
         padding: 40px;
@@ -95,6 +103,14 @@
             -webkit-appearance: none;
             resize: vertical;
             overflow: auto;
+          }
+        }
+        &__error-text{
+          color: #ea352d;
+          line-height: 1.5;
+          font-size: 14px;
+          li{
+            margin: 8px 0 0;
           }
         }
       }
@@ -204,6 +220,14 @@
                 float: right;
               }
             }
+          }
+        }
+        &__error-text{
+          color: #ea352d;
+          line-height: 1.5;
+          font-size: 14px;
+          li{
+            margin: 8px 0 0;
           }
         }
       }

@@ -18,35 +18,39 @@ class ItemsController < ApplicationController
   def new
 
     @item= Item.new
+    @errors = @item.errors
     @parents = Category.where(ancestry: nil) 
     @item.item_images.build
     
   end
 
   def create
+    
+    # logger.debug new_image_params[:imege]
 
-    @brand= Brand.new(
-      name: item_params[:brand_id]
-    )
-
-    # ブランドIDの値の設定
-    if @brand.name == ""
-      # ID:1 は未入力
-      @brand.id = 1
-    else
-      @brand.save
-    end
 
     # カテゴリーIDの値の設定
     category = ""      
-    if item_params[:third_category_id] == "" 
-      if item_params[:second_category_id] == "" 
+    if item_params[:third_category_id].blank? 
+      if item_params[:second_category_id].blank? 
         category = item_params[:category_id]
       else
         category = item_params[:second_category_id]
       end
     else
       category = item_params[:third_category_id]
+    end
+
+    @brand= Brand.new(
+      name: item_params[:brand_id]
+    )
+
+    # ブランドIDの値の設定
+    if item_params[:name].blank?
+       @brand.save
+    else
+      # ID:1 は未入力
+      @brand.id = 1
     end
 
 
@@ -66,13 +70,17 @@ class ItemsController < ApplicationController
       status_id: 0
     )
    
+    # @item.item_images.build(
+    #   # 画像は一旦埋め込み 
+    #   image:"https://static.mercdn.net/thumb/photos/m39106015049_1.jpg?1558957377"
+    # )
     @item.item_images.build(
       # 画像は一旦埋め込み 
       image:"https://static.mercdn.net/thumb/photos/m39106015049_1.jpg?1558957377"
     )
     if @item.save 
       # 商品詳細ページへ遷移 
-      redirect_to @item, notice: '出品が完了しました'
+      redirect_to root_path, notice: '出品が完了しました'
     else
       redirect_to root_path, notice: '出品に失敗しました。'
     end
@@ -119,11 +127,12 @@ class ItemsController < ApplicationController
     :prefecture_id, 
     :shipping_date_id,
     :price,
-    :images_attributes: [:image]
+    :image,
+    [item_image_attributes: [:image]]
     ).merge(user_id: current_user.id)
   end
   
-  def new_image_params
+  def new_image_params()
     params.require[:image].permit(:image)
   end
 end

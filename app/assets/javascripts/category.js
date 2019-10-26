@@ -16,7 +16,6 @@ window.addEventListener('DOMContentLoaded', function(){
  
   $(document).on("change", "#item_category_id", function () {
     var parentId = $(this).val();
-    console.log($('#third_category_id').val());
     if (parentId != "0" && parentId != ""){
       $.ajax({
         url: '/items/child_category',
@@ -88,8 +87,55 @@ window.addEventListener('DOMContentLoaded', function(){
     $('#fee-area').html('ー');
     }
   })
-  // $(function(){
 
-  // })
+
+  function buildErrMsg(msg,contents) {
+    var html = `<ul class="main-content__item__body__${contents}__error-text">
+                        <li>${msg}</li>
+                      </ul>`;
+    return html
+  }
+
+  $(".main-content__item__body").submit(function(){
+    errFlg = true;
+    $('.main-content__item__body__sell-content__error-text').remove();
+    // 商品名の確認
+    if ($('#item_name').val() == ""){
+      $('#item-name').append(buildErrMsg("入力してください","sell-content"));
+      errFlg = false;
+    }
+    if ($('#item_name').val().length > 40){
+      $('#item-name').append(buildErrMsg("40 文字以下で入力してください","sell-content"));
+      errFlg = false;
+    }
+
+    // 商品詳細の確認
+    if ($('#item_description').val() == ""){
+      $('#item-description').append(buildErrMsg("入力してください","sell-content"));
+      errFlg = false;
+    }
+    if ($('#item_description').val().length > 1000){
+      $('#item-description').append(buildErrMsg("1000 文字以下で入力してください","sell-content"));
+      errFlg = false;
+    }
+
+    // カテゴリー/サイズの確認
+    $('.main-content__item__body__sell-content-float__error-text').remove();
+    if ($('#item_category_id').val() == ""){
+      $('#category-contents').append(buildErrMsg("入力してください","sell-content-float"));
+      errFlg = false;
+    }
+
+    //商品の状態の確認
+    if ($('#item_condition_id').val() == ""){
+      console.log(1);
+      $('#item-condition').append(buildErrMsg("入力してください","sell-content-float"));
+      errFlg = false;
+    }
+    
+    return errFlg;
+      
+    }
+  );
 
 });
