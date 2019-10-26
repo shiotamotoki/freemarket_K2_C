@@ -56,6 +56,7 @@ $(function(){
   });
 
   $(".main-content__item__body").submit(function(){
+
     if ($(".main-content__item__body__image-upload__clearfix__container__images").hasClass("have-item-0")) {
       $('.main-content__item__body__image-upload__error-text').remove();
       var errorText = `<ul class="main-content__item__body__image-upload__error-text">
