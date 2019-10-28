@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:sell, :create, :edit, :update, :destroy, :buy]
 
   def index
-    @items = Item.all.limit(10)
+    @items = Item.all.limit(50)
   end
 
   def show
@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
   def new
 
     @item= Item.new
-    @errors = @item.errors
     @parents = Category.where(ancestry: nil) 
     @item.item_images.build
     
@@ -76,8 +75,9 @@ class ItemsController < ApplicationController
     # )
     @item.item_images.build(
       # 画像は一旦埋め込み 
-      image:"https://static.mercdn.net/thumb/photos/m39106015049_1.jpg?1558957377"
+      image:item_params[:image]
     )
+      
     if @item.save 
       # 商品詳細ページへ遷移 
       redirect_to root_path, notice: '出品が完了しました'
@@ -128,7 +128,7 @@ class ItemsController < ApplicationController
     :shipping_date_id,
     :price,
     :image,
-    [item_image_attributes: [:image]]
+    [item_image_attributes: [:url]]
     ).merge(user_id: current_user.id)
   end
   

@@ -13,25 +13,22 @@
               必須
           %p
             最大10枚までアップロードできます
-          .main-content__item__body__image-upload__container
-            .main-content__item__body__image-upload__container__image
-              %ul
-              
-          .main-content__item__body__image-upload__dropbox
-            = f.label "file-upload", class: "main-content__item__body__image-upload__dropbox__file-container" do
-              = f.file_field :image, id: "item_file-upload", class: "main-content__item__body__image-upload__dropbox__file-container__upload"
-              %pre.main-content__item__body__image-upload__dropbox__file-container__visible
-                ドラッグアンドドロップ
-                またはクリックしてファイルをアップロード
+          .main-content__item__body__image-upload__clearfix
+            .main-content__item__body__image-upload__clearfix__container
+              .main-content__item__body__image-upload__clearfix__container__images.have-item-0
+                %ul.main-content__item__body__image-upload__clearfix__container__images__ul
+            .main-content__item__body__image-upload__clearfix__dropbox.have-item-0
+              = f.label "file-upload", class: "main-content__item__body__image-upload__clearfix__dropbox__file-container" do
+                = f.file_field :image, id: "item_file-upload", class: "main-content__item__body__image-upload__clearfix__dropbox__file-container__upload"
+                %pre.main-content__item__body__image-upload__clearfix__dropbox__file-container__visible
+                  ドラッグアンドドロップ
+                  またはクリックしてファイルをアップロード
         .main-content__item__body__sell-content
           .main-content__item__body__sell-content__form-group#item-name
             = f.label "商品名"
             %span.main-content__item__body__sell-content__form-group__require
               必須
             = f.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "main-content__item__body__sell-content__form-group__input"
-          - if @errors.full_messages_for(:name).any?
-            .alert
-              入力してください
           .main-content__item__body__sell-content__form-group#item-description
             = f.label "商品の説明"
             %span.main-content__item__body__sell-content__form-group__require
@@ -82,21 +79,21 @@
             配送について
           = link_to "?", "#", class: "main-content__item__body__sell-content-float__qestion"
           .main-content__item__body__sell-content-float__form-box
-            .main-content__item__body__sell-content-float__form-box__form-group
+            .main-content__item__body__sell-content-float__form-box__form-group#postage-content
               = f.label "配送料の負担"
               %span.main-content__item__body__sell-content-float__form-box__form-group__require
                 必須
               .main-content__item__body__sell-content-float__form-box__form-group__select-wrap
                 = fa_icon "chevron-down", class:"arrow-down-icon"
                 = f.collection_select :postage_id, Postage.all, :id, :name, {}, class: "main-content__item__body__sell-content-float__form-box__form-group__select-wrap__select-box"
-            .main-content__item__body__sell-content-float__form-box__form-group
+            .main-content__item__body__sell-content-float__form-box__form-group#area-content
               = f.label "発送元の地域" 
               %span.main-content__item__body__sell-content-float__form-box__form-group__require
                 必須
               .main-content__item__body__sell-content-float__form-box__form-group__select-wrap
                 = fa_icon "chevron-down", class:"arrow-down-icon"
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {}, class: "main-content__item__body__sell-content-float__form-box__form-group__select-wrap__select-box"
-            .main-content__item__body__sell-content-float__form-box__form-group
+            .main-content__item__body__sell-content-float__form-box__form-group#shipping_date-content
               = f.label "発送までの日数" 
               %span.main-content__item__body__sell-content-float__form-box__form-group__require
                 必須
@@ -109,7 +106,7 @@
           = link_to "?", "#", class: "main-content__item__body__sell-content-float__qestion"
           .main-content__item__body__sell-content-float__form-box
             %ul.main-content__item__body__sell-content-float__form-box__price
-              %li.main-content__item__body__sell-content-float__form-box__price__form-group
+              %li.main-content__item__body__sell-content-float__form-box__price__form-group#item-price
                 .main-content__item__body__sell-content-float__form-box__price__form-group__clearfix
                   .main-content__item__body__sell-content-float__form-box__price__form-group__clearfix__left
                     = f.label "価格"

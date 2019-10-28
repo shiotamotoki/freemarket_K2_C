@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function(){
+$(document).on('turbolinks:load', function() { 
 
   function buildSize(s) {
     var html = `<option value="${s.id}">${s.name}</option>`
@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
   function sizeHTML() {
     var html = `<label for="item_item_size">サイズ</label>
-    <span class="main-content__item__body__sell-content-float__form-box__form-group__require">必須</span><div class="main-content__item__body__sell-content-float__form-box__form-group__select-wrap" id = size-contents>
+    <span class="main-content__item__body__sell-content-float__form-box__form-group__require">必須</span><div class="main-content__item__body__sell-content-float__form-box__form-group__select-wrap">
     <i class="fa fa-chevron-down arrow-down-icon"></i>
     <select class="main-content__item__body__sell-content-float__form-box__form-group__select-wrap__select-box" name="item[size_id]" id="item_size_id"></select></div>`
     return html
