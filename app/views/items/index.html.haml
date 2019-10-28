@@ -54,7 +54,7 @@
               .price 
                 ¥
                 =i.price.to_s(:delimited, delimiter: ',')
-              
+              =image_tag i.item_images[0].image, alt: 'next', class:'image-box'
               .title-text
                 =i.name
     
