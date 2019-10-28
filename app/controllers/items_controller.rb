@@ -42,7 +42,8 @@ private
 
   def set_item
     @item = Item.find(params[:id])
-
+  end
+  
   def check
     @item = Item.find(1)
   end

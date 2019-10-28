@@ -6,8 +6,8 @@
   .l-content
     %form{action: "#", method: "post",class: "l-content__inner", novalidate: "novalidate"}
       .l-content__inner__in
-        %button{type: "submit",class: "l-content__inner__in__btn",}ログアウト
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
+        = link_to "ログアウト", destroy_user_session_path, method: :delete , class: "l-content__inner__in__btn"
+        
 
 = render "shared/top_page/asaide"
 = render "shared/top_page/footer"
