@@ -16,12 +16,3 @@ development:
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
-
-
-
-production:
- <<: *default
- database: freemarket_k2_c_production
- username: root
- password: <%= ENV['DATABASE_PASSWORD'] %>
- socket: /var/lib/mysql/mysql.sock
