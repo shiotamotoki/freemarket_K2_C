@@ -37,14 +37,14 @@ class ItemsController < ApplicationController
   def edit
   end
 
-
+  def check
+    @item = Item.find(1)
+  end
+  
 private 
 
   def set_item
     @item = Item.find(params[:id])
   end
   
-  def check
-    @item = Item.find(1)
-  end
 end
