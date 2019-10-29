@@ -63,7 +63,6 @@ class ItemsController < ApplicationController
       prefecture_id: item_params[:prefecture_id],
       shipping_date_id: item_params[:shipping_date_id],
       price: item_params[:price],
-      status_id: item_params[:status],
       brand_id: @brand.id,
       user_id: current_user.id,
       status_id: 0
@@ -77,6 +76,8 @@ class ItemsController < ApplicationController
       # 画像は一旦埋め込み 
       image:item_params[:image]
     )
+    
+   
       
     if @item.save 
       # 商品詳細ページへ遷移 
