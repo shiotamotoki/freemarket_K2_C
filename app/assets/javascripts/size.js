@@ -29,24 +29,23 @@ $(document).on('turbolinks:load', function() {
     if ($('#item_size_id').length == 0) {
       $('#size-content').append(sizeHTML() );
       $('#brand-content').append(brandHTML());
-    }
-
-    $.ajax({
-      url: '/items/size',
-      type: "GET",
-      data: { parent_id: 1 },
-      dataType: 'json'
-    })
-    .done(function(size) { 
-      size.forEach(function (size) {
-        var html = buildSize(size);
-        $('#item_size_id').append(html);
+    
+      $.ajax({
+        url: '/items/size',
+        type: "GET",
+        data: { parent_id: 1 },
+        dataType: 'json'
+      })
+      .done(function(size) { 
+        size.forEach(function (s) {
+          var html = buildSize(s);
+          $('#item_size_id').append(html);
+        });
+      })
+      .fail(function() {
+        
       });
-    })
-    .fail(function() {
-      
-    });
-
+   }
   });
 
 });

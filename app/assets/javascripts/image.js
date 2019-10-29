@@ -54,9 +54,4 @@ $(document).on('turbolinks:load', function() {
     });
     $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").addClass("have-item-0");
   });
-
-  // $(".main-content__item__body").submit(function(){
-
-
-  // });
 });

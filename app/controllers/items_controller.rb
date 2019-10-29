@@ -24,10 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    
-    # logger.debug new_image_params[:imege]
-
-
     # カテゴリーIDの値の設定
     category = ""      
     if item_params[:third_category_id].blank? 
@@ -52,7 +48,6 @@ class ItemsController < ApplicationController
       @brand.id = 1
     end
 
-
     @item = Item.new(
       name: item_params[:name],
       description: item_params[:description],
@@ -68,20 +63,13 @@ class ItemsController < ApplicationController
       status_id: 0
     )
    
-    # @item.item_images.build(
-    #   # 画像は一旦埋め込み 
-    #   image:"https://static.mercdn.net/thumb/photos/m39106015049_1.jpg?1558957377"
-    # )
     @item.item_images.build(
-      # 画像は一旦埋め込み 
       image:item_params[:image]
     )
-    
-   
       
     if @item.save 
       # 商品詳細ページへ遷移 
-      redirect_to root_path, notice: '出品が完了しました'
+      redirect_to @item, notice: '出品が完了しました'
     else
       redirect_to root_path, notice: '出品に失敗しました。'
     end
@@ -133,7 +121,4 @@ class ItemsController < ApplicationController
     ).merge(user_id: current_user.id)
   end
   
-  def new_image_params()
-    params.require[:image].permit(:image)
-  end
 end

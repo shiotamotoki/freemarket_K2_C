@@ -13,7 +13,6 @@ $(document).on('turbolinks:load', function() {
     return html
   }
 
- 
   $(document).on("change", "#item_category_id", function () {
     var parentId = $(this).val();
     if (parentId != "0" && parentId != ""){
@@ -30,6 +29,7 @@ $(document).on('turbolinks:load', function() {
         } else {
           $('#item_second_category_id').empty();
           $('#item_second_category_id').append(`<option value="">---</option>`);
+          $('#item_contents_third_category_id').remove();
         }
         children.forEach(function (child) {
           var html = buildChildren(child);
@@ -67,25 +67,16 @@ $(document).on('turbolinks:load', function() {
         var html = buildChildren(grandchild);
         $('#item_third_category_id').append(html);
       });
+      if (grandchildren.length==0)
+      {
+        $('#item_contents_third_category_id').remove();
+      }
     })
     .fail(function() {
 
     });
   });
 
-  $('#price_calc').on('input', function(){
-    var data = $('#price_calc').val();
-    var profit = Math.round(data * 0.9)
-    var fee = (data - profit) 
-    $('#fee-area').html(fee)
-    $('#fee-area').prepend('¥') 
-    $('#profit-area').html(profit)
-    $('#profit-area').prepend('¥')
-    $('#price').val(profit)
-    if(profit == '') {
-    $('#profit-area').html('ー');
-    $('#fee-area').html('ー');
-    }
-  })
+
 
 });

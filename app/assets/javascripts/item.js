@@ -78,11 +78,11 @@ $(document).on('turbolinks:load', function() {
     }
 
     // 価格
-    if ($('#price_calc').val() == "" ||($('#price_calc').val() < 300 && $('#price_calc').val() < 10000000)){
+    if (isNaN($('#price_calc').val())||$('#price_calc').val() == "" ||($('#price_calc').val() < 300 && $('#price_calc').val() < 10000000)){
       $('#item-price').append(buildErrMsg("300以上9999999以下で入力してください","sell-content-float"));
       errFlg = false;
     }
-
+    // 画像
     if ($(".main-content__item__body__image-upload__clearfix__container__images").hasClass("have-item-0")) {
       $('.main-content__item__body__image-upload__error-text').remove();
       var errorText = `<ul class="main-content__item__body__image-upload__error-text">
@@ -96,4 +96,19 @@ $(document).on('turbolinks:load', function() {
       
     }
   );
+  // 利益・手数料の計算
+  $('#price_calc').on('input', function(){
+    var data = $('#price_calc').val();
+    var profit = Math.round(data * 0.9)
+    var fee = (data - profit) 
+    $('#fee-area').html(fee)
+    $('#fee-area').prepend('¥') 
+    $('#profit-area').html(profit)
+    $('#profit-area').prepend('¥')
+    $('#price').val(profit)
+    if(profit == '') {
+    $('#profit-area').html('ー');
+    $('#fee-area').html('ー');
+    }
+  })
 });
