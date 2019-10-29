@@ -2,13 +2,13 @@
 .fieldspace
 .item-box
   .item-title
-    %h2= @item.name
+    %h2 商品名
   .item-messeage
-    %h2= @item.description
+    %h2 商品名
   .item-inline-box
     .item-photos
       .item-photos__main-img
-        = image_tag @item_images[@item.id-1].image ,size: "300x300" 
+        = image_tag '600.png' ,size: "300x300"
       .item-photos__sub-img
         .item-photos__sub-img__sub1
           = image_tag '300.png' ,size: "60x60"
@@ -28,111 +28,97 @@
             %th.item-detail-table__detail-table__tbody__th
               出品者
             %td.item-detail-table__detail-table__tbody__td
-              = @users[@item.user_id-1].nickname
+              出品者のID名
               .item-detail-table__detail-table__tbody__td__rating
                 .item-detail-table__detail-table__tbody__td__icon
                   = fa_icon "google", class: "good-icon"
                   %span.item-detail-table__detail-table__tbody__td__icon__num
-                    = @user_evaluations[@item.user_id-1].good
+                    100
                 .item-detail-table__detail-table__tbody__td__icon
                   = fa_icon  "google", class: "normal-icon"
                   %span.item-detail-table__detail-table__tbody__td__icon__num
-                    = @user_evaluations[@item.user_id-1].normal
+                    50
                 .item-detail-table__detail-table__tbody__td__icon
                   = fa_icon  "google", class: "bad-icon"
                   %span.item-detail-table__detail-table__tbody__td__icon__num
-                    = @user_evaluations[@item.user_id-1].bad
+                    10
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               カテゴリー
             %td.item-detail-table__detail-table__tbody__td
               %span.item-category
-                = @categories[@item.category_id-1].name
+                カテゴリー
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               ブランド
             %td.item-detail-table__detail-table__tbody__td
               = link_to "ブランド名", root_path, method: :get, class: "brand-name link"
-              = @brands[@item.brand_id-1].name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               商品のサイズ
             %td.item-detail-table__detail-table__tbody__td
               %span.item-size
-                = @item.size.name
+                XS
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               商品の状態
             %td.item-detail-table__detail-table__tbody__td
               %span.item-condition
-                =@item.condition.name
+                美品
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送料の負担
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-charge
-                = @item.postage.name
+                落札者が負担
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送の方法
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-method
-                らくらくメルカリ便
+                佐川郵便
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送元地域
             %td.item-detail-table__detail-table__tbody__td
               = link_to "配送地域", root_path, method: :get, class: "prefecture link"
-              =@item.prefecture.name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               発送日の目安
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-date
-                =@item.shipping_date.name
+                1日から2日
   .item-price-box
     .item-price-box__box
       %span.item-price-box__box--price
-        ¥
-        =@item.price
+        ¥1,000
       %span.item-price-box__box--tax
         （税込）
       %span.item-price-box__box--shipping-charge
         送料込み
-  = link_to "購入画面に進む", check_items_path, class: "buy-btn btn-red"
   / 説明文
   .item-explain__description
     %p.item-explain__description-inner
-      = @item.description
-    / いいねボタン、不適切ボタン
-    .item-explain__item-btn
-      .item-explain__item-btn__left
-        .item-explain__item-btn__left__like-btn
-          = fa_icon "heart", class: "like-icon"
-          %span.item-explain__item-btn__left__like-btn__text
-            いいね!
-          %span.item-explain__item-btn__left__like-btn__num
-            9
-        .item-explain__item-btn__left__report
-          = link_to root_path, method: :get, class: "link" do
-            = fa_icon "flag", class: "item-explain__item-btn__left__report__icon"
-            %span.item-explain__item-btn__left__report__text
-              不適切な商品の報告
-      .item-explain__item-btn__right
-        = link_to root_path, method: :get, class: "item-explain__item-btn__right__icon link" do
-          = fa_icon "flock"
-          %span.item-explain__item-btn__right__text
-            あんしん・あんぜんへの取り組み
+      商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介
+      商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介
+      商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介
+    
       / 商品へのコメント
   .item-space-box1
+    /btn-box
   .item-space-box2
+  .item-btn-box
+    = button_to "商品の編集", root_path, class: "item-btn-box__btn item-btn-box__btn--red"
+    .item-btn-box__text　or
+    = button_to "この商品を削除する", item_path(7), method: :delete, class: "item-btn-box__btn item-btn-box__btn--gray" 
+  .item-space-box2
+
   .item-comment-box
     .item-space-box1
     .item-comment-box__form__text
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     .item-space-box1
     .item-comment-box__form__textarea
-      %input{type: "textarea", class: "input-box-form"}
     .item-space-box1
   = button_to "コメントする", root_path, class: "comment-btn btn-gray"
   .item-space-box1
@@ -161,65 +147,7 @@
       %li.item-sns__list__icon
         = link_to root_path, class: "link social-link" do
           = fa_icon "pinterest-square", class: "item-sns__list__icon--pinterest"
-
   .item-space-box2
   .item-space-box2
   .item-space-box2
   .item-space-box2
-  .item-other
-    %section.item-other__user-items
-      %h2.item-other__user-items__head
-        = link_to @users[@item.user_id-1].nickname+"さん　その他の商品", root_path, class: "link item-link"
-      .item-other__user-items__content
-        - @other_items.each do |other_item|
-          %section.item-other__user-items__content__box
-            = link_to  item_path(other_item.id), class: "linkblack item-link" do
-              .item-other__user-items__content__box__photo
-                = image_tag @item_images[other_item.id-1].image , class: "item-image"
-                %h3.item-other__user-items__content__box__itemname__name
-                  = other_item.name
-                .item-other__user-items__content__box__itemname__num
-                  .item-other__user-items__content__box__itemname__num__price
-                    ¥
-                    = other_item.price
-                  .item-other__user-items__content__box__itemname__num__likes
-                    = fa_icon "heart", class: "like-icon"
-                    %span.item-other__user-items__content__box__itemname__num__likes__num
-                      10
-  .item-space-box2
-  .item-space-box2
-  .item-space-box2
-  .item-space-box2
-  .item-other
-    %section.item-other__user-items
-      %h2.item-other__user-items__head
-        = link_to "#{@brands[@item.brand_id-1].name}(同じカテゴリ) その他の商品", root_path, class: "link item-link"
-      .item-other__user-items__content
-        - @same_items.each do |same_item|
-          %section.item-other__user-items__content__box
-            = link_to  item_path(same_item.id), class: "linkblack item-link" do
-              .item-other__user-items__content__box__photo
-                = image_tag @item_images[same_item.id-1].image , class: "item-image"
-                %h3.item-other__user-items__content__box__itemname__name
-                  = same_item.name
-                .item-other__user-items__content__box__itemname__num
-                  .item-other__user-items__content__box__itemname__num__price
-                    ¥
-                    = same_item.price
-                  .item-other__user-items__content__box__itemname__num__likes
-                    = fa_icon "heart", class: "like-icon"
-                    %span.item-other__user-items__content__box__itemname__num__likes__num
-                      10
-
-%ul.item-bottom
-  %li.item-bottom-text1
-    = link_to root_path, class: "link" do
-      %span
-        メルカリ　
-  %li.item-bottom-text2
-    %span
-      商品名
-      = fa_icon "angle-right"                 
-.fieldspace
-= render "shared/top_page/asaide"
-= render "shared/top_page/footer"

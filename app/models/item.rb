@@ -34,5 +34,4 @@ class Item < ApplicationRecord
                                     less_than_or_equal_to: 9999999,
                                     message: 'は300以上9999999以下で入力してください' }
                                     
-
 end
