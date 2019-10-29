@@ -7,20 +7,19 @@ class CreditCardsController < ApplicationController
     redirect_to action: "show" if @credit_card.exists?
   end
 
-  def pay 
-    Payjp.api_key = ENV["PAYJP_ACCESS_KEY"]
-    # if params['payjp-token'].blank?
-    #   redirect_to action: "new"
-    # else
-    #   customer = Payjp::Customer.create(
-    #   card: params['payjp-token'],
-    #   @credit_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-    #     if @credit_card.save
-    #       redirect_to action: "show"
-    #     else
-    #       redirect_to action: "pay"
-    #     end
-    # end
+  def pay
+    Payjp.api_key = "sk_test_5afee9103d42c78572702ce6"
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(card: params['payjp-token'])
+      @credit_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @credit_card.save
+        redirect_to action: "show"
+      else
+        redirect_to action: "pay"
+      end
+    end
   end
 
   def show 
