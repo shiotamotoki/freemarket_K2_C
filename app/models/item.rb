@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage
   belongs_to_active_hash :shippingdate
   belongs_to_active_hash :clothingsize
-  belongs_to_active_hash :shoessize
+  belongs_to_active_hash :size
 
   # バリデーション
   validates :name, length: { in: 1..40 }
@@ -33,5 +33,6 @@ class Item < ApplicationRecord
                                     greater_than_or_equal_to: 300,
                                     less_than_or_equal_to: 9999999,
                                     message: 'は300以上9999999以下で入力してください' }
+                                    
 
 end

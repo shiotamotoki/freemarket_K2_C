@@ -93,7 +93,7 @@ class ItemsController < ApplicationController
   end
 
   def size
-    @shoessize = Shoessize.all
+    @size = Size.all
     respond_to do |format|
       format.html
       format.json
