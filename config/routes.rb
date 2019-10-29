@@ -47,9 +47,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :show, :new, :destroy, :edit] do
+  resources :items, only: [:index, :show, :new, :destroy, :edit, :create] do
     collection do
       get "check", to: "items#check"
+      get 'child_category'
+      get 'grandchild_category'
+      get 'size'
     end
   end
 
