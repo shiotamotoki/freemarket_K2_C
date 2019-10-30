@@ -20,17 +20,7 @@ Rails.application.routes.draw do
       post 'users/new5(.:format)' => 'devise/registrations#new5'      
     end
 
-  #root to: 'ok#index'
   root to: 'items#index'
- 
-
-  #get 'itemsshow' => 'items#show'
-  #get 'users/logout' => 'users#logout'
-  #get 'users/credit' => 'users#credit'
-  #get 'itemscheck' => 'items#check'
-  #get 'itemsindex' => 'items#index'
-  #get 'items/:id' => 'items#show'
-
   get 'mypages' => 'mypages#index'
   get 'itemsshow' => 'items#show'
   get 'users/logout' => 'users#logout'

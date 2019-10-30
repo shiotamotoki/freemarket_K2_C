@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_061712) do
+ActiveRecord::Schema.define(version: 2019_10_29_154628) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_10_23_061712) do
     t.string "path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_10_23_061712) do
     t.text "description"
     t.bigint "category_id", null: false
     t.integer "size_id"
-    t.bigint "brand_id", default: 0
+    t.bigint "brand_id"
     t.integer "condition_id", null: false
     t.integer "postage_id", null: false
     t.integer "prefecture_id", null: false
@@ -96,6 +98,11 @@ ActiveRecord::Schema.define(version: 2019_10_23_061712) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_personal_informations_on_user_id"
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_evaluations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
