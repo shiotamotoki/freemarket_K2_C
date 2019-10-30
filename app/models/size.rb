@@ -10,3 +10,4 @@ class Size < ActiveHash::Base
     {id: 22, name: '26cm'}, {id: 23, name: '26.5cm'}, {id: 24, name: '27cm'}, {id: 25, name: '27.5cm以上'}
   ]
 end
+
