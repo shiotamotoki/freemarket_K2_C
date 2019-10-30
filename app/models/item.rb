@@ -13,8 +13,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :condition
   belongs_to_active_hash :postage
-  belongs_to_active_hash :shippingdate
-  belongs_to_active_hash :clothingsize
+  belongs_to_active_hash :shipping_date
   belongs_to_active_hash :size
 
   # バリデーション
@@ -22,8 +21,8 @@ class Item < ApplicationRecord
   validates :description, length: { in: 1..1000 }
   validates :category_id, numericality: {message: 'を選択してください'}
   validates :size_id, numericality: {message: 'を選択してください'}, allow_nil: true
-  validates :status_id, presence: {
-    if: proc { |d| d.status_id == nil },
+  validates :status, presence: {
+    if: proc { |d| d.status == nil },
     message: 'を選択してください' 
   }
   validates :postage_id, exclusion: {in: %w(---), message: 'を選択してください'}

@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit]
 
   def index
-    @items = Item.all.limit(50)
+    @items = Item.limit(50)
   end
 
 
@@ -86,7 +86,7 @@ class ItemsController < ApplicationController
       price: item_params[:price],
       brand_id: @brand.id,
       user_id: current_user.id,
-      status_id: 0
+      status: 0
     )
    
     @item.item_images.build(
