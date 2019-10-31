@@ -1,0 +1,84 @@
+.item-box{
+  background-color: #fff;
+  width: 700px;
+  margin-left: 530px;
+}
+
+.item-btn-box{
+  background: #fff;
+  padding: 8px 16px 8px 16px;
+  border-style: solid;
+  border-width: 0;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: inherit;
+  display: block;
+  &__btn {
+    margin: 16px 0 16px 0;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    &--red{
+      background: #ea352d;
+    }
+    &--gray{
+      background: #aaa;
+    }
+  }
+  &__text{
+    font-size: 16px;
+    text-align: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    line-height: inherit;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+}
+
+.comment-btn {
+  display: block;
+  width: 650px;
+  text-align: center;
+  margin: 0 auto;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;;
+  font-weight: 600;
+}
+
+.item-comment-box{
+  background-color: #fff;
+  width: 700px;
+  margin: 0 auto;
+  &__form {
+    &__text {
+      margin: 0 auto;
+      width: 650px;
+      padding: 8px;
+      background-color: #FFF6DD;
+      font-size: 15px;
+    }
+    &__textarea {
+      width: 650px;
+      height: 100px;
+      padding: 8px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+    }
+    &__submit {
+      width: 100%;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+    }
+  }

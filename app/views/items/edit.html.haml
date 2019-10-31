@@ -1,0 +1,153 @@
+= render "shared/top_page/header"
+.fieldspace
+.item-box
+  .item-title
+    %h2 商品名
+  .item-messeage
+    %h2 商品名
+  .item-inline-box
+    .item-photos
+      .item-photos__main-img
+        = image_tag '600.png' ,size: "300x300"
+      .item-photos__sub-img
+        .item-photos__sub-img__sub1
+          = image_tag '300.png' ,size: "60x60"
+        .item-photos__sub-img__sub2
+          = image_tag '600.png' ,size: "60x60"
+        .item-photos__sub-img__sub3
+          = image_tag '300.png' ,size: "60x60"
+        .item-photos__sub-img__sub4
+          = image_tag '600.png' ,size: "60x60"
+        .item-photos__sub-img__sub5
+          = image_tag '300.png' ,size: "60x60" 
+    .item-center-space
+    .item-detail-table
+      %table.item-detail-table__detail-table
+        %tbody.item-detail-table__detail-table__tbody
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              出品者
+            %td.item-detail-table__detail-table__tbody__td
+              出品者のID名
+              .item-detail-table__detail-table__tbody__td__rating
+                .item-detail-table__detail-table__tbody__td__icon
+                  = fa_icon "google", class: "good-icon"
+                  %span.item-detail-table__detail-table__tbody__td__icon__num
+                    100
+                .item-detail-table__detail-table__tbody__td__icon
+                  = fa_icon  "google", class: "normal-icon"
+                  %span.item-detail-table__detail-table__tbody__td__icon__num
+                    50
+                .item-detail-table__detail-table__tbody__td__icon
+                  = fa_icon  "google", class: "bad-icon"
+                  %span.item-detail-table__detail-table__tbody__td__icon__num
+                    10
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              カテゴリー
+            %td.item-detail-table__detail-table__tbody__td
+              %span.item-category
+                カテゴリー
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              ブランド
+            %td.item-detail-table__detail-table__tbody__td
+              = link_to "ブランド名", root_path, method: :get, class: "brand-name link"
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              商品のサイズ
+            %td.item-detail-table__detail-table__tbody__td
+              %span.item-size
+                XS
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              商品の状態
+            %td.item-detail-table__detail-table__tbody__td
+              %span.item-condition
+                美品
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              配送料の負担
+            %td.item-detail-table__detail-table__tbody__td
+              %span.shipping-charge
+                落札者が負担
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              配送の方法
+            %td.item-detail-table__detail-table__tbody__td
+              %span.shipping-method
+                佐川郵便
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              配送元地域
+            %td.item-detail-table__detail-table__tbody__td
+              = link_to "配送地域", root_path, method: :get, class: "prefecture link"
+          %tr.item-detail-table__detail-table__tbody__tr
+            %th.item-detail-table__detail-table__tbody__th
+              発送日の目安
+            %td.item-detail-table__detail-table__tbody__td
+              %span.shipping-date
+                1日から2日
+  .item-price-box
+    .item-price-box__box
+      %span.item-price-box__box--price
+        ¥1,000
+      %span.item-price-box__box--tax
+        （税込）
+      %span.item-price-box__box--shipping-charge
+        送料込み
+  / 説明文
+  .item-explain__description
+    %p.item-explain__description-inner
+      商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介
+      商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介
+      商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介商品の紹介
+    
+      / 商品へのコメント
+  .item-space-box1
+    /btn-box
+  .item-space-box2
+  .item-btn-box
+    = button_to "商品の編集", root_path, class: "item-btn-box__btn item-btn-box__btn--red"
+    .item-btn-box__text　or
+    = button_to "この商品を削除する", item_path(7), method: :delete, class: "item-btn-box__btn item-btn-box__btn--gray" 
+  .item-space-box2
+
+  .item-comment-box
+    .item-space-box1
+    .item-comment-box__form__text
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .item-space-box1
+    .item-comment-box__form__textarea
+    .item-space-box1
+  = button_to "コメントする", root_path, class: "comment-btn btn-gray"
+  .item-space-box1
+  .item-space-box1
+  / 前後ページリンク
+
+  %ul.item-page-link
+    %li.item-page-link__prev
+      = link_to root_path, class: "link" do
+        = fa_icon "angle-left"
+        %span
+          前　似たような商品
+    %li.item-page-link__next
+      = link_to root_path, class: "link" do
+        %span
+          後ろ　似たような商品
+        = fa_icon "angle-right"      
+  .item-sns
+    %ul.item-sns__list
+      %li.item-sns__list__icon
+        = link_to root_path class: "link social-link" do
+          = fa_icon "facebook-square", class: "item-sns__list__icon--facebook"
+      %li.item-sns__list__icon
+        = link_to root_path, class: "link social-link" do
+          = fa_icon "twitter-square", class: "item-sns__list__icon--twitter"
+      %li.item-sns__list__icon
+        = link_to root_path, class: "link social-link" do
+          = fa_icon "pinterest-square", class: "item-sns__list__icon--pinterest"
+  .item-space-box2
+  .item-space-box2
+  .item-space-box2
+  .item-space-box2
