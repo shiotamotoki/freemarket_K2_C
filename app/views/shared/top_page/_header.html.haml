@@ -39,7 +39,7 @@
             %span.list-name マイページ  
         - else
           %li.user-information__list-nologin
-            = link_to before_signup_user_registration_path, class: "list-name-red" do
+            = link_to new_user_registration_path, class: "list-name-red" do
               新規会員登録
           %li.user-information__list-nologin
             = link_to new_user_session_path, class: "list-name-blue" do

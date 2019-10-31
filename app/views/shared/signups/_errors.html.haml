@@ -1,0 +1,5 @@
+- if table.errors.any?
+  - if errors = table.errors.full_messages_for(column.to_sym)
+    %ul.errors-text
+      - errors.each do |error|
+        %li=error        

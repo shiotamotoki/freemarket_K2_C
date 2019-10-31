@@ -1,0 +1,47 @@
+.wrapper
+  .signup__header
+    .signup__header__mercari-logo
+      = link_to image_tag("logo.svg"), root_path
+    .signup__header__progress
+      %ul.progress
+        %li.through
+          会員情報
+          .bubble.bubble-first
+        %li.active
+          電話番号認証
+          .bubble
+        %li
+          お届け先住所入力
+          .bubble
+        %li
+          支払い方法
+          .bubble
+        %li
+          完了
+          .bubble.bubble-last
+  .signup__panel
+    .signup__panel__title
+      %h2 電話番号の確認
+    = form_with model: @user, url: address_signups_path, method: :get, local: true do |form|
+      = form.fields_for :personal_information, @user.personal_information do |i|
+        .signup__panel__field
+          .field
+            %label 携帯電話の番号
+            %br/
+            = i.text_field :phone_number, placeholder: "携帯電話の番号を入力"
+            = render partial: "shared/signups/errors", locals: {table: @user.personal_information, column: "phone_number"}
+            %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            %br/
+            %br/
+          .actions
+            = form.submit "SMSを送信する", class: "btn action-btn"
+            %br/
+          .field
+            %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .field
+            .field__right
+              = link_to user_session, class: "terms__link" do
+                電話番号の確認が必要な理由
+                %span.angle-right
+                  = fa_icon "angle-right"
+  = render "devise/shared/footer"

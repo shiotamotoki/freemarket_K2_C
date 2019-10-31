@@ -8,7 +8,7 @@
   .item-inline-box
     .item-photos
       .item-photos__main-img
-        = image_tag @item_images[@item.id-1].image ,size: "300x300" 
+        = image_tag @item.item_images[0].image ,size: "300x300" 
       .item-photos__sub-img
         .item-photos__sub-img__sub1
           = image_tag '300.png' ,size: "60x60"
@@ -28,32 +28,32 @@
             %th.item-detail-table__detail-table__tbody__th
               出品者
             %td.item-detail-table__detail-table__tbody__td
-              = @users[@item.user_id-1].nickname
+              = @item.user.nickname
               .item-detail-table__detail-table__tbody__td__rating
                 .item-detail-table__detail-table__tbody__td__icon
                   = fa_icon "google", class: "good-icon"
                   %span.item-detail-table__detail-table__tbody__td__icon__num
-                    = @user_evaluations[@item.user_id-1].good
+                    = @item.user.user_evaluation.good
                 .item-detail-table__detail-table__tbody__td__icon
                   = fa_icon  "google", class: "normal-icon"
                   %span.item-detail-table__detail-table__tbody__td__icon__num
-                    = @user_evaluations[@item.user_id-1].normal
+                    = @item.user.user_evaluation.normal
                 .item-detail-table__detail-table__tbody__td__icon
                   = fa_icon  "google", class: "bad-icon"
                   %span.item-detail-table__detail-table__tbody__td__icon__num
-                    = @user_evaluations[@item.user_id-1].bad
+                    = @item.user.user_evaluation.bad
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               カテゴリー
             %td.item-detail-table__detail-table__tbody__td
               %span.item-category
-                = @categories[@item.category_id-1].name
+                = @item.category.name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               ブランド
             %td.item-detail-table__detail-table__tbody__td
               = link_to "ブランド名", root_path, method: :get, class: "brand-name link"
-              = @brands[@item.brand_id-1].name
+              = @item.brand.name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               商品のサイズ
@@ -169,7 +169,7 @@
   .item-other
     %section.item-other__user-items
       %h2.item-other__user-items__head
-        = link_to @users[@item.user_id-1].nickname+"さん　その他の商品", root_path, class: "link item-link"
+        = link_to @item.user.nickname+"さん　その他の商品", root_path, class: "link item-link"
       .item-other__user-items__content
         - @other_items.each do |other_item|
           %section.item-other__user-items__content__box
@@ -193,7 +193,7 @@
   .item-other
     %section.item-other__user-items
       %h2.item-other__user-items__head
-        = link_to "#{@brands[@item.brand_id-1].name}(同じカテゴリ) その他の商品", root_path, class: "link item-link"
+        = link_to "#{@item.brand.name}(同じカテゴリ) その他の商品", root_path, class: "link item-link"
       .item-other__user-items__content
         - @same_items.each do |same_item|
           %section.item-other__user-items__content__box

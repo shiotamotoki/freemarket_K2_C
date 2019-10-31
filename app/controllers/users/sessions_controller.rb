@@ -1,7 +1,22 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  protect_from_forgery :except => [:new, :create]
   # before_action :configure_sign_in_params, only: [:create]
+  def new
+    @user = User.new
+  end
+
+  def create
+    if verify_recaptcha
+      super
+    else
+      self.resource = resource_class.new
+      respond_with_navigational(resource) { render :new }
+    end
+  end
+
+    
 
   # GET /resource/sign_in
   # def new
