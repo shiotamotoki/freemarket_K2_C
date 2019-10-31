@@ -5,7 +5,7 @@
     %section.main-content__item
       %h2.main-content__item__head
         商品の情報を入力
-      = form_with model: [@image,@item], local: true, class: "main-content__item__body" do |f|
+      = form_with model: @item, local: true, class: "main-content__item__body" do |f|
         .main-content__item__body__image-upload
           %h3.main-content__item__body__image-upload__head
             出品画像
@@ -17,12 +17,14 @@
             .main-content__item__body__image-upload__clearfix__container
               .main-content__item__body__image-upload__clearfix__container__images.have-item-0
                 %ul.main-content__item__body__image-upload__clearfix__container__images__ul
+
             .main-content__item__body__image-upload__clearfix__dropbox.have-item-0
-              = f.label "file-upload", class: "main-content__item__body__image-upload__clearfix__dropbox__file-container" do
-                = f.file_field :image, id: "item_file-upload", class: "main-content__item__body__image-upload__clearfix__dropbox__file-container__upload"
-                %pre.main-content__item__body__image-upload__clearfix__dropbox__file-container__visible
-                  ドラッグアンドドロップ
-                  またはクリックしてファイルをアップロード
+              = f.fields_for :item_images do |i|
+                = i.label "file-upload", for: "item_file-upload", class: "main-content__item__body__image-upload__clearfix__dropbox__file-container" do
+                  = i.file_field :image, name: "item[item_images_attributes][0][image][]", multiple: true, id: "item_file-upload", class: "main-content__item__body__image-upload__clearfix__dropbox__file-container__upload"
+                  %pre.main-content__item__body__image-upload__clearfix__dropbox__file-container__visible
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
         .main-content__item__body__sell-content
           .main-content__item__body__sell-content__form-group#item-name
             = f.label "商品名"

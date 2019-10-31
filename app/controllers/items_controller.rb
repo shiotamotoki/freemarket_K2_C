@@ -25,14 +25,14 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     if item.user_id == current_user.id
-     item.destroy
-     redirect_to root_path and return
+      item.destroy
+      redirect_to root_path and return
     else
     
     flash[:alert] = '削除出来ませんでした'
-     redirect_to action: 'edit' 
+      redirect_to action: 'edit' 
     end
-   end
+  end
 
   def edit
   end
@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
 
     # ブランドIDの値の設定
     if item_params[:name].blank?
-       @brand.save
+      @brand.save
     else
       # ID:1 は未入力
       @brand.id = 1
@@ -88,12 +88,12 @@ class ItemsController < ApplicationController
       user_id: current_user.id,
       status: 0
     )
-   
+
     @item.item_images.build(
       image:item_params[:image]
     )
       
-    if @item.save 
+    if @item.save
       # 商品詳細ページへ遷移 
       redirect_to @item, notice: '出品が完了しました'
     else
@@ -151,5 +151,7 @@ class ItemsController < ApplicationController
     ).merge(user_id: current_user.id)
   end
 
-  
+  def images_params
+    params.require(:image).permit(image: [])
+  end
 end
