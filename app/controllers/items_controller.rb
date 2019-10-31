@@ -68,10 +68,10 @@ class ItemsController < ApplicationController
 
     # ブランドIDの値の設定
     if item_params[:name].blank?
-       @brand.save
+      @brand.id = 1
     else
       # ID:1 は未入力
-      @brand.id = 1
+      @brand.save
     end
 
     @item = Item.new(
