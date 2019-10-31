@@ -8,7 +8,7 @@
   .item-inline-box
     .item-photos
       .item-photos__main-img
-        = image_tag @item.item_images[0].image ,size: "300x300" 
+        = image_tag @item.item_images[0].image.url ,size: "300x300" 
       .item-photos__sub-img
         .item-photos__sub-img__sub1
           = image_tag '300.png' ,size: "60x60"
@@ -175,7 +175,7 @@
           %section.item-other__user-items__content__box
             = link_to  item_path(other_item.id), class: "linkblack item-link" do
               .item-other__user-items__content__box__photo
-                = image_tag @item_images[other_item.id-1].image , class: "item-image"
+                = image_tag other_item.item_images[0].image.url , class: "item-image"
                 %h3.item-other__user-items__content__box__itemname__name
                   = other_item.name
                 .item-other__user-items__content__box__itemname__num
