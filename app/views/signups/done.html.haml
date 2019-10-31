@@ -1,0 +1,31 @@
+.signin
+  .signup__header
+    .signup__header__mercari-logo
+      = link_to image_tag("logo.svg"), root_path
+    .signup__header__progress
+      %ul.progress
+        %li.through
+          会員情報
+          .bubble.bubble-first
+        %li.through
+          電話番号認証
+          .bubble
+        %li.through
+          お届け先住所入力
+          .bubble
+        %li.through
+          支払い方法
+          .bubble
+        %li.active
+          完了
+          .bubble.bubble-last
+  .signup__panel
+    .signup__panel__title
+      %h2 会員登録完了
+    .signup__panel__field.last__field
+      %p ありがとうございます。
+      %p 会員登録が完了しました。
+      %br/
+      .actions
+        = button_to "メルカリを始める", root_path, method: :get, class: "btn action-btn"
+  = render "devise/shared/footer"

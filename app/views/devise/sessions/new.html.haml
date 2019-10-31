@@ -3,8 +3,8 @@
   .signin__panel
     .signin__panel__signup
       %p アカウントをお持ちでない方はこちら
-      = button_to "新規会員登録", before_signup_user_registration_path, class: "signup-btn"
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = button_to "新規会員登録",registration_signups_path, class: "signup-btn"
+    = form_with model: @user, url: user_session_path, method: :post,local: true do |form|
       .signin__panel__field
         = button_to new_user_registration_path, class: "btn facebook-btn" do
           %span.facebook-icon
@@ -16,10 +16,13 @@
           Googleでログイン
         .fieldspace
         .field
-          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
+          = form.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"        
         .field
-          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
+          = form.password_field :password, autocomplete: "current-password", placeholder: "パスワード" 
+        .field
+          = recaptcha_tags
+
         .actions
-          = f.submit "ログイン", class: "btn action-btn"
+          = form.submit "ログイン", class: "btn action-btn"
         = link_to "パスワードをお忘れの方", new_user_registration_path, class: "terms__link"
   = render "devise/shared/footer"

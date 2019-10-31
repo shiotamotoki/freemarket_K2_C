@@ -1,10 +1,21 @@
-
+#user_personal_information_attributes_prefecture_id {
+  height: 47px;//箱の高さ
+  width: 320px;//箱の横幅
+  padding: 10px 16px 8px;//select_box内の文字を適切な位置へ
+  margin-top: 8px;//箱の上部に余白を与える
+  border-radius: 4px;//箱の角を滑らかに
+  border: 1px solid #ccc;//箱の線のスタイル
+  background-color: #fff;//箱の背景色
+  font-size: 16px;//文字の大きさ
+}
 
 .wrapper{
   background-color: #f5f5f5;
 }
 
-
+.errors-text {
+  color: red;
+}
 
 .btn {
   font-size: 14px;

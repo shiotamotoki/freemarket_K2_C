@@ -62,6 +62,18 @@ Rails.application.routes.draw do
       post 'pay', to: 'purchase#pay'
     end
   end
+ 
+  resources :signups do
+    collection do
+      get :registration
+      post :registration
+      get :phone
+      get :address
+      get :credit
+      get :done
+    end
+  end
   
   resources :users
 end
+

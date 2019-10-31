@@ -94,6 +94,8 @@ gem 'fog-aws'
 gem 'font-awesome-rails'
 gem 'active_hash'
 gem 'jquery-rails'
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'rails-i18n'
 gem 'payjp'
 gem 'gon'
 gem 'ancestry'

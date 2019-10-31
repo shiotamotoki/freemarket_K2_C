@@ -17,6 +17,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def new
     @user = User.new
     @user.build_personal_information
+    if @user.save
+      redirect_to new2_user_registration_path
+    else
+      @user = User.new(params[:user])
+      render action: :new
+    end
    end
 
    def new2
