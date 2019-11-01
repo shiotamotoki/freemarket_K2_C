@@ -22,7 +22,7 @@
   .signup__panel
     .signup__panel__title
       %h2 住所入力
-    = form_with model: @user, url: credit_signups_path, method: :get, local: true do |form|
+    = form_with model: @user, url: signups_path, method: :post, local: true do |form|
       = form.fields_for :personal_information, @user.personal_information do |i|
         .signup__panel__field.signup__panel__field
           .field

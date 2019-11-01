@@ -113,6 +113,7 @@
             いいね!
           %span.item-explain__item-btn__left__like-btn__num
             9
+
         .item-explain__item-btn__left__report
           = link_to root_path, method: :get, class: "link" do
             = fa_icon "flag", class: "item-explain__item-btn__left__report__icon"
@@ -199,7 +200,7 @@
           %section.item-other__user-items__content__box
             = link_to  item_path(same_item.id), class: "linkblack item-link" do
               .item-other__user-items__content__box__photo
-                = image_tag @item_images[same_item.id-1].image , class: "item-image"
+                = image_tag same_item.item_images[0].image.url , class: "item-image"            
                 %h3.item-other__user-items__content__box__itemname__name
                   = same_item.name
                 .item-other__user-items__content__box__itemname__num

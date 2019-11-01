@@ -1,7 +1,9 @@
 class SignupsController < ApplicationController
   before_action :validates_registration, only: :phone
-  before_action :validates_address, only: :credit
+  before_action :validates_address, only: :create
   
+  require "payjp"
+
   def registration
     @user = User.new
     @user.build_personal_information
@@ -38,12 +40,7 @@ class SignupsController < ApplicationController
     @user.build_personal_information
   end
 
-  def credit
-    @user = User.new
-    @user.build_personal_information
-    @creditcard = CreditCard.new
 
-  end
 
   def create
     @user = User.new(
@@ -53,17 +50,63 @@ class SignupsController < ApplicationController
       password_confirmation: session[:password_confirmation]
     )
     @user.build_personal_information
+    params[:user][:personal_information_attributes][:last_name] = session[:last_name]
+    params[:user][:personal_information_attributes][:first_name] = session[:first_name] 
+    params[:user][:personal_information_attributes][:last_name_kana] = session[:last_name_kana]
+    params[:user][:personal_information_attributes][:first_name_kana] = session[:first_name_kana]
+    params[:user][:personal_information_attributes][:birth] = session[:birth]
+    session[:personal_information_attributes] = user_params[:personal_information_attributes]
     @user.build_personal_information(session[:personal_information_attributes])
     if @user.save
       session[:id] = @user.id
-      redirect_to done_signups_path
+      sign_in User.find(session[:id]) unless user_signed_in?
+      redirect_to credit_signups_path
     else
-      render "/signups/credit"
+      render "/signups/address"
+    end
+  end
+
+  def credit
+    
+    @creditcard = CreditCard.new
+
+  end
+
+  def new
+    gon.payjp_api_key = ENV['PAYJP_ACCESS_KEY']
+    gon.publickey = ENV['PAYJP_PUBLIC_KEY']
+    @credit_card = CreditCard.where(user_id: current_user.id)
+    redirect_to root_path if @credit_card.exists?
+  end
+
+  def pay
+    Payjp.api_key = ENV["PAYJP_ACCESS_KEY"]
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(card: params['payjp-token'])
+      @credit_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @credit_card.save
+        redirect_to root_path
+      else
+        redirect_to action: "pay"
+      end
+    end
+  end
+
+  def show 
+    @credit_card = CreditCard.where(user_id: current_user.id).first
+    if @credit_card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = ENV["PAYJP_ACCESS_KEY"]
+      customer = Payjp::Customer.retrieve(@credit_card.customer_id)
+      @default_card_information = customer.cards.retrieve(@credit_card.card_id)
     end
   end
 
   def done
-    sign_in User.find(session[:id]) unless user_signed_in?
+    # sign_in User.find(session[:id]) unless user_signed_in?
   end
 
   private
