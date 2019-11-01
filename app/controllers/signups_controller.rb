@@ -68,7 +68,10 @@ class SignupsController < ApplicationController
 
   def credit
     
-    @creditcard = CreditCard.new
+    gon.payjp_api_key = ENV['PAYJP_ACCESS_KEY']
+    gon.publickey = ENV['PAYJP_PUBLIC_KEY']
+    @credit_card = CreditCard.where(user_id: current_user.id)
+    redirect_to root_path if @credit_card.exists?
 
   end
 
