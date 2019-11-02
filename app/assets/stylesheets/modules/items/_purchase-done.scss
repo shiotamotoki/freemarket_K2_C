@@ -1,0 +1,88 @@
+.main-contents{
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+    &__head-send{
+      background-color: antiquewhite;
+      text-align: center;
+      padding: 10px 30px;
+        &-msg{
+          color: red;
+          font-size: 15px;
+          font-weight: bold;
+        }
+        &-notice{
+          font-size: 15px;
+        }
+    }
+    &__head-complete{
+      height: 66px;
+      font-size: 15px;
+      font-weight: bold;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    &__item-text{
+      padding: 20px 30px 5px;
+      text-align: center;
+        &-name{
+          font-size: 15px;
+          font-weight: bold;
+          padding: 10px;
+          border-bottom: 1px solid #f5f5f5;
+        }
+    }
+    &__item-price{
+      font-size: 15px;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #f5f5f5;
+        &-yen{
+          display: inline-block;
+          font-size: 18px;
+          font-weight: bold;
+        }
+        &-send{
+          display: inline-block;
+        }
+    }
+    &__address{
+      padding: 20px 0 20px 220px;
+      border-bottom: 1px solid #f5f5f5;
+        &-title{
+          font-weight: bold;
+          padding-bottom: 5px;
+        }
+    }
+    &__payment{
+      padding: 20px 0 20px 220px;
+      border-bottom: 1px solid #f5f5f5;
+        &-title{
+          font-weight: bold;
+          padding-bottom: 5px;
+        }
+        &-num{
+          padding-bottom: 5px;
+        }
+    }
+    &__foot{
+      text-align: center;
+      padding: 20px 0 20px;
+      font-size: 15px;
+        &-title{
+          font-weight: bold;
+        }
+        &-icon{
+          padding: 5px 0;
+        }
+        &-text{
+          padding-bottom: 15px;
+        }
+        &-link{
+          padding-bottom: 20px;
+          font-weight: bold;
+        }
+    }
+}

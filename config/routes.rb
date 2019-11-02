@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show, :new, :destroy, :edit, :create] do
     collection do
-      get "check", to: "items#check"
+      get "check/:id(.:format)", to: "items#check"
       get 'child_category'
       get 'grandchild_category'
       get 'size'
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   resources :purchase, only: [:index] do
     collection do
       get 'index', to: 'purchase#index'
-      get 'done', to: 'purchase#done'
+      get 'done/:id(.:format)', to: 'purchase#done'
     end
     member do
       post 'pay', to: 'purchase#pay'
