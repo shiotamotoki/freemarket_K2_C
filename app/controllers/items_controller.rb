@@ -61,18 +61,28 @@ class ItemsController < ApplicationController
     )
 
     # ブランドIDの値の設定
-    if item_params[:name].blank?
+    if @brand.name.blank?
       @brand.id = 1
     else
       # ID:1 は未入力
       @brand.save
     end
 
+      # ブランドIDの値の設定
+      size=""
+      if item_params[:size_id].blank?
+        size=0
+
+      else
+        # ID:1 は未入力
+        size=item_params[:size_id]
+      end
+
     @item = Item.new(
       name: item_params[:name],
       description: item_params[:description],
       category_id: category,
-      size_id: item_params[:size_id],
+      size_id: size,
       condition_id: item_params[:condition_id],
       postage_id: item_params[:postage_id],
       prefecture_id: item_params[:prefecture_id],
