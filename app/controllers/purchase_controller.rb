@@ -24,6 +24,10 @@ class PurchaseController < ApplicationController
     )
     @item.status = 3
     @item.save
-    redirect_to action: 'done' 
+    redirect_to action: 'done', id: @item.id 
+  end
+
+  def done
+    @item = Item.find(params[:id])
   end
 end

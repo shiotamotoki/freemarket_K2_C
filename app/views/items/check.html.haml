@@ -5,7 +5,7 @@
       %h2.main-container-buy__head 購入内容の確認
       %section.main-container-buy__item
         .main-container-buy__item-inner
-          =image_tag @item.item_images[0].image, class:'main-container-buy__item-inner-image'
+          =image_tag @item.item_images[0].image.url, class:'main-container-buy__item-inner-image'
           %p.main-container-buy__item-inner-name=@item.name
           %form.main-container-buy__item-inner-form{action: pay_purchase_path(@item), method: "POST", novalidate: "novalidate"}
             %p.main-container-buy__item-inner-form-price 
@@ -41,7 +41,7 @@
         .main-container-buy__payment-info
           %h3.main-container-buy__payment-info-title 支払い方法
           %p.main-container-buy__payment-info-text
-            ************1234
+            ************4242
             -# = "**** **** **** " + @default_card_information_last4
             %br/
             12 / 34
