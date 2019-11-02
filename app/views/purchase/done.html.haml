@@ -1,1 +1,53 @@
-%h2 購入が完了しました！
+.container
+  = render "devise/shared/header"
+  .main-contents
+    .main-contents__head
+      .main-contents__head-send
+        .main-contents__head-send-msg 発送をお待ちください
+        .main-contents__head-send-notice 出品者からの発送通知をお待ちください
+      .main-contents__head-complete 購入が完了しました
+    .main-contents__item
+      .main-contents__item-text
+        .main-contents__item-text-img
+          = image_tag @item.item_images[0].image.url ,size: "130x150"
+        .main-contents__item-text-name
+          = @item.name
+      .main-contents__item-price
+        .main-contents__item-price-yen
+          ¥
+          =@item.price.to_s(:delimited, delimiter: ',')
+        .main-contents__item-price-send 送料込み
+    .main-contents__address
+      .main-contents__address-title 配送先
+      %address.main-contents__address-text
+        〒780-0870
+        %br/
+        高知県 高知市
+        本町１ー２
+        %br/
+        = current_user.nickname
+    .main-contents__payment
+      .main-contents__payment-title 支払い方法
+      .main-contents__payment-num
+        ************4242
+        %br/
+        12 / 34
+      .main-contents__payment--card
+        = image_tag 'visa.svg', size:"35x14"
+    .main-contents__foot
+      .main-contents__foot-title 発送通知後の流れ
+      .main-contents__foot-icon
+        = fa_icon "google", class: "good-icon"
+        = fa_icon  "google", class: "normal-icon"
+        = fa_icon  "google", class: "bad-icon"
+      .main-contents__foot-text
+        商品を受け取ったら、
+        %br/
+        出品者の評価をしましょう。
+        %br/
+        購入代金が出品者に振り込まれます。
+        %br/
+        評価後に取引は完了です。
+      %a.main-contents__foot-link{href: '/mypages'}マイページへもどる
+
+  = render "devise/shared/footer"
