@@ -59,6 +59,12 @@ class SignupsController < ApplicationController
     @user.build_personal_information(session[:personal_information_attributes])
     if @user.save
       session[:id] = @user.id
+      UserEvaluation.create(
+        user_id: @user.id,
+        good: 0,
+        normal: 0,
+        bad: 0
+      )
       sign_in User.find(session[:id]) unless user_signed_in?
       redirect_to credit_signups_path
     else
