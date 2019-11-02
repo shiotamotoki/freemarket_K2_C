@@ -1,6 +1,0 @@
-.like_button_on
-  = link_to "いいね済み", likes_delete_path(item_id: @item.id), {method: "post", remote: true}
-  = @like_count
-.like_button
-  = link_to "ハート", likes_create_path(item_id: @item.id), {method: "post", remote: true}
-  = @like_count
