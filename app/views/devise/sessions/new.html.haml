@@ -20,7 +20,7 @@
         .field
           = form.password_field :password, autocomplete: "current-password", placeholder: "パスワード" 
         .field
-          -# = recaptcha_tags
+          = recaptcha_tags
 
         .actions
           = form.submit "ログイン", class: "btn action-btn"
