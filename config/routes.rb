@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'purchase/done'
   get 'credit_cards/new'
   get 'credit_cards/show'
+  post   '/like/:item_id' => 'likes#like',   as: 'like'
+  delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
+
   devise_for :users
 
     devise_scope :user do

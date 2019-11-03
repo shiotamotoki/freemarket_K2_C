@@ -108,11 +108,7 @@
     .item-explain__item-btn
       .item-explain__item-btn__left
         .item-explain__item-btn__left__like-btn
-          = fa_icon "heart", class: "like-icon"
-          %span.item-explain__item-btn__left__like-btn__text
-            いいね!
-          %span.item-explain__item-btn__left__like-btn__num
-            9
+          = render partial: 'items/items'
         .item-explain__item-btn__left__report
           = link_to root_path, method: :get, class: "link" do
             = fa_icon "flag", class: "item-explain__item-btn__left__report__icon"

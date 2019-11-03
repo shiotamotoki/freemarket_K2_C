@@ -1,0 +1,2 @@
+$("<%= @id_name %>").html('<%= escape_javascript(render("likes/like_links", item: @item  )) %>');
+$("<%= @id_heart %>").removeClass('fa-heart-o').addClass('fa-heart');

@@ -8,6 +8,10 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_images
 
   has_many :likes, dependent: :destroy
+  def like_by?(user) #いいねしているかどうか
+    likes.where(user_id: user.id).exists?
+  end
+
   has_one :buyer, dependent: :destroy
   
   belongs_to_active_hash :prefecture
