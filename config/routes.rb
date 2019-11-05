@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'credit_cards/show'
   post   '/like/:item_id' => 'likes#like',   as: 'like'
   delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
+  get "category/:id(.:format)",to: "category#new" ,as: :category
 
   devise_for :users
 
@@ -78,5 +79,6 @@ Rails.application.routes.draw do
   end
   
   resources :users
+  resources :category
 end
 
