@@ -35,6 +35,18 @@
               -webkit-box-flex: 1;
               flex: 1;
             }
+            &__images.have-item-2{
+              -webkit-box-flex: 2;
+              flex: 2;
+            }
+            &__images.have-item-3{
+              -webkit-box-flex: 3;
+              flex: 3;
+            }
+            &__images.have-item-4{
+              -webkit-box-flex: 1;
+              flex: 1;
+            }
             &__images{
               float: left;
               display: block;
@@ -86,6 +98,18 @@
           }
           &__dropbox.have-item-1{
             width: 491px;
+          }
+          &__dropbox.have-item-2{
+            width: 363px;
+          }
+          &__dropbox.have-item-3{
+            width: 234px;
+          }
+          &__dropbox.have-item-4{
+            width: 106px;
+          }
+          &__dropbox.none{
+            display: none;
           }
           &__dropbox{
             float: right;
