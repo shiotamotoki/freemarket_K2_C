@@ -14,26 +14,30 @@ $(document).on('turbolinks:load', function() {
   }
 
   $('#item_file-upload').change(function(){
-    console.log($(this).prop('name'));
-    console.log($(".main-content__item__body__image-upload__clearfix__container__images").prop('class').replace(/[^0-9]/g, ''));
-    $(this).prop('files')[0] = $(this).prop('files')[1];
-    console.log($(this).prop('files'));
+    // console.log($(this).prop('name'));
+    // console.log($(this).prop('files'));
     $('.main-content__item__body__image-upload__error-text').remove();
-    var file = $(this).prop('files')[0];
-    if(!file.type.match('image.jpg|image.jpeg|image.png')){
-      var errorText = `<ul class="main-content__item__body__image-upload__error-text">
-                        <li>ファイル形式はjpeg、またはpngが使用できます</li>
-                      </ul>`;
-      $('.main-content__item__body__image-upload').append(errorText);
-      return;
+    var file = $(this).prop('files');
+    for (var i = 0; i < file.length; i++){
+      if(!file[i].type.match('image.jpg|image.jpeg|image.png')){
+        var errorText = `<ul class="main-content__item__body__image-upload__error-text">
+                          <li>ファイル形式はjpeg、またはpngが使用できます</li>
+                        </ul>`;
+        $('.main-content__item__body__image-upload').append(errorText);
+        return;
+      }
     }
-    $('.main-content__item__body__image-upload__clearfix__container__images__ul').empty();
-    var reader = new FileReader()
-    reader.onload = function(){
-      var imageView = buildHTML(reader.result);
-      $('.main-content__item__body__image-upload__clearfix__container__images__ul').append(imageView);
+    var have = $(".main-content__item__body__image-upload__clearfix__dropbox").prop('class').replace(/[^0-9]/g, '');
+    for (var i = 0; i < file.length; i++){
+      var reader = new FileReader()
+      reader.onload = function(e){
+        var imageView = buildHTML(e.target.result);
+        $('.main-content__item__body__image-upload__clearfix__container__images__ul').append(imageView);
+      }
+      reader.readAsDataURL(file[i]);
+      have++;
     }
-    reader.readAsDataURL(file);
+    
     $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").removeClass(function(index, className){
       var matchClass = className.match(/\bhave-item-\d/g);
       if(matchClass == null){
@@ -42,12 +46,16 @@ $(document).on('turbolinks:load', function() {
         return matchClass.join(' ');
       }
     });
-    $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").addClass("have-item-1");
+    $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").addClass("have-item-"+have);
+    var count = $(".main-content__item__body__image-upload__clearfix__dropbox").prop('class').match(/5/g);
+    console.log(count.length);
   });
 
   $(document).on("click", ".main-content__item__body__image-upload__clearfix__container__images__ul__image__btn__delete", function(){
     $('.main-content__item__body__image-upload__error-text').remove();
     $(this).parent().parent().remove();
+    var have = $(".main-content__item__body__image-upload__clearfix__container__images").prop('class').replace(/[^0-9]/g, '');
+    have--;
     $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").removeClass(function(index, className){
       var matchClass = className.match(/\bhave-item-\d/g);
       if(matchClass == null){
@@ -56,6 +64,6 @@ $(document).on('turbolinks:load', function() {
         return matchClass.join(' ');
       }
     });
-    $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").addClass("have-item-0");
+    $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").addClass("have-item-"+have);
   });
 });

@@ -37,7 +37,7 @@ Rails.application.routes.draw do
       get "credit", to: "mypages#credit"
       get "logout", to: "mypages#logout"
       get "profile", to: "mypages#profile"
-      get "identification", to: "mypages#identification"     
+      get "identification", to: "mypages#identification"
     end
   end
 
