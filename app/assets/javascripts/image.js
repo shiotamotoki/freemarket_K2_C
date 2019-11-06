@@ -14,6 +14,10 @@ $(document).on('turbolinks:load', function() {
   }
 
   $('#item_file-upload').change(function(){
+    console.log($(this).prop('name'));
+    console.log($(".main-content__item__body__image-upload__clearfix__container__images").prop('class').replace(/[^0-9]/g, ''));
+    $(this).prop('files')[0] = $(this).prop('files')[1];
+    console.log($(this).prop('files'));
     $('.main-content__item__body__image-upload__error-text').remove();
     var file = $(this).prop('files')[0];
     if(!file.type.match('image.jpg|image.jpeg|image.png')){
