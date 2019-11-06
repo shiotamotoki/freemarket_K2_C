@@ -18,14 +18,14 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     if item.user_id == current_user.id
-     item.destroy
-     redirect_to root_path and return
+      item.destroy
+      redirect_to root_path and return
     else
     
     flash[:alert] = '削除出来ませんでした'
-     redirect_to action: 'edit' 
+    redirect_to action: 'edit' 
     end
-   end
+  end
 
   def edit
   end
@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
     @item= Item.new
     @parents = Category.where(ancestry: nil) 
     @item.item_images.build
-    
+
   end
 
   def create
@@ -92,7 +92,7 @@ class ItemsController < ApplicationController
       user_id: current_user.id,
       status: 0
     )
-   
+
     @item.item_images.build(
       image:item_params[:image]
     )
@@ -155,5 +155,4 @@ class ItemsController < ApplicationController
     ).merge(user_id: current_user.id)
   end
 
-  
 end
