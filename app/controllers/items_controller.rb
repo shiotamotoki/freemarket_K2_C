@@ -109,7 +109,7 @@ class ItemsController < ApplicationController
 
   end
 
-  def win
+  def brand
     @items = Item.limit(50)
     
   end

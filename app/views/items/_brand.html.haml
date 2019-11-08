@@ -1,9 +1,7 @@
-.category_list
-  .parents_list
-    - @parents.each do |parent|
-      = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
-  .children_list
-    - @children.each do |child|
-      = link_to "#{child.name}", category_path(child), class: "child_category",id: "#{child.id}"
-  .grand_children_list
-
+.brand_list
+  .brands_list
+    = link_to "シャネル", root_path, class: "brand_category",id: "100001"
+    = link_to "ナイキ", root_path, class: "brand_category",id: "100002"
+    = link_to "ルイ　ヴィトン", root_path, class: "brand_category",id: "100003"
+    = link_to "アディダス", root_path, class: "brand_category",id: "100004"
+    = link_to "ブランド一覧", root_path, class: "brand_category",id: "100005"

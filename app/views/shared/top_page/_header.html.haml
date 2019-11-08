@@ -12,14 +12,19 @@
     .header-inner__bottom
       %ul.search-menu
         %li.search-menu__list
-          .category-js{id: "hover-click"}
-            = link_to category_index_path, data: {"turbolinks" => false} do
-              %i.fa.fa-list
-              カテゴリーを探す
+          .search-menu__list__initial
+            .category-js{id: "hover-click"}
+              = link_to category_index_path, data: {"turbolinks" => false} do
+                %i.fa.fa-list
+                カテゴリーを探す
+                = render "items/window"
         %li.search-menu__list
-          = link_to root_path, data: {"turbolinks" => false} do
-            %i.fa.fa-tag.fa-lg
-            ブランドから探す
+          .search-menu__list__initial
+            .brand_js
+              = link_to root_path, data: {"turbolinks" => false} do
+                %i.fa.fa-tag.fa-lg
+                ブランドから探す
+                = render "items/brand"
       %ul.user-information
         - if user_signed_in?
           %li.user-information__list-login
@@ -45,4 +50,5 @@
           %li.user-information__list-nologin
             = link_to new_user_session_path, class: "list-name-blue" do
               ログイン
-    = render "items/window"
+    
+    

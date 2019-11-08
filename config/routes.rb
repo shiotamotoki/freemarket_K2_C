@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post   '/like/:item_id' => 'likes#like',   as: 'like'
   delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
   get "category/:id(.:format)",to: "category#new" ,as: :category
+  # get "items/brand",to:"items#brand", as: :brand
   devise_for :users
 
     devise_scope :user do
