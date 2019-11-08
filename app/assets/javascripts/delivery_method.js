@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function() {
   function buildHTML(input) {
     var options = buildOptions(input)
 
-    var html = `<div class="main-content__item__body__sell-content-float__form-box__form-group" id="postage-content">
+    var html = `
     <label for="item_配送料の方法">配送料の方法</label>
     <span class="main-content__item__body__sell-content-float__form-box__form-group__require">
     必須
@@ -35,18 +35,19 @@ $(document).on('turbolinks:load', function() {
     <select class="main-content__item__body__sell-content-float__form-box__form-group__select-wrap__select-box" name="item[shipping_method_id]" id ="shipping_method_id">
     ${options}</select>
     </div>
-    </div>`
+    `
     return html;
   }
 
   $(document).on("change", "#item_postage_id", function () {
     var input = $(this).val();
-    console.log(input);
+    console.log(0);
     if (input == "0") {
-      $('#shipping_method-content').remove();
+      console.log(1);
+      $('#shipping_method-content').empty();
     }else
     {
-     options =buildHTML(input) ;
+      options =buildHTML(input);
       $('#shipping_method-content').empty();
       $('#shipping_method-content').append(options);
     }
