@@ -41,9 +41,7 @@ $(document).on('turbolinks:load', function() {
 
   $(document).on("change", "#item_postage_id", function () {
     var input = $(this).val();
-    console.log(0);
     if (input == "0") {
-      console.log(1);
       $('#shipping_method-content').empty();
     }else
     {
