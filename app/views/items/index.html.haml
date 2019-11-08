@@ -37,34 +37,8 @@
           %li.category-menu__list
             =link_to "#", class: "category-menu__list__item" do
               おもちゃ・ホビー・グッズ 
-
-  .main-box
-    .main-box__category
-      .main-box__category__bar
-        .main-box__category__bar__title
-          とりあえず全部
-        .main-box__category__bar__link
-          =link_to "#", class: "more-detail-link" do
-            もっと見る
-            %i.fa.fa-chevron-right
-      .main-box__category__content
-        .main-box__category__content__grid
-          - @items.each do |i|
-            =link_to "/items/#{i.id}" do
-              .box
-                .price 
-                  ¥
-                  =i.price.to_s(:delimited, delimiter: ',')
-                - if i.status == 3
-                  .sold-logo
-                - elsif i.status == 2
-                  .stopping-logo
-                =image_tag i.item_images[0].image.url, alt: 'next', class:'image-box'
-                .title-text
-                  =i.name
-
-      
-
+  = render "items/main"  
   = render "shared/top_page/asaide"
   = render "shared/top_page/footer"
+  
   
