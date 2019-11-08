@@ -1,0 +1,41 @@
+= render "shared/top_page/header"
+= render "shared/top_page/sel_button"
+
+.main-body
+  = render "shared/sidebar/sidebar"
+  .mypage-main
+    .mypage-main-top
+      .bought-product-header
+        %p 出品した商品
+      .tabs
+        %ul.tabs-lists
+          %li.tabs-list.tabs-list__in-transaction
+            = link_to '' do
+              %h3.tabs-list__name 出品中
+          %li.tabs-list.tabs-list__past-trading
+            = link_to '' do
+              %h3.tabs-list__name 取引中
+          %li.tabs-list.tabs-list__past-trading
+            = link_to '' do
+              %h3.tabs-list__name 売却済み
+      .tabs-contents
+        - if @item.present?
+          - @item.each do |i|
+            - if i.status == 0
+              - image = ''
+              %ul.contents-lists
+                %li.contents-list
+                  = link_to item_mypage_path(i.id) do
+                    .contents-list-
+                      = image_tag i.item_images[0].image.url , size: '48x48', alt: 'product-image'
+                    .contents-list-main
+                      .contents-list-main__top
+                        =i.name
+                    .list-arrow-icon
+                      %i.fa.fa-chevron-right
+        - else
+          .no-content-box
+            %ul.no-content-list
+              %li.no-content-list__message 売却済の商品がありません
+= render "shared/top_page/asaide"
+= render "shared/top_page/footer"
