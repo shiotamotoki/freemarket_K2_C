@@ -52,8 +52,7 @@
             %th.item-detail-table__detail-table__tbody__th
               ブランド
             %td.item-detail-table__detail-table__tbody__td
-              = link_to "ブランド名", root_path, method: :get, class: "brand-name link"
-              = @item.brand.name
+              = link_to @item.brand.name, root_path, method: :get, class: "brand-name link"
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               商品のサイズ

@@ -1,0 +1,9 @@
+.category_list
+  .parents_list
+    - @parents.each do |parent|
+      = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
+  .children_list
+    - @children.each do |child|
+      = link_to "#{child.name}", category_path(child), class: "child_category",id: "#{child.id}"
+  .grand_children_list
+

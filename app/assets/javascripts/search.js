@@ -1,4 +1,9 @@
 $(function() {
+    $(".category-js").on("mouseenter", function() {
+      $(".category_list").css("visibility", "visible");
+      $(".parents_list").css("visibility", "visible");
+    })
+
   // 子カテゴリーを追加するための処理です。
     function buildChildHTML(child){
       var html =`<a class="child_category" id="${child.id}" 
@@ -6,16 +11,19 @@ $(function() {
       return html;
     }
   
-    $(".parent_category").on("mouseover", function() {
-      var id = this.id//どのリンクにマウスが乗ってるのか取得します
+    $(".parent_category").on("mouseenter", function() {
+      var parentId = this.id//どのリンクにマウスが乗ってるのか取得します
+
       $(".now-selected-red").removeClass("now-selected-red")//赤色のcssのためです
-      $('#' + id).addClass("now-selected-red");//赤色のcssのためです
+      $('#' + parentId).addClass("now-selected-red");//赤色のcssのためです
       $(".child_category").remove();//一旦出ている子カテゴリ消します！
-      $(".grand_child_category").remove();//孫、てめえもだ！
+      $(".grand_child_category").remove();//一旦出ている孫カテゴリ消します！
+      $(".children_list").css("visibility", "visible");
+
       $.ajax({
         type: 'GET',
-        url: '/category/new',//とりあえずここでは、newアクションに飛ばしてます
-        data: {parent_id: id},//どの親の要素かを送ります　params[:parent_id]で送られる
+        url: '/items/child_category',//とりあえずここでは、newアクションに飛ばしてます
+        data: {parent_id: parentId },//どの親の要素かを送ります　params[:parent_id]で送られる
         dataType: 'json'
       }).done(function(children) {
         children.forEach(function (child) {//帰ってきた子カテゴリー（配列）
@@ -32,23 +40,38 @@ $(function() {
       return html;
     }
   
-    $(document).on("mouseover", ".child_category", function () {//子カテゴリーのリストは動的に追加されたHTMLのため
-      var id = this.id
+    $(document).on("mouseenter", ".child_category", function () {//子カテゴリーのリストは動的に追加されたHTMLのため
+      var parentId = $(".now-selected-red").attr('id');   
+      var childId = this.id
       $(".now-selected-gray").removeClass("now-selected-gray");//灰色のcssのため
-      $('#' + id).addClass("now-selected-gray");//灰色のcssのため
+      $('#' + childId).addClass("now-selected-gray");//灰色のcssのため
+      $(".grand_children_list").css("visibility", "visible");
       $.ajax({
         type: 'GET',
-        url: '/category/new',
-        data: {parent_id: id},
+        url: '/items/grandchild_category',
+        data: {parent_id: parentId , child_id: childId},
         dataType: 'json'
       }).done(function(children) {
         children.forEach(function (child) {
           var html = buildGrandChildHTML(child);
           $(".grand_children_list").append(html);
         })
-        $(document).on("mouseover", ".child_category", function () {
+        $(document).on("mouseenter", ".child_category", function () {
           $(".grand_child_category").remove();
         });
       });
     });  
-  });
+
+    $(document).on("mouseenter", ".grand_child_category", function () {//子カテゴリーのリストは動的に追加されたHTMLのため
+      var grand_child= this.id
+      $(".now-selected-gray2").removeClass("now-selected-gray2");//灰色のcssのため
+      $('#' + grand_child).addClass("now-selected-gray2");//灰色のcssのため
+      
+        }); 
+    $(document).on("mouseleave", ".category_list", function () {
+      $(".parents_list").css("visibility", "hidden");
+      $(".children_list").css("visibility", "hidden");
+      $(".grand_children_list").css("visibility", "hidden");
+        });  
+      });
+      

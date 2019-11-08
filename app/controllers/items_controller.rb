@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.limit(50)
+    
   end
 
 
@@ -12,6 +13,7 @@ class ItemsController < ApplicationController
     @item_images = ItemImage.all
     @other_items = Item.where( [ "id != ? and user_id = ?", params[:id], @item.user_id ] ).order("created_at DESC").limit(6)
     @same_items = Item.where( [ "id != ? and user_id != ?", params[:id], @item.user_id ] ).where(brand_id: @item.brand_id ).order("created_at DESC").limit(6)
+    
   end
 
 
@@ -105,6 +107,16 @@ class ItemsController < ApplicationController
     end
 
   end
+
+  def win
+    @items = Item.limit(50)
+    
+  end
+
+
+
+
+
 
   def child_category
     @children = Category.where(ancestry: params[:parent_id])
