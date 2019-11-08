@@ -15,6 +15,10 @@
               .price 
                 ¥
                 =i.price.to_s(:delimited, delimiter: ',')
+              - if i.status == 3
+                .sold-logo
+              - elsif i.status == 2
+                .stopping-logo
               =image_tag i.item_images[0].image.url, alt: 'next', class:'image-box'
               .title-text
                 =i.name
