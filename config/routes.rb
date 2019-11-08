@@ -36,8 +36,15 @@ Rails.application.routes.draw do
       get "credit", to: "mypages#credit"
       get "logout", to: "mypages#logout"
       get "profile", to: "mypages#profile"
-      get "identification", to: "mypages#identification"     
+      get "identification", to: "mypages#identification"
+      get "myitem", to: "mypages#myitem"
     end
+    member do
+      get 'item', to: 'mypages#item'
+      post 'stop', to: 'mypages#stop'
+      post 'start', to: 'mypages#start'
+    end
+    
   end
 
   resources :items, only: [:index, :show, :new, :destroy, :edit, :create] do

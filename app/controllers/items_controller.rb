@@ -89,6 +89,7 @@ class ItemsController < ApplicationController
       postage_id: item_params[:postage_id],
       prefecture_id: item_params[:prefecture_id],
       shipping_date_id: item_params[:shipping_date_id],
+      shipping_method_id: item_params[:shipping_method_id],
       price: item_params[:price],
       brand_id: @brand.id,
       user_id: current_user.id,
@@ -161,6 +162,7 @@ class ItemsController < ApplicationController
     :postage_id,
     :prefecture_id, 
     :shipping_date_id,
+    :shipping_method_id,
     :price,
     :image,
     [item_image_attributes: [:url]]
