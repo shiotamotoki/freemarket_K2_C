@@ -22,7 +22,8 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     if item.user_id == current_user.id
      item.destroy
-     redirect_to root_path and return
+     flash[:alert] = '商品を削除しました'
+     redirect_to mypages_path
     else
     
     flash[:alert] = '削除出来ませんでした'
@@ -113,11 +114,6 @@ class ItemsController < ApplicationController
     @items = Item.limit(50)
     
   end
-
-
-
-
-
 
   def child_category
     @children = Category.where(ancestry: params[:parent_id])

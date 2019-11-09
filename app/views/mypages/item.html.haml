@@ -115,14 +115,14 @@
     = button_to "商品の編集", root_path, class: "item-btn-box__btn item-btn-box__btn--red"
     - if @item.status == 2
       .item-btn-box__text or
-      = link_to "出品を再開する", start_mypage_path(@item.id), method: :stop, class: "item-btn-box__btn item-btn-box__btn--red" 
+      = button_to "出品を再開する", start_mypage_path(@item.id), method: :stop, class: "item-btn-box__btn item-btn-box__btn--red" 
       .item-btn-box__text
-      = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "item-btn-box__btn item-btn-box__btn--gray" 
+      = button_to "この商品を削除する", item_path(@item.id), method: :delete, class: "item-btn-box__btn item-btn-box__btn--gray" 
     - else
       .item-btn-box__text or
-      = link_to "出品を一旦停止する", stop_mypage_path(@item.id), method: :stop, data: { "turbolinks" => false}, class: "item-btn-box__btn item-btn-box__btn--gray" 
+      = button_to "出品を一旦停止する", stop_mypage_path(@item.id), method: :stop, class: "item-btn-box__btn item-btn-box__btn--gray" 
       .item-btn-box__text
-      = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "item-btn-box__btn item-btn-box__btn--gray" 
+      = button_to "この商品を削除する", item_path(@item.id), method: :delete, class: "item-btn-box__btn item-btn-box__btn--gray" 
   .item-space-box2
 
   .item-comment-box
