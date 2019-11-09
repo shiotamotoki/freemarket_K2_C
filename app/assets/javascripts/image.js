@@ -20,12 +20,14 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
   var preview = 1;
+  var images = [];
   $('#item_file-upload').change(function(){
     // console.log($(this).prop('name'));
     // console.log($(this).prop('files'));
     $('.main-content__item__body__image-upload__error-text').children().remove();
     var file = $(this).prop('files');
-    var have = $(".main-content__item__body__image-upload__clearfix__dropbox").prop('class').replace(/[^0-9]/g, '');
+    var have = $(`.main-content__item__body__image-upload__clearfix__container__images[data-preview="${preview}"]`).prop('class').replace(/[^0-9]/g, '');
+    have = Number(have);
     //アップロードされる画像に異常があるか(枚数や拡張子)
     var errorFlg = false;
     if ((preview == 2 && (have+file.length) > 5) || (preview == 1 && (have+file.length) > 10)) {
@@ -44,6 +46,7 @@ $(document).on('turbolinks:load', function() {
     if (errorFlg) {
       return;
     }
+
     for (var i = 0; i < file.length; i++){
       if (have == 5) {
         preview = 2;//haveが5になったらプレビューを2段目に
@@ -57,8 +60,10 @@ $(document).on('turbolinks:load', function() {
         $(`.main-content__item__body__image-upload__clearfix__container__images[data-preview="${preview}"] .main-content__item__body__image-upload__clearfix__container__images__ul`).append(imageView);
       }
       reader.readAsDataURL(file[i]);
+      images.push(file[i]);
       have++;
     }
+    console.log(images);
     $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").removeClass(function(index, className){
       var matchClass = className.match(/\bhave-item-\d/g);
       if(matchClass == null){
@@ -67,13 +72,25 @@ $(document).on('turbolinks:load', function() {
         return matchClass.join(' ');
       }
     });
-    $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").addClass("have-item-"+have);
+    //haveが5の場合はinput:fileのhave-itemを0に戻す
+    if (have == 5) {
+      if (preview == 2) {
+        $(".main-content__item__body__image-upload__clearfix__container__images").addClass("have-item-"+have);
+        $(".main-content__item__body__image-upload__clearfix__dropbox").addClass("have-item-"+have);
+        $(".main-content__item__body__image-upload__clearfix__dropbox").addClass("none");
+      } else {
+        $(".main-content__item__body__image-upload__clearfix__container__images").addClass("have-item-"+have);
+        $(".main-content__item__body__image-upload__clearfix__dropbox").addClass("have-item-0");
+      }
+    } else {
+      $(".main-content__item__body__image-upload__clearfix__container__images, .main-content__item__body__image-upload__clearfix__dropbox").addClass("have-item-"+have);
+    }
     var count = $(".main-content__item__body__image-upload__clearfix__dropbox").prop('class').match(/5/g);
-    console.log(count.length);
+    //console.log(count.length);
   });
 
   $(document).on("click", ".main-content__item__body__image-upload__clearfix__container__images__ul__image__btn__delete", function(){
-    $('.main-content__item__body__image-upload__error-text').remove();
+    $('.main-content__item__body__image-upload__error-text').children().remove();
     $(this).parent().parent().remove();
     var have = $(".main-content__item__body__image-upload__clearfix__container__images").prop('class').replace(/[^0-9]/g, '');
     have--;
