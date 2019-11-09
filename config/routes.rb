@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'credit_cards/show'
   post   '/like/:item_id' => 'likes#like',   as: 'like'
   delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
-  get "category/:id(.:format)",to: "category#new" ,as: :category
-  # get "items/brand",to:"items#brand", as: :brand
+  
+
   devise_for :users
 
     devise_scope :user do
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'users/credit' => 'users#credit'
   get 'itemscheck' => 'items#check'
   get 'itemsindex' => 'items#index'
+  
 
   resources :mypages, only: [:index,:edit]do
     collection do
@@ -86,6 +87,7 @@ Rails.application.routes.draw do
   end
   
   resources :users
-  resources :category
+  resources :category do
+  end  
 end
 
