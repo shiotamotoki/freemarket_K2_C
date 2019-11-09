@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
   end
 
   def check
-    # @item = Item.find(1)
     @item = Item.find(params[:id])
   end
 
