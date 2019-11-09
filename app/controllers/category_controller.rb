@@ -4,6 +4,14 @@ class CategoryController < ApplicationController
     
   end
   
+  def show
+    @items = Item.all
+    @category_id = params[:id]
+    @categories = Category.find(params[:id])
+
+
+
+  end
 
 
 
