@@ -55,6 +55,7 @@ Rails.application.routes.draw do
       get 'child_category'
       get 'grandchild_category'
       get 'size'
+      get 'search'
     end
   end
 

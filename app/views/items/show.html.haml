@@ -80,7 +80,7 @@
               配送の方法
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-method
-                らくらくメルカリ便
+                = @item.shipping_method.name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送元地域
@@ -102,7 +102,11 @@
         （税込）
       %span.item-price-box__box--shipping-charge
         送料込み
-  = link_to "購入画面に進む", "/items/check/#{@item.id}", class: "buy-btn btn-red"
+  - if @item.status == 3
+    .buy-btn.btn-gray
+      売り切れました
+  - else
+    = link_to "購入画面に進む", "/items/check/#{@item.id}", class: "buy-btn btn-red"
   / 説明文
   .item-explain__description
     %p.item-explain__description-inner

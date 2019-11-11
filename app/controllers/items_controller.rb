@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController 
   before_action :authenticate_user!, only: [:sell, :create, :edit, :update, :destroy, :buy]
   before_action :set_item, only: [:show, :edit]
+  before_action :set_search
   before_action:move_to_sign_up, except: [:index, :show]
 
   def index
@@ -22,7 +23,8 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     if item.user_id == current_user.id
      item.destroy
-     redirect_to root_path and return
+     flash[:alert] = '商品を削除しました'
+     redirect_to mypages_path
     else
     
     flash[:alert] = '削除出来ませんでした'
@@ -34,7 +36,6 @@ class ItemsController < ApplicationController
   end
 
   def check
-    # @item = Item.find(1)
     @item = Item.find(params[:id])
   end
 
@@ -115,11 +116,6 @@ class ItemsController < ApplicationController
     
   end
 
-
-
-
-
-
   def child_category
     @children = Category.where(ancestry: params[:parent_id])
     respond_to do |format|
@@ -141,6 +137,17 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
+    end
+  end
+
+  def search
+    @search_words = params[:q][:name_or_description_cont] unless !params[:q].present? || @search_words.present?
+    @words = params[:q].delete(:name_or_description_cont) if params[:q].present?
+    if @words.present?
+      params[:q][:groupings] = []
+      @words.split(/[ 　]/).each_with_index do |word, i| #全角空白と半角空白で切って、単語ごとに処理します
+        params[:q][:groupings][i] = { name_or_description_cont: word }
+      end
     end
   end
 
@@ -168,6 +175,15 @@ class ItemsController < ApplicationController
     :image,
     [item_image_attributes: [:url]]
     ).merge(user_id: current_user.id)
+  end
+
+  def search_params
+    params.require(:q).permit(:name_and_description_cont_any)
+  end
+
+  def set_search
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
   end
 
   def move_to_sign_up
