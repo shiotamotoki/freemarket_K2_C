@@ -5,9 +5,13 @@
         = link_to root_path do
           = image_tag asset_path('mercari_logo_horizontal.png') ,size: "170x50"
       .header-inner__top.search
-        = form_with  class: 'header-inner__top-search form' do |form|
-          = form.text_field :keyword, class: 'header-inner__top-search text', placeholder: "何かお探しですか?"
-          = button_tag type: 'submit', class: 'header-inner__top-search submit' do
+        = search_form_for(@q, url: search_items_path, class: 'header-inner__top-search form') do |f|
+          - if defined? words
+            = f.search_field :name_or_description_cont, class: 'header-inner__top-search text', placeholder: "何かお探しですか?", value: words
+          - else
+            = f.search_field :name_or_description_cont, class: 'header-inner__top-search text', placeholder: "何かお探しですか?"
+          = f.submit 'Search', class: 'header-inner__top-search submit'
+          = button_tag type:"submit", class: 'header-inner__top-search submit' do
             %i.fa.fa-search.fa-i
     .header-inner__bottom
       %ul.search-menu
