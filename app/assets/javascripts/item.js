@@ -71,6 +71,12 @@ $(document).on('turbolinks:load', function() {
       errFlg = false;
     }
 
+     // 配送の方法
+    if ($('#shipping_method_id').val() == "0"){
+      $('#shipping_method-content').append(buildErrMsg("選択してください","sell-content-float"));
+      errFlg = false;
+    }
+
     // 配送の日数
     if ($('#item_shipping_date_id').val() == "0"){
       $('#shipping_date-content').append(buildErrMsg("選択してください","sell-content-float"));

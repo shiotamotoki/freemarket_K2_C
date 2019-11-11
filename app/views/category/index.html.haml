@@ -1,0 +1,26 @@
+= render "shared/top_page/header"
+.category
+  .category-nav
+    %h1 カテゴリー一覧
+    .category-nav__box
+      - @parents.each do |parent|
+        .category-nav__box__title
+          = link_to "#{parent.name}", "#parent-#{parent.id}"
+
+  .category-box
+    - @parents.each do |parent|
+      .category-box__list
+        .category-box__list__large{id: "category-#{parent.id}"}
+          = parent.name
+        .category-box__list__middle
+        - parent.children.each do |child_category|
+          %p.category-box__list__middle__name
+            = child_category.name
+          %ul
+          - child_category.children.each do |grandchild_category|
+            .category-box__list__small
+              %p
+                = link_to "#{grandchild_category.name}", "/categories/#{grandchild_category.id}"
+
+  = render "shared/top_page/asaide"
+  = render "shared/top_page/footer"
