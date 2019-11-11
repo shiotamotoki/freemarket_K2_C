@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController 
   before_action :authenticate_user!, only: [:sell, :create, :edit, :update, :destroy, :buy]
   before_action :set_item, only: [:show, :edit]
+  before_action :set_search
   before_action:move_to_sign_up, except: [:index, :show]
 
   def index
@@ -139,6 +140,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @search_words = params[:q][:name_or_description_cont] unless !params[:q].present? || @search_words.present?
+    @words = params[:q].delete(:name_or_description_cont) if params[:q].present?
+    if @words.present?
+      params[:q][:groupings] = []
+      @words.split(/[ 　]/).each_with_index do |word, i| #全角空白と半角空白で切って、単語ごとに処理します
+        params[:q][:groupings][i] = { name_or_description_cont: word }
+      end
+    end
+  end
+
   private
 
   def set_item
@@ -163,6 +175,15 @@ class ItemsController < ApplicationController
     :image,
     [item_image_attributes: [:url]]
     ).merge(user_id: current_user.id)
+  end
+
+  def search_params
+    params.require(:q).permit(:name_and_description_cont_any)
+  end
+
+  def set_search
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
   end
 
   def move_to_sign_up
