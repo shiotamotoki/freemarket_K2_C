@@ -46,7 +46,7 @@
           %li.user-information__list-login
             = link_to "/mypages", data: {"turbolinks" => false}  do
               = image_tag asset_path('avator.jpg'), class: "avater-image", size: "30x30"
-            %span.list-name マイページ  
+              %span.list-name-mypage マイページ  
         - else
           %li.user-information__list-nologin
             = link_to new_user_registration_path, class: "list-name-red" do
