@@ -1,5 +1,6 @@
 $(function() {
-    $(".category-js").on("mouseenter", function() {
+    $(".category-js a").on("mouseenter", function() {
+      console.log(1)
       $(".category_list").css("visibility", "visible");
       $(".parents_list").css("visibility", "visible");
     })
@@ -68,7 +69,7 @@ $(function() {
       $('#' + grand_child).addClass("now-selected-gray2");//灰色のcssのため
       
         }); 
-    $(document).on("mouseleave", ".category_list", function () {
+    $(document).on("mouseleave", ".category-js", function () {
       $(".parents_list").css("visibility", "hidden");
       $(".children_list").css("visibility", "hidden");
       $(".grand_children_list").css("visibility", "hidden");

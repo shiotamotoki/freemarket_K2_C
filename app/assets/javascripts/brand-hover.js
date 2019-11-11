@@ -1,5 +1,5 @@
 $(function() {
-  $(".brand_js").on("mouseenter", function() {
+  $(".brand_js a").on("mouseenter", function() {
     $(".brands_list").css("visibility", "visible");
   })
   
@@ -14,7 +14,7 @@ $(function() {
   
   
   
-  $(document).on("mouseleave", ".brand_list", function () {
+  $(document).on("mouseleave", ".brand_js", function () {
     $(".brands_list").css("visibility", "hidden");
 
       });  
