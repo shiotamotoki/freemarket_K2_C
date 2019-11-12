@@ -3,6 +3,10 @@ $(function() {
       console.log(1)
       $(".category_list").css("visibility", "visible");
       $(".parents_list").css("visibility", "visible");
+      $(".category_list").css("z-index", "5000");
+      $(".parents_list").css("z-index", "5000");
+      $(".children_list").css("z-index", "5000");
+      $(".grand_children_list").css("z-index", "5000");
     })
 
   // 子カテゴリーを追加するための処理です。
@@ -73,6 +77,10 @@ $(function() {
       $(".parents_list").css("visibility", "hidden");
       $(".children_list").css("visibility", "hidden");
       $(".grand_children_list").css("visibility", "hidden");
+      $(".category_list").css("z-index", "0");
+      $(".parents_list").css("z-index", "0");
+      $(".children_list").css("z-index", "0");
+      $(".grand_children_list").css("z-index", "0");
         });  
       });
       
