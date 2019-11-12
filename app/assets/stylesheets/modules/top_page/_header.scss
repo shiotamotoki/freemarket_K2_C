@@ -262,3 +262,32 @@
     }
   }
 }
+.header-bread-crumbs{
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+  border-width: 0;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: inherit;
+  display: block;
+}
+
+.breadcrumbs{
+  width: 1000px;
+  margin: 0 auto;
+  padding: 16px 0;
+  background-repeat: no-repeat;
+  margin-block-start: 1px;
+  color: #040404;
+  a:visited { color: black; } 
+  a:hover { color: gray; 
+            border-bottom: 1px solid;}
+}
+.current{
+  font-weight: 600;
+}

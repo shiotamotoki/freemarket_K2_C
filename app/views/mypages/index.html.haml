@@ -1,5 +1,8 @@
 = render "shared/top_page/header"
 = render "shared/top_page/sel_button"
+.header-bread-crumbs
+  - breadcrumb :mypage
+  = breadcrumbs pretrext: "You are here:", separator: "&nbsp;&nbsp&gt;&nbsp;&nbsp;"
 
 .my-container
   .my-content
