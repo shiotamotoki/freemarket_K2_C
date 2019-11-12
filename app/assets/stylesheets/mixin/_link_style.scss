@@ -1,0 +1,9 @@
+@mixin link_style($height: 48px) {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: $height;
+  padding: 0 15px;
+  border-bottom: 1px solid #eee;
+}

@@ -1,0 +1,15 @@
+@mixin tab_style () {
+  .tabs-lists {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    .tabs-list {
+      width: 50%;
+      text-align: center;
+      line-height: 60px;
+      &__name {
+        font-weight: bold;
+      }
+    }
+  }
+}

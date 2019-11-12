@@ -1,0 +1,97 @@
+.main-box
+  .main-box__category
+    .main-box__category__bar
+      .main-box__category__bar__title
+        = @parents[0].name + "新着アイテム"
+      .main-box__category__bar__link
+        =link_to category_path(@parents[0].id), class: "more-detail-link" ,id: @parents[0].id do
+          もっと見る
+          %i.fa.fa-chevron-right
+    .main-box__category__content
+      .main-box__category__content__grid
+        - @items.each do |i|
+          =link_to "/items/#{i.id}" do
+            .box
+              .price 
+                ¥
+                =i.price.to_s(:delimited, delimiter: ',')
+              - if i.status == 3
+                .sold-logo
+              - elsif i.status == 2
+                .stopping-logo
+              =image_tag i.item_images[0].image.url, alt: 'next', class:'image-box'
+              .title-text
+                =i.name
+.main-box
+  .main-box__category
+    .main-box__category__bar
+      .main-box__category__bar__title
+        = @parents[1].name + "新着アイテム"
+      .main-box__category__bar__link
+        =link_to category_path(@parents[1].id), class: "more-detail-link" do
+          もっと見る
+          %i.fa.fa-chevron-right
+    .main-box__category__content
+      .main-box__category__content__grid
+        - @items.each do |i|
+          =link_to "/items/#{i.id}" do
+            .box
+              .price 
+                ¥
+                =i.price.to_s(:delimited, delimiter: ',')
+              - if i.status == 3
+                .sold-logo
+              - elsif i.status == 2
+                .stopping-logo
+              =image_tag i.item_images[0].image.url, alt: 'next', class:'image-box'
+              .title-text
+                =i.name
+
+.main-box
+  .main-box__category
+    .main-box__category__bar
+      .main-box__category__bar__title
+        = @parents[7].name + "新着アイテム"
+      .main-box__category__bar__link
+        =link_to category_path(@parents[7].id), class: "more-detail-link" do
+          もっと見る
+          %i.fa.fa-chevron-right
+    .main-box__category__content
+      .main-box__category__content__grid
+        - @items.each do |i|
+          =link_to "/items/#{i.id}" do
+            .box
+              .price 
+                ¥
+                =i.price.to_s(:delimited, delimiter: ',')
+              - if i.status == 3
+                .sold-logo
+              - elsif i.status == 2
+                .stopping-logo
+              =image_tag i.item_images[0].image.url, alt: 'next', class:'image-box'
+              .title-text
+                =i.name
+.main-box
+  .main-box__category
+    .main-box__category__bar
+      .main-box__category__bar__title
+        = @parents[5].name + "新着アイテム"
+      .main-box__category__bar__link
+        =link_to category_path(@parents[5].id), class: "more-detail-link" do
+          もっと見る
+          %i.fa.fa-chevron-right
+    .main-box__category__content
+      .main-box__category__content__grid
+        - @items.each do |i|
+          =link_to "/items/#{i.id}" do
+            .box
+              .price 
+                ¥
+                =i.price.to_s(:delimited, delimiter: ',')
+              - if i.status == 3
+                .sold-logo
+              - elsif i.status == 2
+                .stopping-logo
+              =image_tag i.item_images[0].image.url, alt: 'next', class:'image-box'
+              .title-text
+                =i.name

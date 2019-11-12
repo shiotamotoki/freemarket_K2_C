@@ -1,11 +1,17 @@
 %div.like-link{id: "like-link-#{item.id}"}
-  - if current_user.likes.find_by(item_id: item.id)
-    = link_to unlike_path(item.id), method: :delete, remote: true do
-      %i.fa.fa-heart{id: "heart-#{item.id}"}
-      いいね!
-      = item.likes.count.to_s
-  - else
-    = link_to like_path(item.id), method: :post, remote: true do
+  - if user_signed_in?
+    - if current_user.likes.find_by(item_id: item.id)
+      = link_to unlike_path(item.id), method: :delete, remote: true do
+        %i.fa.fa-heart{id: "heart-#{item.id}"}
+        いいね!
+        = item.likes.count.to_s
+    - else
+      = link_to like_path(item.id), method: :post, remote: true do
+        %i.fa.fa-heart-o{id: "heart-#{item.id}"}
+        いいね!
+        = item.likes.count.to_s
+  -else
+    = link_to new_user_session_path do
       %i.fa.fa-heart-o{id: "heart-#{item.id}"}
       いいね!
       = item.likes.count.to_s

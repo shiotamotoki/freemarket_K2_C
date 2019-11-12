@@ -4,7 +4,7 @@
   .item-title
     %h2= @item.name
   .item-messeage
-    
+  
   .item-inline-box
     .item-photos
       .item-photos__main-img
@@ -12,7 +12,7 @@
           .sold-logo
         - elsif @item.status == 2
           .stopping-logo
-        = image_tag @item.item_images[0].image.url ,size: "300x300" 
+        = image_tag @item.item_images[0].image.url ,size: "300x300"
       .item-photos__sub-img
         .item-photos__sub-img__sub1
           = image_tag '300.png' ,size: "60x60"
@@ -56,7 +56,8 @@
             %th.item-detail-table__detail-table__tbody__th
               ブランド
             %td.item-detail-table__detail-table__tbody__td
-              = link_to @item.brand.name, root_path, method: :get, class: "brand-name link"
+              = link_to "ブランド名", root_path, method: :get, class: "brand-name link"
+              = @item.brand.name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               商品のサイズ
@@ -80,7 +81,7 @@
               配送の方法
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-method
-                = @item.shipping_method.name
+                佐川郵便
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送元地域
@@ -102,40 +103,34 @@
         （税込）
       %span.item-price-box__box--shipping-charge
         送料込み
-  - if @item.status == 3
-    .buy-btn.btn-gray
-      売り切れました
-  - else
-    = link_to "購入画面に進む", "/items/check/#{@item.id}", class: "buy-btn btn-red"
   / 説明文
   .item-explain__description
     %p.item-explain__description-inner
       = @item.description
-    / いいねボタン、不適切ボタン
-    .item-explain__item-btn
-      .item-explain__item-btn__left
-        .item-explain__item-btn__left__like-btn
-          = render partial: 'items/items'
-        .item-explain__item-btn__left__report
-          = link_to root_path, method: :get, class: "link" do
-            = fa_icon "flag", class: "item-explain__item-btn__left__report__icon"
-            %span.item-explain__item-btn__left__report__text
-              不適切な商品の報告
-      .item-explain__item-btn__right
-        = link_to root_path, method: :get, class: "item-explain__item-btn__right__icon link" do
-          = fa_icon "flock"
-          %span.item-explain__item-btn__right__text
-            あんしん・あんぜんへの取り組み
       / 商品へのコメント
   .item-space-box1
+    /btn-box
   .item-space-box2
+  .item-btn-box
+    = link_to "商品の編集", root_path, class: "item-btn-box__btn item-btn-box__btn--red"
+    - if @item.status == 2
+      .item-btn-box__text or
+      = link_to "出品を再開する", start_mypage_path(@item.id),data: {"turbolinks" => false}, method: :stop, class: "item-btn-box__btn item-btn-box__btn--red" 
+      .item-btn-box__text
+      = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "item-btn-box__btn item-btn-box__btn--gray" 
+    - else
+      .item-btn-box__text or
+      = link_to "出品を一旦停止する", stop_mypage_path(@item.id),data: {"turbolinks" => false}, method: :stop, class: "item-btn-box__btn item-btn-box__btn--gray" 
+      .item-btn-box__text
+      = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "item-btn-box__btn item-btn-box__btn--gray" 
+  .item-space-box2
+
   .item-comment-box
     .item-space-box1
     .item-comment-box__form__text
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     .item-space-box1
     .item-comment-box__form__textarea
-      %input{type: "textarea", class: "input-box-form"}
     .item-space-box1
   = button_to "コメントする", root_path, class: "comment-btn btn-gray"
   .item-space-box1
@@ -164,73 +159,7 @@
       %li.item-sns__list__icon
         = link_to root_path, class: "link social-link" do
           = fa_icon "pinterest-square", class: "item-sns__list__icon--pinterest"
-
   .item-space-box2
   .item-space-box2
   .item-space-box2
   .item-space-box2
-  .item-other
-    %section.item-other__user-items
-      %h2.item-other__user-items__head
-        = link_to @item.user.nickname+"さん　その他の商品", root_path, class: "link item-link"
-      .item-other__user-items__content
-        - @other_items.each do |other_item|
-          %section.item-other__user-items__content__box
-            = link_to  item_path(other_item.id), class: "linkblack item-link" do
-              .item-other__user-items__content__box__photo
-                - if other_item.status == 3
-                  .sold-logo
-                - elsif other_item.status == 2
-                  .stopping-logo
-                = image_tag other_item.item_images[0].image.url , class: "item-image"
-                %h3.item-other__user-items__content__box__itemname__name
-                  = other_item.name
-                .item-other__user-items__content__box__itemname__num
-                  .item-other__user-items__content__box__itemname__num__price
-                    ¥
-                    = other_item.price
-                  .item-other__user-items__content__box__itemname__num__likes
-                    = fa_icon "heart", class: "like-icon"
-                    %span.item-other__user-items__content__box__itemname__num__likes__num
-                      5
-  .item-space-box2
-  .item-space-box2
-  .item-space-box2
-  .item-space-box2
-  .item-other
-    %section.item-other__user-items
-      %h2.item-other__user-items__head
-        = link_to "#{@item.brand.name}(同じカテゴリ) その他の商品", root_path, class: "link item-link"
-      .item-other__user-items__content
-        - @same_items.each do |same_item|
-          %section.item-other__user-items__content__box
-            = link_to  item_path(same_item.id), class: "linkblack item-link" do
-              .item-other__user-items__content__box__photo
-                - if same_item.status == 3
-                  .sold-logo
-                - elsif same_item.status == 2
-                  .stopping-logo
-                = image_tag same_item.item_images[0].image.url , class: "item-image"            
-                %h3.item-other__user-items__content__box__itemname__name
-                  = same_item.name
-                .item-other__user-items__content__box__itemname__num
-                  .item-other__user-items__content__box__itemname__num__price
-                    ¥
-                    = same_item.price
-                  .item-other__user-items__content__box__itemname__num__likes
-                    = fa_icon "heart", class: "like-icon"
-                    %span.item-other__user-items__content__box__itemname__num__likes__num
-                      7
-
-%ul.item-bottom
-  %li.item-bottom-text1
-    = link_to root_path, class: "link" do
-      %span
-        メルカリ　
-  %li.item-bottom-text2
-    %span
-      商品名
-      = fa_icon "angle-right"                 
-.fieldspace
-= render "shared/top_page/asaide"
-= render "shared/top_page/footer"
