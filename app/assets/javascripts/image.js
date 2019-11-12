@@ -21,11 +21,10 @@ $(document).on('turbolinks:load', function() {
   }
   var preview = 1;
   var images = [];
+  var imageResult = [];
   var loadData = 0;
   var loadPreview = 1;
   $('#item_file-upload').change(function(){
-    // console.log($(this).prop('name'));
-    // console.log($(this).prop('files'));
     $('.main-content__item__body__image-upload__error-text').children().remove();
     var file = $(this).prop('files');
     var have = $(`.main-content__item__body__image-upload__clearfix__container__images[data-preview="${preview}"]`).prop('class').replace(/[^0-9]/g, '');
@@ -49,7 +48,6 @@ $(document).on('turbolinks:load', function() {
       return;
     }
     for (var i = 0; i < file.length; i++){
-      console.log("0");
       if (have == 5) {//ここの判定はpreview=2の時には上のバリデーションで弾かれるため通ることはない
         preview = 2;//haveが5になったらプレビューを2段目に
         have = 0;
@@ -65,9 +63,7 @@ $(document).on('turbolinks:load', function() {
         var viewUl = buildUL;
         $('.main-content__item__body__image-upload__clearfix__container').append(viewUl);
       }
-      console.log("0.1");
       var reader = new FileReader()
-      console.log("1");
       reader.onload = function(e){
         var imageView = buildHTML(e.target.result);
         if (loadData < 5) {
@@ -77,18 +73,12 @@ $(document).on('turbolinks:load', function() {
         }
         $(`.main-content__item__body__image-upload__clearfix__container__images[data-preview="${loadPreview}"] .main-content__item__body__image-upload__clearfix__container__images__ul`).append(imageView);
         loadData++;
+        imageResult.push(e.target.result);
       }
-      console.log("2");
       reader.readAsDataURL(file[i]);
-      console.log("4");
       images.push(file[i]); //images配列にfileを追加
       have++;
-      console.log("5");
-      // console.log(file[i]);
-      // console.log(preview);
-      // console.log(have);
     }
-    console.log("6");
     $(`.main-content__item__body__image-upload__clearfix__container__images[data-preview="${preview}"], .main-content__item__body__image-upload__clearfix__dropbox`).removeClass(function(index, className){
       var matchClass = className.match(/\bhave-item-\d/g);
       if(matchClass == null){
@@ -110,9 +100,6 @@ $(document).on('turbolinks:load', function() {
     } else {
       $(`.main-content__item__body__image-upload__clearfix__container__images[data-preview="${preview}"], .main-content__item__body__image-upload__clearfix__dropbox`).addClass("have-item-"+have);
     }
-    var count = $(".main-content__item__body__image-upload__clearfix__dropbox").prop('class').match(/5/g);
-    //console.log(count.length);
-    console.log("7");
   });
 
   $(document).on("click", ".main-content__item__body__image-upload__clearfix__container__images__ul__image__btn__delete", function(){
