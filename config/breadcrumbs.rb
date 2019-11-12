@@ -3,27 +3,27 @@ crumb :root do
 end
 
 crumb :items do
-  link "商品一覧ページ",itemsshow_path
+  link "商品一覧ページ", itemsshow_path
   parent :root
 end
 
 crumb :logout do
-  link "ログアウト",logout_mypages_path
+  link "ログアウト", logout_mypages_path
   parent :mypage
 end
 
 crumb :profile do
-  link "プロフィール",profile_mypages_path
-  parent :mypage
-end
-
-crumb :profile do
-  link "本人情報確認",profile_mypages_path
+  link "プロフィール", profile_mypages_path
   parent :mypage
 end
 
 crumb :credit do
-  link "支払い方法",credit_mypages_path
+  link "支払い方法", credit_mypages_path
+  parent :mypage
+end
+
+crumb :identification do
+  link "本人情報の登録", identification_mypages_path
   parent :mypage
 end
 
@@ -33,7 +33,7 @@ end
 # end
 
 crumb :mypage do
-  link "マイページ",identification_mypages_path
+  link "マイページ", identification_mypages_path
   parent :root
 end
 
