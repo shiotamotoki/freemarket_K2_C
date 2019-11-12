@@ -2,26 +2,37 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-# item#index
 crumb :items do
   link "商品一覧ページ",itemsshow_path
   parent :root
 end
 
-# item#show
-# crumb :item do |item|
-#   link item.name,item_path
-#   parent :items
+crumb :logout do
+  link "ログアウト",logout_mypages_path
+  parent :mypage
+end
+
+crumb :profile do
+  link "プロフィール",profile_mypages_path
+  parent :mypage
+end
+
+crumb :profile do
+  link "本人情報確認",profile_mypages_path
+  parent :mypage
+end
+
+crumb :credit do
+  link "支払い方法",credit_mypages_path
+  parent :mypage
+end
+
+# crumb : do
+#   link "いいね！一覧",_path
+#   parent :mypage
 # end
 
- # item#new
-#  crumb :new do
-#   link "商品出品ページ", new_item_path
-#   parent :items
-# end
-
-# user#show
-crumb :user do
+crumb :mypage do
   link "マイページ",identification_mypages_path
   parent :root
 end
