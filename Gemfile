@@ -99,3 +99,4 @@ gem 'rails-i18n'
 gem 'gon'
 gem 'ancestry'
 gem "gretel"
+gem 'ransack'

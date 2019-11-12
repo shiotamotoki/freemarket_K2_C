@@ -1,0 +1,684 @@
+.container{ 
+  width: 100%;
+    .search-container{
+      position: relative;
+      margin: 40px auto 0;
+      width: 1020px;
+      overflow: hidden;
+        .search-content{
+          float: right;
+          width: 700px;
+            .search-result-head{
+              font-size: 22px;
+              margin: 0 0 8px;
+              font-weight: 600;
+              line-height: 1.4;
+              display: inline-block;
+                &-text{
+                  font-size: 18px;
+                  margin: 0 0 0 4px;
+                  font-weight: 400;
+                  display: inline-block;
+                }
+                &-new{
+                  font-size: 20px;
+                  margin: 0 0 10px 4px;
+                  font-weight: 600;
+                  display: inline-block;
+                }
+            }
+            .items-box-content{
+              max-width: 700px;
+              margin: 0 auto;
+                &-text{
+                  margin: 16px 0 40px;
+                  font-size: 14px;
+                  line-height: 1.5;
+                }
+                &-grid{
+                  margin-left: 0 20px 20px 0;
+                  width: 160px;
+                  position: relative;
+                  float: left;
+                  background: #ffffff;
+                  display: grid;
+                  grid-template-columns: repeat(4, 1fr);
+                  gap: 20px 20px;
+                  margin: 0 0 20px 0;
+                  background: #ffffff;
+                    &-box{
+                      background-color:white;
+                      box-sizing: border-box;
+                      opacity: 1;
+                      position: relative;
+                      box-shadow: 0 2px 4px rgba(0,0,0,.18);
+                        &-image-box{
+                          width: 160px;
+                          height: 160px;
+                        }
+                        &-title-text{
+                          font-size: 14px;
+                          height: 58px;
+                          box-sizing: border-box;
+                          color: #222;
+                          line-height: 1.4em;
+                          padding: 8px 12px;
+                          white-space: normal;
+                          word-break: break-word;
+                        }
+                        &-price{
+                          align-items: center;
+                          background: rgba(0,0,0,.4);
+                          border-radius: 0 14px 14px 0;
+                          color: #fff;
+                          display: inline-flex;
+                          font-size: 17px;
+                          height: 28px;
+                          letter-spacing: .02em;
+                          margin: 0;
+                          padding: 0 12px;
+                          position: absolute;
+                          top: 60%;
+                          z-index: 2;
+                        }
+                    }
+                }
+            }
+        }
+        .search-side{
+          float: left;
+          width: 280px;
+          margin: 0 40px 0 0;
+            .search-extend-container{
+              position: relative;
+                .search-sort{
+                  opacity: 1;
+                  position: static;
+                  width: auto;
+                    .form-group{
+                      margin: 0;
+                        .select-wrap{
+                          background: #ffffff;
+                          text-align: left;
+                          margin: 0;
+                          position: relative;
+                            .icon-arrow-bottom{
+                              position: absolute;
+                              right: 16px;
+                              top: 23px;
+                              z-index: 2;
+                              color: #888888;
+                              font-size: 16px;
+                              transform: translate(0, -50%);
+                            }
+                            .select-default{
+                              height: 48px;
+                              padding: 0 16px;
+                              border: 1px solid #cccccc;
+                              width: 100%;
+                              position: relative;
+                              z-index: 2;
+                              border-radius: 4px;
+                              background: 0;
+                              font-size: 16px;
+                              line-height: 1.5;
+                              cursor: pointer;
+                              outline: 0;
+                              touch-action: manipulation;
+                              min-height: 1.5em;
+                            }
+                        }
+                    } 
+                }
+                .search-dropdown-content{
+                  position: static;
+                  display: block;
+                  box-shadow: none;
+                  padding: 16px 16px 40px;
+                  margin: 40px 0 0;
+                  top: 72px;
+                  left: 0;
+                  right: 0;
+                  z-index: 10001;
+                  background: #ffffff;
+                    .visible-large{
+                      font-size: 16px;
+                      display: block;
+                    }
+                    .form-group{
+                      margin: 24px 0 0;
+                        .search-extend{
+                          display: block;
+                          font-weight: 600;
+                          touch-action: manipulation;
+                            .icon-plus{
+                              position: relative;
+                              top: -1px;
+                              margin: 0 4px 0 0;
+                              color: #888888;
+                              font-size: 16px;
+                              vertical-align: middle;
+                            }
+                            .search-extend-key{
+                              font-size: 14px;
+                              vertical-align: middle;
+                            }
+                        }
+                        .input-default{
+                          width: 100%;
+                          margin: 8px 0 0;
+                          height: 48px;
+                          padding: 10px 16px 8px;
+                          border-radius: 4px;
+                          border: 1px solid #cccccc;
+                          background: #ffffff;
+                          line-height: 1.5;
+                          font-size: 16px;
+                        }
+                    }
+                    .form-group{
+                      margin: 40px 0 0;
+                        .search-extend{
+                          display: block;
+                          font-weight: 600;
+                          touch-action: manipulation;
+                            .icon-list{
+                              position: relative;
+                              top: -1px;
+                              margin: 0 4px 0 0;
+                              color: #888888;
+                              font-size: 16px;
+                              vertical-align: middle;
+                            }
+                            .search-extend-key{
+                              font-size: 14px;
+                              vertical-align: middle;
+                              padding: 0 5px 0;
+                            }
+                        }
+                        .select-wrap{
+                          margin: 8px 0 0;
+                          position: relative;
+                          background: #ffffff;
+                            .icon-arrow-bottom{
+                              position: absolute;
+                              right: 16px;
+                              top: 15px;
+                              z-index: 2;
+                              color: #888888;
+                              font-size: 16px;
+                              transform: translate(0 -50%);
+                              margin: 0 4px 0 0;
+                              vertical-align: middle;
+                            }
+                            .select-default{
+                              width: 100%;
+                              position: relative;
+                              z-index: 2;
+                              height: 48px;
+                              padding: 0 16px;
+                              border-radius: 4px;
+                              border: 1px solid #cccccc;
+                              background: 0;
+                              font-size: 16px;
+                              line-height: 1.5;
+                              cursor: pointer;
+                            }
+                        }
+                    }
+                    .form-group{
+                      position: relative;
+                      margin: 40px 0 0;
+                        .search-extend{
+                          display: block;
+                          font-weight: 600;
+                            .icon-tag{
+                              position: relative;
+                              top: -1px;
+                              margin: 0 4px 0 0;
+                              color: #888888;
+                              font-size: 16px;
+                              vertical-align: middle;
+                            }
+                            .search-extend-key{
+                              font-size: 14px;
+                              vertical-align: middle;
+                              padding: 0 5px 0;
+                            }
+                        }
+                        .input-default{
+                          width: 100%;
+                          margin: 8px 0 0;
+                          height: 48px;
+                          padding: 10px 16px 8px;
+                          border-radius: 4px;
+                          border: 1px solid #cccccc;
+                          background: #ffffff;
+                          line-height: 1.5;
+                          font-size: 16px;
+                        }
+                    }
+                    .form-group{
+                      margin: 40px 0 0;
+                        .search-extend{
+                          display: block;
+                          font-weight: 600;
+                          touch-action: manipulation;
+                            .icon-size{
+                              position: relative;
+                              top: -1px;
+                              margin: 0 4px 0 0;
+                              color: #888888;
+                              font-size: 16px;
+                              vertical-align: middle;
+                            }
+                            .search-extend-key{
+                              font-size: 14px;
+                              vertical-align: middle;
+                              padding: 0 5px 0;
+                            }
+                        }
+                        .select-wrap{
+                          margin: 8px 0 0;
+                          position: relative;
+                          background: #ffffff;
+                            .icon-arrow-bottom{
+                              position: absolute;
+                              right: 16px;
+                              top: 15px;
+                              z-index: 2;
+                              color: #888888;
+                              font-size: 16px;
+                              transform: translate(0 -50%);
+                              margin: 0 4px 0 0;
+                              vertical-align: middle;
+                            }
+                            .select-default{
+                              width: 100%;
+                              position: relative;
+                              z-index: 2;
+                              padding: 0 16px;
+                              border-radius: 4px;
+                              border: 1px solid #cccccc;
+                              background: 0;
+                              font-size: 16px;
+                              line-height: 1.5;
+                              cursor: pointer;
+                              outline: 0;
+                            }
+                        }
+                    }
+                    .form-group{
+                      margin: 40px 0 0;
+                        .search-extend{
+                          display: block;
+                          font-weight: 600;
+                          touch-action: manipulation;
+                            .icon-coin{
+                              position: relative;
+                              top: -1px;
+                              margin: 0 4px 0 0;
+                              color: #888888;
+                              font-size: 16px;
+                              vertical-align: middle;
+                            }
+                            .select-default-price{
+                              font-size: 14px;
+                              vertical-align: middle;
+                              padding: 0 5px 0;
+                            }
+                        }
+                        .select-wrap{
+                          margin: 8px 0 0;
+                          position: relative;
+                          background: #ffffff;
+                            .icon-arrow-bottom{
+                              position: absolute;
+                              right: 16px;
+                              top: 15px;
+                              z-index: 2;
+                              color: #888888;
+                              font-size: 16px;
+                              transform: translate(0 -50%);
+                              margin: 0 4px 0 0;
+                            }
+                            .select-default-price{
+                              width: 100%;
+                              position: relative;
+                              z-index: 2;
+                              height: 48px;
+                              padding: 0 16px;
+                              border-radius: 4px;
+                              border: 1px solid #cccccc;
+                              background: 0;
+                              font-size: 16px;
+                              line-height: 1.5;
+                              cursor: pointer;
+                              outline: 0;
+                            }
+                        }
+                        .input-default-half{
+                          width: 45%;
+                          margin: 8px 0 0;
+                          height: 48px;
+                          padding: 10px 16px 8px;
+                          border-radius: 4px;
+                          border: 1px solid #cccccc;
+                          background: #ffffff;
+                          line-height: 1.5;
+                          font-size: 16px;
+                          min-height: 1.5em;
+                          outline: 0;
+                          font-family: inherit;
+                        }
+                        .select-default{
+                          display: inline-block;
+                          width: 6%;
+                          font-size: 14px;
+                          text-align: center;
+                        }
+                        .input-default-half{
+                          width: 45%;
+                          margin: 8px 0 0;
+                          height: 48px;
+                          padding: 10px 16px 8px;
+                          border-radius: 4px;
+                          border: 1px solid #cccccc;
+                          background: #ffffff;
+                          line-height: 1.5;
+                          font-size: 16px;
+                          min-height: 1.5em;
+                          outline: 0;
+                          font-family: inherit;
+                        }
+                    }
+                    .form-group-state{
+                      margin: 40px 0 0 10px;
+                      padding: 0 0 40px;
+                        .search-extend{
+                          display: block;
+                          font-weight: 600;
+                          touch-action: manipulation;
+                            .icon-star{
+                              position: relative;
+                              top: -1px;
+                              color: #888888;
+                              font-size: 16px;
+                              vertical-align: middle;
+                            }
+                            .select-default-item{
+                              font-size: 14px;
+                              vertical-align: middle;
+                            }
+                        }
+                        .checkbox-erea{
+                          padding: 10px 0 0;
+                            .checkbox-default{
+                              display: inline-block;
+                              width: 48%;
+                              vertical-align: middle;
+                              word-break: break-word;
+                                .condition_all{
+                                  transform: scale(1.7);
+                                  cursor: pointer;
+                                }
+                                .search-extend-all{
+                                  display: inline-block;
+                                  z-index: 2;
+                                  padding: 0 0 0 5px;
+                                  font-size: 14px;
+                                  font-weight: 400;
+                                  vertical-align: middle;
+                                  touch-action: manipulation;
+                                }
+                                .search-extend-nil{
+                                  display: block;
+                                  z-index: 2;
+                                  padding: 0 0 12px 20px;
+                                  font-size: 14px;
+                                  font-weight: 400;
+                                  vertical-align: middle;
+                                }
+                            }
+                            .checkbox-default-right{
+                              display: inline-block;
+                              width: 45%;
+                              vertical-align: middle;
+                              word-break: break-word;
+                              .condition_all{
+                                transform: scale(1.7);
+                                cursor: pointer;
+                              }
+                              .condition_all-nil{
+                                position: relative;
+                                top: 26px;
+                                transform: scale(1.7);
+                                cursor: pointer;
+                              }
+                              .search-extend-all{
+                                display: inline-block;
+                                z-index: 2;
+                                padding: 0 0 0 5px;
+                                font-size: 14px;
+                                font-weight: 400;
+                                vertical-align: middle;
+                                touch-action: manipulation;
+                              }
+                              .search-extend-nil{
+                                display: block;
+                                z-index: 2;
+                                padding: 0 0 12px 20px;
+                                font-size: 14px;
+                                font-weight: 400;
+                                vertical-align: middle;
+                              }
+                            }
+                            .checkbox-default-left{
+                              display: inline-block;
+                              width: 45%;
+                              vertical-align: middle;
+                              word-break: break-word;
+                              position: relative;
+                                .condition_all-left{
+                                  position: relative;
+                                  top: 5px;
+                                  transform: scale(1.7);
+                                  cursor: pointer;
+                                }
+                                .search-extend-left{
+                                  position: absolute;
+                                  top: -5px;
+                                  left: 20px;
+                                }
+                            }
+                            .checkbox-default-wound{
+                              display: inline-block;
+                              width: 47%;
+                              vertical-align: middle;
+                              word-break: break-word;
+                              position: relative;
+                                .condition_all-wound{
+                                  position: relative;
+                                  top: 5px;
+                                  left: 8px;
+                                  transform: scale(1.7);
+                                  cursor: pointer;
+                                }
+                                .search-extend-wound{
+                                  position: absolute;
+                                  top: 4px;
+                                  left: 27px;
+                                }
+                            }
+                            .checkbox-default-bad{
+                              display: inline-block;
+                              width: 45%;
+                              vertical-align: middle;
+                              word-break: break-word;
+                              position: relative;
+                                .condition_all-bad{
+                                  position: relative;
+                                  top: 37px;
+                                  transform: scale(1.7);
+                                  cursor: pointer;
+                                }
+                                .search-extend-bad{
+                                  position: absolute;
+                                  top: 28px;
+                                  left: 20px;
+                                }
+                            }
+                        }
+                    }
+                    .form-group-postage{
+                      margin: 40px 0 0;
+                      padding: 0 0 40px;
+                        .search-extend{
+                          padding: 0 0 0 10px;
+                          display: block;
+                          font-weight: 600;
+                            .select-default-postage{
+                              font-size: 14px;
+                              vertical-align: middle;
+                            }
+                        }
+                        .checkbox-erea-postage{
+                          padding: 0;
+                            .checkbox-default-postage{
+                              display: inline-block;
+                              width: 47%;
+                              vertical-align: middle;
+                              word-break: break-word;
+                              position: relative;
+                                .shipping_payer_all{
+                                  position: relative;
+                                  top: 8px;
+                                  left: 8px;
+                                  transform: scale(1.7);
+                                  cursor: pointer;
+                                }
+                                .search-extend-shipping{
+                                  display: block;
+                                  position: absolute;
+                                  top: 8px;
+                                  left: 28px;
+                                }
+                                .shipping_payer_right{
+                                  position: relative;
+                                  top: 9px;
+                                  left: 6px;
+                                  transform: scale(1.7);
+                                }
+                                .search-extend-shipping_right{
+                                  display: block;
+                                  position: absolute;
+                                  top: -1px;
+                                  left: 26px;
+                                }
+                                .shipping_payer_left{
+                                  position: relative;
+                                  top: 40px;
+                                  left: 8px;
+                                  transform: scale(1.7);
+                                }
+                                .search-extend-shipping_left{
+                                  display: block;
+                                  position: absolute;
+                                  top: 30px;
+                                  left: 30px;
+                                }
+                            }
+                        }
+                    }
+                    .form-group-sale{
+                      margin: 40px 0 0 0;
+                        .search-extend-sale{
+                          padding: 0 0 0 10px;
+                          display: block;
+                          font-weight: 600;
+                            .select-default-sale{
+                              font-size: 14px;
+                              vertical-align: middle;
+                            }  
+                        }.checkbox-erea-sale{
+                          padding: 0;
+                            .checkbox-default-sale{
+                              display: inline-block;
+                              width: 47%;
+                              vertical-align: middle;
+                              word-break: break-word;
+                              position: relative;
+                                .checkbox-status_all{
+                                  position: relative;
+                                  top: 8px;
+                                  left: 8px;
+                                  transform: scale(1.7);
+                                  cursor: pointer;
+                                }
+                                .search-extend-sale-all{
+                                  display: block;
+                                  position: absolute;
+                                  top: 8px;
+                                  left: 28px;
+                                }
+                                .checkbox-status_right{
+                                  position: relative;
+                                  top: 8px;
+                                  left: 5px;
+                                  transform: scale(1.7);
+                                  cursor: pointer;
+                                }
+                                .search-extend-sale-right{
+                                  display: block;
+                                  position: absolute;
+                                  top: 8px;
+                                  left: 28px;
+                                }
+                                .checkbox-status_left{
+                                  position: relative;
+                                  top: 34px;
+                                  left: 8px;
+                                  transform: scale(1.7);
+                                  cursor: pointer;
+                                }
+                                .search-extend-sale-left{
+                                  display: block;
+                                  position: absolute;
+                                  top: 33px;
+                                  left: 28px;
+                                }
+                            }
+                        }
+                    }
+                    .search-extend-btn{
+                      height: 90px;
+                      padding: 60px 0 0;
+                        .btn-default-gray{
+                          float: left;
+                          width: 45%;
+                          background: #aaaaaa;
+                          color: #ffffff;
+                          display: block;
+                          line-height: 48px;
+                          font-size: 14px;
+                          cursor: pointer;
+                          text-align: center;
+                        }
+                        .btn-default-red{
+                          float: right;
+                          width: 45%;
+                          background: #ea352d;
+                          border: 1px solid #ea352d;
+                          color: #ffffff;
+                          display: block;
+                          line-height: 48px;
+                          font-size: 14px;
+                          cursor: pointer;
+                          text-align: center;
+                        }
+                    }
+               }
+           }
+       }
+   }
+}

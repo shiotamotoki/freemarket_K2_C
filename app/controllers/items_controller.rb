@@ -1,9 +1,12 @@
 class ItemsController < ApplicationController 
   before_action :authenticate_user!, only: [:sell, :create, :edit, :update, :destroy, :buy]
   before_action :set_item, only: [:show, :edit]
+  before_action :set_search
+  before_action:move_to_sign_up, except: [:index, :show]
 
   def index
     @items = Item.limit(50)
+    
   end
 
 
@@ -12,6 +15,7 @@ class ItemsController < ApplicationController
     @item_images = ItemImage.all
     @other_items = Item.where( [ "id != ? and user_id = ?", params[:id], @item.user_id ] ).order("created_at DESC").limit(6)
     @same_items = Item.where( [ "id != ? and user_id != ?", params[:id], @item.user_id ] ).where(brand_id: @item.brand_id ).order("created_at DESC").limit(6)
+    
   end
 
 
@@ -19,7 +23,8 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     if item.user_id == current_user.id
      item.destroy
-     redirect_to root_path and return
+     flash[:alert] = '商品を削除しました'
+     redirect_to mypages_path
     else
     
     flash[:alert] = '削除出来ませんでした'
@@ -31,7 +36,6 @@ class ItemsController < ApplicationController
   end
 
   def check
-    # @item = Item.find(1)
     @item = Item.find(params[:id])
   end
 
@@ -87,6 +91,7 @@ class ItemsController < ApplicationController
       postage_id: item_params[:postage_id],
       prefecture_id: item_params[:prefecture_id],
       shipping_date_id: item_params[:shipping_date_id],
+      shipping_method_id: item_params[:shipping_method_id],
       price: item_params[:price],
       brand_id: @brand.id,
       user_id: current_user.id,
@@ -104,6 +109,11 @@ class ItemsController < ApplicationController
       redirect_to root_path, notice: '出品に失敗しました。'
     end
 
+  end
+
+  def brand
+    @items = Item.limit(50)
+    
   end
 
   def child_category
@@ -130,6 +140,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @search_words = params[:q][:name_or_description_cont] unless !params[:q].present? || @search_words.present?
+    @words = params[:q].delete(:name_or_description_cont) if params[:q].present?
+    if @words.present?
+      params[:q][:groupings] = []
+      @words.split(/[ 　]/).each_with_index do |word, i| #全角空白と半角空白で切って、単語ごとに処理します
+        params[:q][:groupings][i] = { name_or_description_cont: word }
+      end
+    end
+  end
+
   private
 
   def set_item
@@ -149,11 +170,24 @@ class ItemsController < ApplicationController
     :postage_id,
     :prefecture_id, 
     :shipping_date_id,
+    :shipping_method_id,
     :price,
     :image,
     [item_image_attributes: [:url]]
     ).merge(user_id: current_user.id)
   end
 
-  
+  def search_params
+    params.require(:q).permit(:name_and_description_cont_any)
+  end
+
+  def set_search
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
+  end
+
+  def move_to_sign_up
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
 end

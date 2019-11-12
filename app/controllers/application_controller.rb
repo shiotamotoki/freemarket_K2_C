@@ -2,8 +2,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :basic_auth, if: :production?  
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :search
+  before_action :set_categories
   # before_action :authenticate_user! 
 
+
+  def set_categories
+    @parents = Category.where(ancestry: nil) 
+  end
+  
   protected
 
 
@@ -28,5 +35,12 @@ class ApplicationController < ActionController::Base
   def sign_in_user
     redirect_to new_user_session_path unless user_signed_in?
   end
- 
+
+  def index
+    @q = Item.ransack(params[:q])
+  end
+
+  def search
+    @q = Item.ransack(params[:q])
+  end
 end

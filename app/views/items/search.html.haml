@@ -1,0 +1,190 @@
+.container
+  = render "shared/top_page/header", words: @search_words
+  = render "shared/top_page/sel_button"
+  
+  .search-container
+    .search-content
+      .search-result-head
+        -unless @search_words == nil
+          = @search_words
+          .search-result-head-text の検索結果
+        -else
+          %h3.search-result-head-new 新着商品
+      .items-box-content
+        -if @items == []
+          %p.items-box-content-text 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        -else
+          .items-box-content-grid
+            - @items.each do |i|
+              =link_to "/items/#{i.id}" do
+                .items-box-content-grid-box
+                  .items-box-content-grid-box-price 
+                    ¥
+                    =i.price.to_s(:delimited, delimiter: ',')
+                  =image_tag i.item_images[0].image.url, alt: 'next', class:'items-box-content-grid-box-image-box'
+                  .items-box-content-grid-box-title-text
+                    =i.name
+    .search-side
+      %form.search-extend-container.search-extend-form{action: "", "data-ga": "element", "data-ga-category": "SEARCH", "data-ga-label": "extend_search", novalidate: "novalidate"}
+        .search-sort
+          .form-group
+            .select-wrap
+              %i.icon-arrow-bottom.visible-large
+                = fa_icon "chevron-down"
+              %select.select-default{name: "sort_order"}
+                %option{style: "color: black;", value: ""} 並び替え
+                %option{style: "color: black;", value: "price_asc"} 価格の安い順
+                %option{style: "color: black;", value: "price_desc"} 価格の高い順
+                %option{style: "color: black;", value: "created_asc"} 出品の古い順
+                %option{style: "color: black;", value: "created_desc"} 出品の新しい順
+                %option{style: "color: black;", value: "like_desc"} いいね!の多い順
+        .search-dropdown-content.search-extend{"data-dropdown": "content", "data-dropdown-content-id": "extend"}
+          %h3.visible-large 詳細検索
+          .form-group
+            %label.search-extend
+              %i.icon-plus
+              %span.search-extend-key キーワードを追加する
+            %input.input-default{name: "keyword", placeholder: "例）値下げ", type: "text", value: ""}/
+          .form-group
+            %label.search-extend
+              %i.icon-list
+              %span.search-extend-key カテゴリーを選択する
+            .select-wrap{"data-search": "parent"}
+              %i.icon-arrow-bottom
+                = fa_icon "chevron-down"
+              %select.select-default{name: "category_root"}
+                %option{style: "color: black;", value: ""} すべて
+                %option{style: "color: black;", value: ""} レディース
+                %option{style: "color: black;", value: ""} メンズ
+                %option{style: "color: black;", value: ""} ベビー・キッズ
+                %option{style: "color: black;", value: ""} インテリア・住まい・小物
+                %option{style: "color: black;", value: ""} 本・音楽・ゲーム
+                %option{style: "color: black;", value: ""} おもちゃ・ホビー・グッズ
+                %option{style: "color: black;", value: ""} コスメ・香水・美容
+                %option{style: "color: black;", value: ""} 家電・スマホ・カメラ
+                %option{style: "color: black;", value: ""} スポーツ・レジャー
+                %option{style: "color: black;", value: ""} ハンドメイド
+                %option{style: "color: black;", value: ""} チケット
+                %option{style: "color: black;", value: ""} 自動車・オートバイ
+                %option{style: "color: black;", value: ""} その他
+          .form-group
+            %label.search-extend
+              %i.icon-tag
+              %span.search-extend-key ブランド名から探す
+            %input.input-default{"data-search": "brand", name: "brand_name", placeholder: "例）シャネル", type: "text", value: ""}/
+            %input{name: "brand_id", type: "hidden", value: ""}/
+            %ul{"data-search": "brand-dom"}
+          .form-group
+            %label.search-extend
+              %i.icon-size
+              %span.search-extend-key サイズを指定する
+            .select-wrap{"data-search": "parent"}
+              %i.icon-arrow-bottom
+                = fa_icon "chevron-down"
+              %select.select-default{name: "size_group"}
+                %option{style: "color: black;", value: ""} すべて
+                %option{style: "color: black;", value: ""} 洋服のサイズ
+                %option{style: "color: black;", value: ""} メンズ靴のサイズ
+                %option{style: "color: black;", value: ""} レディース靴のサイズ
+                %option{style: "color: black;", value: ""} スカートのサイズ
+                %option{style: "color: black;", value: ""} キッズ服のサイズ
+                %option{style: "color: black;", value: ""} ベビー・キッズ靴のサイズ
+                %option{style: "color: black;", value: ""} ベビー服のサイズ
+                %option{style: "color: black;", value: ""} テレビのサイズ
+                %option{style: "color: black;", value: ""} カメラレンズのサイズ
+                %option{style: "color: black;", value: ""} オートバイのサイズ
+                %option{style: "color: black;", value: ""} ヘルメットのサイズ
+                %option{style: "color: black;", value: ""} タイヤのサイズ
+                %option{style: "color: black;", value: ""} スキーのサイズ
+                %option{style: "color: black;", value: ""} スノーボードのサイズ
+          .form-group
+            %label.search-extend
+              %i.icon-coin
+              %span.select-default-price 価格
+            .select-wrap
+              %i.icon-arrow-bottom
+                = fa_icon "chevron-down"
+              %select.select-default{"data-search": "price", name: ""}
+                %option{style: "color: black;", value: ""} 選択してください
+                %option{style: "color: black;", value: "300-1000"} 300 ~ 1000
+                %option{style: "color: black;", value: "1000-5000"} 1000 ~ 5000
+                %option{style: "color: black;", value: "5000-10000"} 5000 ~ 10000
+                %option{style: "color: black;", value: "10000-30000"} 10000 ~ 30000
+                %option{style: "color: black;", value: "30000-50000"} 30000 ~ 50000
+                %option{style: "color: black;", value: "50000"} 50000 ~
+            %input.input-default-half{"data-search": "price-min", name: "price_min", placeholder: "¥ Min", type: "number", value: ""}/
+            %span.select-default ~
+            %input.input-default-half{"data-search": "price-max", name: "price_max", placeholder: "¥ Max", type: "number", value: ""}/
+          .form-group-state
+            %label.search-extend
+              %i.icon-star
+              %span.select-default-item 商品の状態
+            %div.checkbox-erea
+              .checkbox-default
+                %input.condition_all{"data-search": "all", name: "condition_all", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-all{for: "condition_all"} すべて
+              .checkbox-default-right
+                %input.condition_all{id: "item_condition_id[1]", name: "item_condition_id[1]", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-all{for: "item_condition_id[1]"} 新品、未使用
+              .checkbox-default
+                %input.condition_all{"data-search": "all", name: "condition_all", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-all{for: "condition_all"} 未使用に近い
+              .checkbox-default-right
+                %input.condition_all-nil{id: "item_condition_id[1]", name: "item_condition_id[1]", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-nil{for: "item_condition_id[1]"} 目立った傷や汚れなし
+              .checkbox-default-left
+                %input.condition_all-left{"data-search": "all", name: "condition_all", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-left{for: "condition_all"} やや傷や汚れあり
+              .checkbox-default-wound
+                %input.condition_all-wound{id: "item_condition_id[1]", name: "item_condition_id[1]", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-wound{for: "item_condition_id[1]"} 傷や汚れあり
+              .checkbox-default-bad
+                %input.condition_all-bad{id: "item_condition_id[1]", name: "item_condition_id[1]", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-bad{for: "item_condition_id[1]"} 全体的に状態が悪い
+          .form-group-postage
+            %label.search-extend
+              %i.icon-track
+              %span.select-default-postage 配送料の負担
+            %div.checkbox-erea-postage
+              .checkbox-default-postage
+                %input.shipping_payer_all{"data-search": "all", name: "shipping_payer_all", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-shipping{for: "shipping_payer_all"} すべて
+              .checkbox-default-postage
+                %input.shipping_payer_right{id: "shipping_payer_id[1]", name: "shipping_payer_id[1]", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-shipping_right{for: "shipping_payer_id[1]"} 着払い(購入者負担)
+              .checkbox-default-postage
+                %input.shipping_payer_left{id: "shipping_payer_id[2]", name: "shipping_payer_id[2]", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-shipping_left{for: "shipping_payer_id[2]"} 送料込み(出品者負担)
+          .form-group-sale
+            %label.search-extend-sale
+              %i.icon-cart
+              %span.select-default-sale 販売状況
+            %div.checkbox-erea-sale
+              .checkbox-default-sale
+                %input.checkbox-status_all{"data-search": "all", name: "status_all", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-sale-all{for: "status_all"} すべて
+              .checkbox-default-sale
+                %input.checkbox-status_right{name: "status_on_sale", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-sale-right{for: "status_on_sale"} 販売中
+              .checkbox-default-sale
+                %input.checkbox-status_left{name: "status_trading_sold_out", type: "checkbox", value: "1"}/
+                %i.icon-check
+                %label.search-extend-sale-left{for: "status_trading_sold_out"} 売り切れ
+          .search-extend-btn
+            .btn-default-gray{"data-search": "reset"} クリア
+            %button.btn-default-red{type: "submit"} 完了
+
+  = render "shared/top_page/asaide"
+  = render "shared/top_page/footer"

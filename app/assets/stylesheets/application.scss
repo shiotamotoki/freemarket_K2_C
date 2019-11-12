@@ -12,6 +12,9 @@
 @import "mixin/any";
 @import "mixin/textarea";
 @import "mixin/question";
+@import 'mixin/status_logo';
+@import 'mixin/tabs';
+@import 'mixin/link_style';
 @import "modules/top_page/header";
 @import "modules/top_page/footer";
 @import "modules/top_page/asaide";
@@ -37,4 +40,7 @@
 @import "modules/shared/credit-card";
 @import "modules/items/edit";
 @import "modules/items/purchase-done";
+@import "modules/items/search";
 @import "modules/category/category";
+@import 'modules/shared/status_logo';
+@import 'modules/mypage/myitem';
