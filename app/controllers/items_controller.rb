@@ -2,11 +2,15 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:sell, :create, :edit, :update, :destroy, :buy]
   before_action :set_item, only: [:show, :edit]
   before_action :set_search
-  before_action:move_to_sign_up, except: [:index, :show]
+  before_action :move_to_sign_up, except: [:index, :show,:child_category,:grandchild_category]
 
   def index
     @items = Item.limit(50)
-    
+    @category_lady = Item.where(category_id: 1..199)
+    @category_man = Item.where(category_id: 200..344)
+    @category_electrical_appliances = Item.where(category_id: 893..978)
+    @category_toy = Item.where(category_id: 680..792)
+  
   end
 
 

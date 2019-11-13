@@ -6,7 +6,7 @@
 
     .main-box__category__content
       .main-box__category__content__grid
-        - @items.each do |i|
+        - @category_name.each do |i|
           =link_to "/items/#{i.id}" do
             .box
               .price 
