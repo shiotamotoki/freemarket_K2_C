@@ -110,7 +110,7 @@
   / 説明文
   .item-explain__description
     %p.item-explain__description-inner
-      = @item.description
+      = simple_format(@item.description)
     / いいねボタン、不適切ボタン
     .item-explain__item-btn
       .item-explain__item-btn__left
