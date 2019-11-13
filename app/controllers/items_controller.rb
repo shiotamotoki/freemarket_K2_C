@@ -46,8 +46,8 @@ class ItemsController < ApplicationController
   def create
     binding.pry
     # カテゴリーIDの値の設定
-    category = ""      
-    if item_params[:third_category_id].blank? 
+    category = ""    
+    if item_params[:third_category_id].blank?
       if item_params[:second_category_id].blank? 
         category = item_params[:category_id]
       else
@@ -94,12 +94,17 @@ class ItemsController < ApplicationController
       status: 0
     )
 
-    @item.item_images.build(
-      image:item_params[:image]
-    )
-      
-    if @item.save 
+    # @item.item_images.build(
+    #   image:item_params[:image]
+    # )
+   
+
+    if @item.save
       # 商品詳細ページへ遷移 
+      params[:imagem]['image'].each do |image|
+        @item.item_images.create(image: image, item_id: @item.id)
+      end
+      
       redirect_to @item, notice: '出品が完了しました'
     else
       redirect_to root_path, notice: '出品に失敗しました。'
@@ -151,7 +156,8 @@ class ItemsController < ApplicationController
     :prefecture_id, 
     :shipping_date_id,
     :price,
-    item_image_attributes: [:url]
+    :image,
+    [image: [:image]]
     ).merge(user_id: current_user.id)
   end
 
