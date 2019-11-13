@@ -247,6 +247,9 @@
 .item-explain{
   &__description {    
     padding: 32px 0 0;
+    margin: 0 50px;
+    line-height: 1.5;
+    font-size: 18px;
     &-inner{
       padding: 0 50px;
     }
