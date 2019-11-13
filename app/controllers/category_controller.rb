@@ -9,11 +9,11 @@ class CategoryController < ApplicationController
     @category_id = params[:id]
     @categories = Category.find(params[:id])
     @paramsid = params[:id].to_i
-    @children1 = Category.find(1).children
+   
+   
+    
     if @paramsid == @parents[0].id
       @category_name = Item.where(category_id: 1..199)
-    elsif @paramsid == @children
-      @category_name = Item.where(category_id: 200..344)
     elsif @paramsid == @parents[1].id
       @category_name = Item.where(category_id: 200..344)
     elsif @paramsid == @parents[2].id
@@ -30,11 +30,13 @@ class CategoryController < ApplicationController
       @category_name = Item.where(category_id: 893..978)
     elsif @paramsid == @parents[8].id
       @category_name = Item.where(category_id: 979..1000)
+    elsif true == @categories.ancestry.include?("/")
+      @category_name = Item.where(category_id: @paramsid )
+    elsif false == @categories.ancestry.include?("/")
+      @category_name = Item.where(category_id: @paramsid )
     else
       @category_name = Item.all
-      
     end
-    
   end
 
 
