@@ -51,7 +51,12 @@
               カテゴリー
             %td.item-detail-table__detail-table__tbody__td
               %span.item-category
+                = @item.category.parent.parent.name
+                %br/
+                = @item.category.parent.name
+                %br/
                 = @item.category.name
+                
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               ブランド

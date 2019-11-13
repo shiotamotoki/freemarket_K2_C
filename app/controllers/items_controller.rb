@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @category_man = Item.where(category_id: 200..344)
     @category_electrical_appliances = Item.where(category_id: 893..978)
     @category_toy = Item.where(category_id: 680..792)
-  
+
   end
 
 
@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     @item_images = ItemImage.all
     @other_items = Item.where( [ "id != ? and user_id = ?", params[:id], @item.user_id ] ).order("created_at DESC").limit(6)
     @same_items = Item.where( [ "id != ? and user_id != ?", params[:id], @item.user_id ] ).where(brand_id: @item.brand_id ).order("created_at DESC").limit(6)
-    
+   
   end
 
 
