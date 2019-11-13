@@ -240,11 +240,20 @@ $(document).on('turbolinks:load', function() {
       errFlg = false;
     }
     if (errFlg) {
+      var formData = new FormData(this);
       $.ajax({
-        url: '/items/create',
+        url: '/items',
         type: "POST",
-        data: { images: images },
-        dataType: 'html'
+        data: {
+          formData: formData,
+          images: images },
+        dataType: 'html',
+        processData: false,
+        contentType: false
+      })
+      .done(function(){
+      })
+      .fail(function(){
       })
     } else {
       return false;

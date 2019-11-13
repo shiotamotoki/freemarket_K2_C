@@ -44,6 +44,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     # カテゴリーIDの値の設定
     category = ""      
     if item_params[:third_category_id].blank? 
@@ -150,8 +151,7 @@ class ItemsController < ApplicationController
     :prefecture_id, 
     :shipping_date_id,
     :price,
-    :image,
-    [item_image_attributes: [:url]]
+    item_image_attributes: [:url]
     ).merge(user_id: current_user.id)
   end
 
