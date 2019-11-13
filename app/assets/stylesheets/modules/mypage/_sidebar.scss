@@ -26,7 +26,7 @@
         right: 16px;
         color: #cccccc;
       }
-     }
+    }
 
     &__list__item:hover{
       background-color: rgb(255, 251, 251);
@@ -35,12 +35,11 @@
         color:#333333;
       }
     }
-      .active{
-        font-weight: 600;
-        background-color: rgb(228, 224, 224); 
-        .arrow-icon{
-          color:#333333;
-        }
+    .active{
+      font-weight: 600;
+      background-color: rgb(228, 224, 224); 
+      .arrow-icon{
+        color:#333333;
       }
     }
     &__head{
