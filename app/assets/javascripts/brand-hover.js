@@ -1,6 +1,9 @@
 $(function() {
   $(".brand_js a").on("mouseenter", function() {
     $(".brands_list").css("visibility", "visible");
+    $(".brands_list").css("z-index", "5000");
+    $(".brand_list").css("z-index", "5000");
+    
   })
   
 
@@ -16,6 +19,8 @@ $(function() {
   
   $(document).on("mouseleave", ".brand_js", function () {
     $(".brands_list").css("visibility", "hidden");
+    $(".brands_list").css("z-index", "0");
+    $(".brand_list").css("z-index", "0");
 
       });  
     });

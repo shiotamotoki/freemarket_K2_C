@@ -1,22 +1,9 @@
 //本人確認ページのビュー
 .container
   = render "shared/top_page/header"
-  %nav.bread-crumbs
-    %ul
-      %li
-        %a{href: "#"}
-          %span
-            メルカリ
-        = fa_icon 'chevron-right',class:'arrow-icon'
-      %li
-        %a{href: "#"}
-          %span
-            マイページ
-        = fa_icon 'chevron-right',class:'arrow-icon'
-      %li
-        %a{href: "#"}
-          %span
-            本人情報の登録
+  .header-bread-crumbs
+    - breadcrumb :identification
+    = breadcrumbs pretrext: "You are here:", separator: "&nbsp;&nbsp&gt;&nbsp;&nbsp;"
   %main.main-block
     .right-content
       %section.right-content__identification

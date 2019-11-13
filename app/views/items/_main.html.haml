@@ -9,7 +9,7 @@
           %i.fa.fa-chevron-right
     .main-box__category__content
       .main-box__category__content__grid
-        - @items.each do |i|
+        - @category_lady.each do |i|
           =link_to "/items/#{i.id}" do
             .box
               .price 
@@ -33,7 +33,7 @@
           %i.fa.fa-chevron-right
     .main-box__category__content
       .main-box__category__content__grid
-        - @items.each do |i|
+        - @category_man.each do |i|
           =link_to "/items/#{i.id}" do
             .box
               .price 
@@ -58,7 +58,7 @@
           %i.fa.fa-chevron-right
     .main-box__category__content
       .main-box__category__content__grid
-        - @items.each do |i|
+        - @category_electrical_appliances.each do |i|
           =link_to "/items/#{i.id}" do
             .box
               .price 
@@ -82,7 +82,7 @@
           %i.fa.fa-chevron-right
     .main-box__category__content
       .main-box__category__content__grid
-        - @items.each do |i|
+        - @category_toy.each do |i|
           =link_to "/items/#{i.id}" do
             .box
               .price 
