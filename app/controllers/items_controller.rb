@@ -32,9 +32,9 @@ class ItemsController < ApplicationController
     else
     
     flash[:alert] = '削除出来ませんでした'
-     redirect_to action: 'edit' 
+    redirect_to action: 'edit' 
     end
-   end
+  end
 
   def edit
   end
@@ -48,13 +48,13 @@ class ItemsController < ApplicationController
     @item= Item.new
     @parents = Category.where(ancestry: nil) 
     @item.item_images.build
-    
+
   end
 
   def create
     # カテゴリーIDの値の設定
-    category = ""      
-    if item_params[:third_category_id].blank? 
+    category = ""    
+    if item_params[:third_category_id].blank?
       if item_params[:second_category_id].blank? 
         category = item_params[:category_id]
       else
@@ -101,13 +101,17 @@ class ItemsController < ApplicationController
       user_id: current_user.id,
       status: 0
     )
-   
-    @item.item_images.build(
-      image:item_params[:image]
-    )
-      
-    if @item.save 
+
+    # @item.item_images.build(
+    #   image:item_params[:image]
+    # )
+
+    if @item.save
       # 商品詳細ページへ遷移 
+      params[:imagem]['image'].each do |image|
+        @item.item_images.create(image: image, item_id: @item.id)
+      end
+      
       redirect_to @item, notice: '出品が完了しました'
     else
       redirect_to root_path, notice: '出品に失敗しました。'
@@ -177,10 +181,10 @@ class ItemsController < ApplicationController
     :shipping_method_id,
     :price,
     :image,
-    [item_image_attributes: [:url]]
+    [image: [:image]]
     ).merge(user_id: current_user.id)
   end
-
+  
   def search_params
     params.require(:q).permit(:name_and_description_cont_any)
   end
@@ -193,5 +197,4 @@ class ItemsController < ApplicationController
   def move_to_sign_up
     redirect_to new_user_session_path unless user_signed_in?
   end
-
 end
