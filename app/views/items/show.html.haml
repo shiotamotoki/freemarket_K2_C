@@ -8,18 +8,14 @@
   .item-inline-box
     .item-photos
       .item-photos__main-img
+        - if @item.status == 3
+          .sold-logo
+        - elsif @item.status == 2
+          .stopping-logo
         = image_tag @item.item_images[0].image.url ,size: "300x300" 
       .item-photos__sub-img
-        .item-photos__sub-img__sub1
-          = image_tag '300.png' ,size: "60x60"
-        .item-photos__sub-img__sub2
-          = image_tag '600.png' ,size: "60x60"
-        .item-photos__sub-img__sub3
-          = image_tag '300.png' ,size: "60x60"
-        .item-photos__sub-img__sub4
-          = image_tag '600.png' ,size: "60x60"
-        .item-photos__sub-img__sub5
-          = image_tag '300.png' ,size: "60x60" 
+        - @item.item_images.each_with_index do |img,i|
+          = image_tag @item.item_images[i].image.url ,size: "60x60" ,class: "item-photos__sub-img__sub"
     .item-center-space
     .item-detail-table
       %table.item-detail-table__detail-table
@@ -47,13 +43,17 @@
               カテゴリー
             %td.item-detail-table__detail-table__tbody__td
               %span.item-category
+                = @item.category.parent.parent.name
+                %br/
+                = @item.category.parent.name
+                %br/
                 = @item.category.name
+                
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               ブランド
             %td.item-detail-table__detail-table__tbody__td
-              = link_to "ブランド名", root_path, method: :get, class: "brand-name link"
-              = @item.brand.name
+              = link_to @item.brand.name, root_path, method: :get, class: "brand-name link"
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               商品のサイズ
@@ -77,7 +77,7 @@
               配送の方法
             %td.item-detail-table__detail-table__tbody__td
               %span.shipping-method
-                らくらくメルカリ便
+                = @item.shipping_method.name
           %tr.item-detail-table__detail-table__tbody__tr
             %th.item-detail-table__detail-table__tbody__th
               配送元地域
@@ -99,11 +99,15 @@
         （税込）
       %span.item-price-box__box--shipping-charge
         送料込み
-  = link_to "購入画面に進む", "/items/check/#{@item.id}", class: "buy-btn btn-red"
+  - if @item.status == 3
+    .buy-btn.btn-gray
+      売り切れました
+  - else
+    = link_to "購入画面に進む", "/items/check/#{@item.id}", class: "buy-btn btn-red"
   / 説明文
   .item-explain__description
     %p.item-explain__description-inner
-      = @item.description
+      = simple_format(@item.description)
     / いいねボタン、不適切ボタン
     .item-explain__item-btn
       .item-explain__item-btn__left
@@ -171,7 +175,10 @@
           %section.item-other__user-items__content__box
             = link_to  item_path(other_item.id), class: "linkblack item-link" do
               .item-other__user-items__content__box__photo
-                = image_tag other_item.item_images[0].image.url , class: "item-image"
+                - if other_item.status == 3
+                  .sold-logo
+                - elsif other_item.status == 2
+                  .stopping-logo
                 %h3.item-other__user-items__content__box__itemname__name
                   = other_item.name
                 .item-other__user-items__content__box__itemname__num
@@ -181,7 +188,7 @@
                   .item-other__user-items__content__box__itemname__num__likes
                     = fa_icon "heart", class: "like-icon"
                     %span.item-other__user-items__content__box__itemname__num__likes__num
-                      10
+                      5
   .item-space-box2
   .item-space-box2
   .item-space-box2
@@ -195,6 +202,10 @@
           %section.item-other__user-items__content__box
             = link_to  item_path(same_item.id), class: "linkblack item-link" do
               .item-other__user-items__content__box__photo
+                - if same_item.status == 3
+                  .sold-logo
+                - elsif same_item.status == 2
+                  .stopping-logo
                 = image_tag same_item.item_images[0].image.url , class: "item-image"            
                 %h3.item-other__user-items__content__box__itemname__name
                   = same_item.name
@@ -205,7 +216,7 @@
                   .item-other__user-items__content__box__itemname__num__likes
                     = fa_icon "heart", class: "like-icon"
                     %span.item-other__user-items__content__box__itemname__num__likes__num
-                      10
+                      7
 
 %ul.item-bottom
   %li.item-bottom-text1

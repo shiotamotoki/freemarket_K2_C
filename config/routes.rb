@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'credit_cards/show'
   post   '/like/:item_id' => 'likes#like',   as: 'like'
   delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
-  get "category/:id(.:format)",to: "category#new" ,as: :category
+  
 
   devise_for :users
 
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'users/credit' => 'users#credit'
   get 'itemscheck' => 'items#check'
   get 'itemsindex' => 'items#index'
+  
 
   resources :mypages, only: [:index,:edit]do
     collection do
@@ -38,7 +39,14 @@ Rails.application.routes.draw do
       get "logout", to: "mypages#logout"
       get "profile", to: "mypages#profile"
       get "identification", to: "mypages#identification"
+      get "myitem", to: "mypages#myitem"
     end
+    member do
+      get 'item', to: 'mypages#item'
+      post 'stop', to: 'mypages#stop'
+      post 'start', to: 'mypages#start'
+    end
+    
   end
 
   resources :items, only: [:index, :show, :new, :destroy, :edit, :create] do
@@ -47,6 +55,7 @@ Rails.application.routes.draw do
       get 'child_category'
       get 'grandchild_category'
       get 'size'
+      get 'search'
     end
   end
 
@@ -79,6 +88,7 @@ Rails.application.routes.draw do
   end
   
   resources :users
-  resources :category
+  resources :category do
+  end  
 end
 

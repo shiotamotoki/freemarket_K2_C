@@ -27,6 +27,21 @@
         color: #cccccc;
       }
     }
+
+    &__list__item:hover{
+      background-color: rgb(255, 251, 251);
+      .arrow-icon{
+        right: 12px;
+        color:#333333;
+      }
+    }
+    .active{
+      font-weight: 600;
+      background-color: #eee; 
+      .arrow-icon{
+        color:#333333;
+      }
+    }
     &__head{
       background-color: #F5F5F5;
       font-weight: bold;
@@ -34,4 +49,3 @@
     }
   }
 }
-// }

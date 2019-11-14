@@ -89,6 +89,14 @@
               .main-content__item__body__sell-content-float__form-box__form-group__select-wrap
                 = fa_icon "chevron-down", class:"arrow-down-icon"
                 = f.collection_select :postage_id, Postage.all, :id, :name, {}, class: "main-content__item__body__sell-content-float__form-box__form-group__select-wrap__select-box"
+            .main-content__item__body__sell-content-float__form-box__form-group#shipping_method-content
+              - if @item.shipping_method_id.present?
+                = f.label "発送元の方法" 
+                %span.main-content__item__body__sell-content-float__form-box__form-group__require
+                  必須
+                .main-content__item__body__sell-content-float__form-box__form-group__select-wrap
+                  = fa_icon "chevron-down", class:"arrow-down-icon"
+                  = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {}, class: "main-content__item__body__sell-content-float__form-box__form-group__select-wrap__select-box"
             .main-content__item__body__sell-content-float__form-box__form-group#area-content
               = f.label "発送元の地域" 
               %span.main-content__item__body__sell-content-float__form-box__form-group__require
