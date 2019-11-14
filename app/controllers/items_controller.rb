@@ -97,7 +97,6 @@ class ItemsController < ApplicationController
     # @item.item_images.build(
     #   image:item_params[:image]
     # )
-   
 
     if @item.save
       # 商品詳細ページへ遷移 
