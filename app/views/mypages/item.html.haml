@@ -14,16 +14,8 @@
           .stopping-logo
         = image_tag @item.item_images[0].image.url ,size: "300x300"
       .item-photos__sub-img
-        .item-photos__sub-img__sub1
-          = image_tag '300.png' ,size: "60x60"
-        .item-photos__sub-img__sub2
-          = image_tag '600.png' ,size: "60x60"
-        .item-photos__sub-img__sub3
-          = image_tag '300.png' ,size: "60x60"
-        .item-photos__sub-img__sub4
-          = image_tag '600.png' ,size: "60x60"
-        .item-photos__sub-img__sub5
-          = image_tag '300.png' ,size: "60x60" 
+        - @item.item_images.each_with_index do |img,i|
+          = image_tag @item.item_images[i].image.url ,size: "60x60" ,class: "item-photos__sub-img__sub"
     .item-center-space
     .item-detail-table
       %table.item-detail-table__detail-table
