@@ -119,24 +119,8 @@
     &__sub-img{
       display: table-cell;
       height: 60px;
-      &__sub1{
-        display: table-cell;
-        width: 60px;
-      }
-      &__sub2{
-        display: table-cell;
-        width: 60px;
-      }
-      &__sub3{
-        display: table-cell;
-        width: 60px;
-      }
-      &__sub4{
-        display: table-cell;
-        width: 60px;
-      }
-      &__sub5{
-        display: table-cell;
+      &__sub{
+        float: left;
         width: 60px;
       }
     }
