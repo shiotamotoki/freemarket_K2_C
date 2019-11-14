@@ -108,7 +108,7 @@ class ItemsController < ApplicationController
 
     if @item.save
       # 商品詳細ページへ遷移 
-      params[:imagem]['image'].each do |image|
+      params[:image]['image'].each do |image|
         @item.item_images.create(image: image, item_id: @item.id)
       end
       
