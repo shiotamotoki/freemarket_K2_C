@@ -240,21 +240,21 @@ $(document).on('turbolinks:load', function() {
       errFlg = false;
     }
     if (errFlg) {
-      var formData = new FormData(this);
-      $.ajax({
-        url: '/items',
-        type: "POST",
-        data: {
-          formData: formData,
-          images: images },
-        dataType: 'html',
-        processData: false,
-        contentType: false
-      })
-      .done(function(){
-      })
-      .fail(function(){
-      })
+      // var formData = new FormData(this);
+      // $.ajax({
+      //   url: '/items',
+      //   type: "POST",
+      //   data: {
+      //     formData: formData,
+      //     images: images },
+      //   dataType: 'html',
+      //   processData: false,
+      //   contentType: false
+      // })
+      // .done(function(){
+      // })
+      // .fail(function(){
+      // })
     } else {
       return false;
     }
