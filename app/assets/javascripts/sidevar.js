@@ -1,8 +1,6 @@
 $(document).on('turbolinks:load', function() { 
   var controller = $('body').data('controller');
   var action = $('body').data('action');
-  console.log(controller);
-  console.log(action);
   if (controller == "mypages") {
     switch (action) {
       case "index":
