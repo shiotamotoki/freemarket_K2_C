@@ -3,7 +3,7 @@
     .header-inner__top
       .header-inner__top.logo
         = link_to root_path, data: {"turbolinks" => false}do
-          = image_tag asset_path('mercari_logo_horizontal.png') ,size: "170x50"
+          = image_tag 'fmarket_logo_red.svg' ,size: "170x50"
       .header-inner__top.search
         = search_form_for(@q, url: search_items_path, class: 'header-inner__top-search form') do |f|
           - if defined? words
