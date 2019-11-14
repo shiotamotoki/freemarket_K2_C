@@ -2,7 +2,7 @@
   .my-col
     %ul.my-col__list
       %li
-        %a.my-col__list__item.active{href: "/mypages"}
+        %a.my-col__list__item{href: "/mypages", data:{mypage: "index"}}
           マイページ
           = fa_icon 'chevron-right',class:'arrow-icon'
       %li
@@ -22,7 +22,7 @@
           出品する
           = fa_icon 'chevron-right',class:'arrow-icon'
       %li
-        %a.my-col__list__item{href: myitem_mypages_path}
+        %a.my-col__list__item{href: myitem_mypages_path, data:{mypage: "myitem"}}
           出品した商品-出品中
           = fa_icon 'chevron-right',class:'arrow-icon'
       %li
@@ -70,7 +70,7 @@
     %h3.my-col__head 設定
     %ul.my-col__list
       %li
-        %a.my-col__list__item{href: "/mypages/profile"}
+        %a.my-col__list__item{href: "/mypages/profile", data:{mypage: "profile"}}
           プロフィール
           = fa_icon 'chevron-right',class:'arrow-icon'
       %li
@@ -78,7 +78,7 @@
           発送元・お届け先住所変更
           = fa_icon 'chevron-right',class:'arrow-icon'
       %li
-        %a.my-col__list__item{href: "/mypages/credit"}
+        %a.my-col__list__item{href: "/mypages/credit", data:{mypage: "credit"}}
           支払い方法
           = fa_icon 'chevron-right',class:'arrow-icon'
       %li
@@ -86,7 +86,7 @@
           メール/パスワード
           = fa_icon 'chevron-right',class:'arrow-icon'
       %li
-        %a.my-col__list__item{href: "/mypages/identification"}
+        %a.my-col__list__item{href: "/mypages/identification", data:{mypage: "identification"}}
           本人情報
           = fa_icon 'chevron-right',class:'arrow-icon'
       %li
@@ -94,6 +94,6 @@
           電話番号の確認
           = fa_icon 'chevron-right',class:'arrow-icon'
       %li
-        %a.my-col__list__item{href: '/mypages/logout'}
+        %a.my-col__list__item{href: '/mypages/logout', data:{mypage: "logout"}}
           ログアウト
           = fa_icon 'chevron-right',class:'arrow-icon'

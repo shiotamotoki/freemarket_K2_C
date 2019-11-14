@@ -27,13 +27,17 @@ crumb :identification do
   parent :mypage
 end
 
+crumb :myitem do
+  link "出品した商品 - 出品中", myitem_mypages_path
+  parent :mypage
+end
 # crumb : do
 #   link "いいね！一覧",_path
 #   parent :mypage
 # end
 
 crumb :mypage do
-  link "マイページ", identification_mypages_path
+  link "マイページ", '/mypages'
   parent :root
 end
 
