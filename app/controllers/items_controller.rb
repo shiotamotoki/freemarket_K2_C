@@ -44,7 +44,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     # カテゴリーIDの値の設定
     category = ""    
     if item_params[:third_category_id].blank?
